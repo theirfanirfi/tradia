@@ -1,0 +1,2493 @@
+Documentary
+Import Declaration Comprehensive Guide
+January 2013
+
+ii Documentary Import Declaration Comprehensive Guide
+
+Documentary Import Declaration Comprehensive Guide iii1 Introduction 1
+1.1 Who should use this guide 1
+1.2 About this Guide 2
+1.3 About import declarations 3
+1.4 Client registration  3
+1.5 Offences 3
+1.6 Service Standards for manually lodged declarations 3
+1.7 Payments 3
+2 Valuation 4
+2.1 Transaction value 4
+2.2 Other valuation methods 4
+3 Calculations 5
+3.1 Customs and Border Protection calculations 5
+3.2 Duty payable 5
+3.3 GST payable 5
+3.4 Wine equalisation tax (WET) 5
+3.5 Luxury car tax (LCT) 5
+3.6 Calculation examples 6
+3.7 Charges – Customs and Border Protection, DAFF Biosecurity
+and POST 7
+4 Rights and obligations 8
+5 Prohibitions and restrictions 9
+5.1 Customs and Border Protection examination of goods  9
+6 Frequently asked questions 10
+6.1 Why was my parcel stopped by Customs and Border Protection? 10
+6.2  My goods are for my private or personal use, so why does
+Customs and Border Protection not send them on?  10
+6.3 My goods were sent as a gift, so why should I pay anything at all? 10
+7 Industry participants 11
+7.1 Agents 11
+7.2 Airlines 11
+7.3 Cargo Terminal Operators 11
+7.4 Consolidators/Deconsolidators (Depots) 11
+7.5 Customs brokers 11
+7.6 Depots 11
+7.7 Freight Forwarders 12
+7.8 Permit Issuing Agencies 12
+7.9 Shipping companies 12
+7.10 Slot Charterer 12
+7.11 Stevedores 12
+7.12 Warehouses 12Contents
+
+iv Documentary Import Declaration Comprehensive Guideqw
+8 Assistance with completing an import declaration 13
+8.1 Acronyms  14
+8.2 Import Declaration Header 15
+8.3 Section B Transport Details 19
+8.4 Air 19
+8.5 Sea 20
+8.6 Post 22
+8.7 Other 23
+8.8 Important information 24
+8.9 Section C Tariff details  24
+8.10 Amendments  30
+9 Lodgement questions  31
+9.1 Sample lodgement questions 31
+10 Process and clearance of goods 32
+11 Reference tables 33
+11.1 Australian Ports – UN/Locodes 33
+11.2 Overseas Ports – UN/Locodes 35
+11.3 Airline Codes  36
+11.4 Currency Codes 37
+11.5 Invoice Term Types (also known as Incoterms) 38
+11.6 Gross Weight Unit 39
+11.7 Units of Quantity 39
+11.8 Header Amber Reason Type 40
+11.9 Line Amber Reason Type 41
+11.10 Instrument Type 41
+11.11 Cargo Type 41
+11.12 Preference Rule Type 41
+11.13 Preference Scheme Type 42
+11.14 Preference Scheme Type and Preference Rule Type Matrix 43
+11.15 GST Exemption Codes 44
+11.16 Country Codes 54
+12 Attachments 56
+12.1 Import Declaration Form B650 56
+13 Internet references 60
+14 Reference documents 61
+14.1 Customs and Border Protection manuals 61
+14.2 Customs Law 61
+14.3 Customs-Related Law 61
+
+Documentary Import Declaration Comprehensive Guide vTable 1: Acronyms 14
+Table 2: Australian Ports – UN/Locodes 33
+Table 3: Overseas Ports – UN/Locodes 35
+Table 4: Airline Codes 36
+Table 5: Currency Codes 37
+Table 6: Invoice Term Types 38
+Table 7: Gross Weight Unit 39
+Table 8: Units of Quantity 39
+Table 9: Header Amber Reason Type 40
+Table 10: Line Amber Reason Type 41
+Table 11: Instrument Type 41
+Table 12: Cargo Type 41
+Table 13: Preference Rule Type 41
+Table 14: Preference Scheme Type 42
+Table 15: Preference Scheme Type and Preference Rule Type Matrix 43
+Table 16: GST Exemption Codes 44
+Table 17: Country Codes 54Tables
+
+vi Documentary Import Declaration Comprehensive GuideFigures
+Figure 1: Calculation Examples 6
+Figure 2:  Import Declarations – Header Information 15
+Figure 3: Owner Details 16
+Figure 4: Header Cargo Details 16
+Figure 5: Valuation Elements 17
+Figure 6: Free on Board and Cost, Insurance and Freight 18
+Figure 7: Payment Under Protest, Amber Statement and Declaration 18
+Figure 8: Air Transport – Cargo Details 19
+Figure 9: Air Transport – Line Details 20
+Figure 10: Sea Transport – Cargo Details 20
+Figure 11: Sea Transport – Line Details 21
+Figure 12: Post Details 22
+Figure 13: Other Details 23
+Figure 14: Delivery Address Details 24
+Figure 15: Tariff Line Details 24
+Figure 16: Goods Description and Quantity Details 25
+Figure 17: Valuation Elements 25
+Figure 18: Origin and Preference Details 26
+Figure 19: Tariff Instruments Details 27
+Figure 20: Additional Information and AQIS (DAFF Biosecurity) Producer Code 28
+Figure 21: Import Declaration Process 32
+
+Documentary Import Declaration Comprehensive Guide 11.1 Who should use this guide
+This Guide will assist importers who wish to clear goods
+imported by sea, air or international mail (post) from Customs and Border Protection by submitting an import declaration by document.
+Goods with a value above A$1000
+All goods imported into Australia by sea, air or post with a value that exceeds the import entry threshold of A$1000 must be cleared by submitting a completed import declaration form (B650) and paying duty, goods and services tax (GST) and other taxes and charges that apply.
+Information regarding importations by international
+mail (post) is available from the Customs and Border Protection website at <www.customs.gov.au/site/page5653.asp>. You can only use the Import Declaration – Post (N10) form for goods imported by post.
+GST deferral and Australian Business Number (ABN)
+If you or your organisation is registered for GST deferral you must lodge import declarations electronically.
+Client registration
+You must register as a client in Customs and Border Protection’s Integrated Cargo System (ICS) to lodge import declarations by document. In most cases you will need to register your supplier as well using the same form. There are different requirements that apply when making an Import Declaration – Post (N10). The client registration form is available at: <www.cargosupport.gov.au/webdata/resources/files/B319.pdf>
+Self Assessed Clearance (SAC) declarations for low value goods
+Goods with a value under the low value goods threshold of A$1000 (except goods that arrive by post) are cleared from Customs and Border Protection by submitting a SAC declaration. In most cases your Freight Forwarder or express courier will make a SAC declaration on your behalf. In some cases you may need to engage a SAC declaration service provider or a Customs broker to make a SAC declaration on your behalf on a fee for service basis. For further information see the fact sheet, Self-assessed Clearance (SAC) Declarations, available at: <www.customs.gov.au/site/page5302.asp>.Communicating electronically with Customs and Border Protection
+For further information about communicating electronically with Customs and Border Protection and purchasing a digital certificate, email cargosupport@customs.gov.au or phone Customs Information and Support Centre on1300 363 263.
+Who must make an import declaration?
+The owner of imported goods is required to make an import declaration. According to Customs law, an owner of imported goods may be the importer, someone who holds themselves out to be the owner, someone who has a beneficial interest in the goods or someone who has control of the goods. In this guide the term owner is used in that context.
+Who can act on your behalf?
+Customs brokers
+You may choose to have a Customs broker deal with
+Customs and Border Protection on your behalf. Brokers provide their services on a fee for service basis and can be located through the internet, the Customs and Border Protection website at <www.customs.gov.au> or in local telephone directories.
+Employees
+Any of your employees may act on your behalf to
+make import declarations provided they are not also an employee of another entity.
+1.2 About this Guide
+The Documentary Import Declaration Guide is provided as a guide to assist those who are required to complete and lodge import declarations. The Guide is designed for use by individuals or companies unfamiliar with Customs and Border Protection processes, industry terminology and legislative requirements.
+The Guide discusses the Customs laws, regulations
+and processes to be taken into account when declaring goods imported into Australia that have a Customs value exceeding the import entry threshold of A$1000. It explains what information an owner must provide when making an import declaration to Customs and Border Protection and provides a range of resources from both Customs and Border Protection and industry, along with links to helpful internet pages.1 Introduction
+
+2 Documentary Import Declaration Comprehensive GuideThe Guide shows all the information fields that may
+need to be answered on an import declaration (Form B650). The information that is required varies and may be dependent upon the nature of the goods; the end use of the goods; the country of origin; if concessions apply and a range of other factors.
+The Guide provides details of the types of information
+Customs and Border Protection expects to receive for each particular field. While the document is comprehensive, it does not cover every possible scenario.
+If you are unsure of any aspect of making an import
+declaration you should contact the Customs Information and Support Centre (CI&SC) on 1300 363 263 or consider using the services of a Customs broker.
+Please note: It is an offence to provide false and/
+or misleading information to Customs and Border Protection.
+1.3 About import declarations
+Goods imported into Australia are subject to Customs control until released into home consumption or otherwise treated. Import declarations are used to clear goods with a value that exceeds the import entry threshold of A$1000
+1 from Customs control.
+Customs and Border Protection require import declarations to be lodged into the ICS. To lodge an import declaration, you may:
+• use the services of a licensed Customs broker who
+will complete the Customs and Border Protection requirements for you based on the information you provide
+• complete an import declaration and present it at a Customs and Border Protection counter, or
+• communicate with Customs and Border Protection electronically via the ICS. A digital certificate is required.Before Customs and Border Protection clear your goods for delivery you (the owner) or your agent may be required to submit an import declaration at a Customs and Border Protection counter. Whoever submits the declaration will be required to:
+• present a correct and completed import declaration
+• provide Evidence of Identity (EOI) of the owner
+• provide a Customs Client Identifier (CCID)/Australian
+Business Number (ABN)
+• register as a Client in the ICS using Form B319 (if not already registered)
+• provide invoices, bills of lading, air waybills and commercial documents if requested to do so
+• provide permits, licences and/or approvals if required to do so
+• answer any additional questions if required to do so
+• pay duty taxes and charges as required.
+The Form B650 is available from all Customs and Border Protection client service counters or can be downloaded from www.customs.gov.au/webdata/resources/files/b650.pdf. A copy of the form is also included as an attachment to this document beginning at page 57.
+Customs and Border Protection conducts EOI checks
+to verify the identity of the parties with which it deals. Clients who submit documentary import declarations will need to undergo an EOI check each time they present import declaration documents to Customs and Border Protection for manual processing (this check will be made on the person presenting the documents). EOI documents are required when an import document is faxed.
+If you lodge a Postal Import Declaration, EOI will
+only need to be provided when Customs and Border Protection requests it.
+EOI will not be required by Customs and Border
+Protection if you utilise the service of a Customs broker
+however the broker will have their own requirements for
+identity verification.
+For further information on which documents are accepted
+for EOI please see: <www.customs.gov.au/webdata/resources/files/FS_EOI_DocumentaryDecs.pdf>
+1 Section 68 of the Customs Act 1901 (the Act) outlines the requirements for the formal entry (via the ICS) of goods.
+
+Documentary Import Declaration Comprehensive Guide 31.4 Client registration
+To register as a client you must complete a Client
+Registration Form (Form B319) and submit it to Customs and Border Protection. If you already have a Customs Client Identification (CCID) or an ABN you are not required to register again.
+Registration by document
+If you have an ABN or ABN/CAC (Client Activity Centre) that number is your unique identifier once your information has been entered into the ICS.
+If you do not have an ABN you will be allocated a
+unique identifying number known as a CCID. When communicating information to Customs and Border Protection you will need to use your registered ABN, ABN/CAC or your CCID.
+Clients are responsible for the accuracy of information
+they supply to Customs and Border Protection. It is important they ensure the correctness of the information before it is communicated.
+1.5 Offences
+It is important that the information given to Customs and Border Protection is true and correct. The Customs Act 1901 contains a range of offence provisions and many are ‘strict liability’ offences.
+More information about offences and the Infringement
+Notice Scheme is available on the Customs and Border Protection website. It is an offence to make false declarations to Customs and Border Protection.
+1.6 Service Standards for manually lodged declarations
+If you lodge a declaration by document, it is entered by Customs and Border Protection into the ICS on your behalf.
+After receipt of a complete and accurate declaration, we
+aim to advise by close of business of the next working day on whether:
+• the goods can be cleared• further information is required, or
+• a Customs and Border Protection examination is
+required.
+Regular audit checks are undertaken to ensure accuracy of import declarations against the commercial documents and the physical cargo.
+Commercial documents relating to the goods must be
+retained and available for inspection for at least five years. Penalties apply where instances of non-compliance with Customs and Border Protection requirements are detected.
+The service standard of Postal Import Declarations is
+five (5) working days from the receipt of completed documents. To access the client service charter information go to: <http://www.customs.gov.au/webdata/resources/files/ClientServiceCharterDL-WEB.pdf>.
+1.7 Payments
+A ‘payment’ is the settlement by an importer, or their representative, of liabilities to Customs and Border Protection or other Commonwealth government agencies (such as the Department of Agriculture, Fisheries and Forestry (DAFF) Biosecurity) for duties, taxes and charges on imported goods before goods can be released for home consumption.
+A payment may be made:• over the internet by either credit card or Eftpos, or
+• over the counter at a Customs and Border Protection
+office. In this case the payment options vary and include cash, cheque, credit card or Eftpos where available.
+All methods of payment are not available in all circumstances, check with the Customs Information and Support Centre (CI&SC) on 1300 363 263 for clarification.
+
+4 Documentary Import Declaration Comprehensive GuideSections 154 to 161L of the Customs Act 1901 give the
+legal rules for arriving at the valuation of imported goods. These provisions are aimed at assessing the total amount paid for the goods, packed and in export condition, at their place of export.
+The place of export is where the goods were posted,
+containerised, loaded onto a ship or aircraft or crossed an international border after they were otherwise loaded.
+The valuation date is the ‘date of export’ from the place
+of export.
+2.1 Transaction value
+In most cases the import sales transaction is the primary valuation method. In plain English, for most importers the import sales transaction is what you paid for the goods.
+Customs and Border Protection can require you to show
+evidence of what you paid. This is the price actually paid or payable when the goods are sold for export to Australia.
+While some adjustments are permitted to this price, the
+most common adjustment is the conversion to Australian currency. This conversion is made based on the valuation date (see above). In most cases, the Customs value (AUD) is the converted transaction value.
+2.2 Other valuation methods
+There are six valuation methods in the Customs Act 1901. Apart from the Transaction Value method (above) the other methods are Identical Goods, Similar Goods, Deductive, Computed and Fall-back. Refer to the Customs Act 1901 for how each method may be applied.2 Valuation
+
+Documentary Import Declaration Comprehensive Guide 53.1 Customs and Border
+Protection calculations
+You do not need to make any calculations regarding duty and GST liabilities. The ICS will make all the correct calculations based upon the information you have supplied. When your declaration is processed Customs and Border Protection will provide you with an Outstanding Payment Advice showing all amounts payable to Customs and Border Protection relating to your imported goods. The information provided below is for explanation purposes only.
+3.2 Duty payable
+Duty rates payable are determined by the tariff classification for your goods. The Customs Tariff Act 1995
+(known as The Tariff) provides the tariff classifications, duty rates, interpretive rules and information on preference schemes, other concessions and exemptions that may apply to your goods. The Tariff is available at Customs and Border Protection counters or on the Customs and Border Protection website. Duty is payable on the Customs value of the goods (see examples in 3.6).
+3.3 GST payable
+GST applies to most imported goods, with a few exemptions. The main exemptions are for certain foodstuffs, some medical aids and imports that qualify for certain duty concessions. GST is applied at 10 per cent of the VoTI. Additional information is available from the Australian Taxation Office, Customs and Border Protection counters or on the Customs and Border Protection website (see examples in 3.6).
+Note: For imported goods the value of the taxable
+importation (VoTI) is the sum of:
+• the customs value (CV)
+• any duty payable
+• the amount paid or payable to transport the goods
+to Australia and to insure the goods for that transport (T&I), and
+• any Wine Equalisation Tax (WET) payable.3.4 Wine equalisation tax (WET)
+WET applies to the following alcoholic beverages:
+• grape wine, including sparkling wine and fortified wine
+• grape wine products such as marsala, vermouth, wine
+cocktails and creams
+• other fruit wines and vegetable wines, including fortified fruit wines and vegetable wines
+• cider (from apples) and perry (from pears), and
+• mead and sake, including fortified mead.
+WET for imported wine is calculated as:
+• 29 per cent of the purchase price at inwards duty free
+OR for other importations:
+• 29 per cent of Customs value + Duty + International
+Transport and Insurance (see examples in 3.7)
+3.5 Luxury car tax (LCT)
+LCT applies to motor vehicles (except motor cycles or similar road vehicles) with a Luxury Car value that exceeds the LCT threshold of A$57,466 (for the 2011-2012 financial year) that:
+• are designed to carry a load of less than two tonnes
+and fewer than nine passengers, and
+• have a Luxury Car value above the threshold.
+The LCT rate is 33 per cent, which commenced 1 July 2008, prior to that the rate was 25 per cent.
+LCT does not apply to fuel efficient cars below the fuel
+efficient luxury car threshold of A$75,375 (for the 2011-2012 financial year).
+The definition of a road vehicle for LCT purposes includes
+limousines regardless of the passenger carrying capacity. The value above which the LCT becomes payable is the LCT threshold. It is important to note that under current ATO legislation, the LCT threshold is re-evaluated annually and subject to change.3 Calculations
+
+6 Documentary Import Declaration Comprehensive GuideWhile the LCT threshold is GST-inclusive, LCT is only
+payable on the GST- exclusive amount which exceeds the fuel efficient luxury car threshold.
+The LCT rate of 33 per cent however, remains applicable
+where a fuel efficient luxury car exceeds the fuel efficient luxury car threshold. The LCT value is calculated as the sum of the VoTI (see examples in 3.6).3.6 Calculation examples
+Below are several examples of how to calculate duties and taxes payable on imported goods. You should note that these are typical examples only and do not necessarily reflect the nature of your particular importation.
+Imported goods that DO NOT include wines
+Customs Value $2,000.00
+Customs duty = 5% x $2000 $100.00
+T&I $150.00
+No WET $0.00
+VoTI $2,250.00
+GST = 10% of VoTI $225.00
+TOTAL PAYABLE (Duty + GST) $325.00Imported goods that are wines
+Customs Value $2,000.00
+Customs duty = 5% x $2000 $100.00
+T&I $150.00
+WET @ 29% of (CV + Duty + T & I) $652.50
+VoTI $2,250.00
+GST = 10% of (VoTI + WET) $290.25
+TOTAL PAYABLE (Duty + WET + GST) $1,042.75
+Imported goods that are a Luxury Car that is less
+than 30 years old
+Customs duty is 5% on vehicles less than
+30 years old. The LCT threshold is $57,466.00*
+Customs Value $50,000.00
+Customs duty = 5% x CV $2,500.00
+T&I $4 500.00
+VoTI $57,000.00
+GST = 10% x VoTI $5,700.00
+Sub Total = GST + VoTI $62,700.00
+Remainder = Sub Total – LCT Threshold $5,234.00
+LCT Payable = Remainder x 10/11 x 0.33$1,570.00
+TOTAL PAYABLE (Duty + GST + LCT) $9,770.00Imported goods that are a Luxury Car that is more
+than 30 years old
+Customs duty is 0% on vehicles more than
+30 years old. The LCT threshold is $57,466.00*
+Customs Value $50,000.00
+Customs duty = 0% x CV $0.00
+T&I $4 500.00
+VoTI $54,450.00
+GST = 10% x VoTI $4,450.00
+Sub Total = GST + VoTI $58,900.00
+Remainder = Sub Total – LCT Threshold $1,434.00
+LCT Payable = Remainder x 10/11 x 0.33$430.00
+TOTAL PAYABLE (Duty + GST + LCT) $4,880.00
+Calculation guides only. IMPORTANT: Other taxes, duty and concessions may apply. *LCT based on 2011-2012 thresholdFigure 1: Calculation Examples
+
+Documentary Import Declaration Comprehensive Guide 73.7 Charges – Customs and
+Border Protection, DAFF Biosecurity and POST
+The Import Processing Charges Act 2001 sets out cost recovery charges that are payable depending on the type of communications you may make with Customs and Border Protection, DAFF Biosecurity and Australia POST.
+These are government-regulated charges that attempt
+to fairly recover the cost of facilitating the import process and protecting the community from potential risks.
+In introducing cost recovery, Customs and Border
+Protection ensures that costs recovered are clearly aligned with the cost of processing an import transaction. The charges are reviewed annually and remain tied to the cost of delivering Customs and Border Protection functions.
+These costs are also available in Australian Customs
+Notice 2005/36 (Cost Recovery under CMR) on the Customs and Border Protection website.
+DAFF Biosecurity charge fees on import declarations and
+other services. Refer to their website at
+<www.daff.gov.au> for further information.
+
+8 Documentary Import Declaration Comprehensive GuideYou have rights and obligations when importing goods
+into Australia. Customs law2 details your rights and
+obligations. You must be aware of Customs law and regulations and incorporate your understanding of them when making an import declaration or when providing additional information to Customs and Border Protection.
+Ignorance of Australian laws is not an excuse for
+providing incorrect information. If you are in any doubt about any of the information Customs and Border Protection requires please contact the Customs Information and Support Centre (CI&SC) on 1300 363 263 or a Customs broker before submitting your declaration form.
+You have the right to ask Customs and Border Protection
+about the progress of your importation. You also have the right to know why we require certain information and to which government entities we will pass that information.
+Whenever possible Customs and Border Protection will
+tell you the status of your goods, what action is pending by Customs and Border Protection in relation to your importation and what you can do to help the process.
+Customs and Border Protection has published service
+standards for its dealings with clients and you have the right to know what they are. Those standards are described in the Client Service Charter available from Customs and Border Protection counters or on the Customs and Border Protection website.
+Customs and Border Protection have an obligation to tell
+you the reasons why specific service standards relating to your importation were not met, if that is the case. 4 Rights and obligations
+2 Customs Act 1901, Customs Regulations 1926, Customs (Prohibited Imports) Regulations 1956,
+
+Documentary Import Declaration Comprehensive Guide 9Certain types of goods are prohibited from being
+imported into Australia. These goods are listed in Schedule 1 of the Customs (Prohibited Imports) Regulations 1956.
+For further information on prohibited imports go to:
+http://www.customs.gov.au/site/page4369.asp
+Other types of goods are restricted from being imported
+unless certain conditions are met
+3. You will need to obtain
+a permit, licence or letter of authority from the proper Government agency to be able to import prohibited or restricted goods
+4.
+That permit, licence or authority must be available to be presented to Customs and Border Protection before you are allowed to receive the goods.
+Attempting to import prohibited or restricted items
+without prior approval is illegal. Such illegally imported goods will be seized and you may face penalties and/or
+prosecution.
+Your goods will not receive Customs and Border
+Protection clearance unless you are able to show the original permit at a Customs and Border Protection counter if requested to do so.
+In some cases copies of permits are acceptable. Often,
+the release of the goods is conditional on a permit being produced to Customs and Border Protection as required under Customs law or Customs-related law. 5.1 Customs and Border Protection examination of goods
+Customs and Border Protection may need to examine goods that are imported into Australia to verify the goods are as described, and to ensure the goods are not prohibited or restricted or a quarantine risk.
+This may require examination by X-ray or other equipment
+or a physical examination of the goods. Customs and Border Protection may advise you or your agent of the intention to physically examine the goods and permit you or your agent to attend the examination.
+Customs and Border Protection can open, examine,
+take samples from and perform tests on the goods as necessary to verify the nature of the goods or their characteristics.5 Prohibitions and restrictions
+3 These goods are listed in the Customs (Prohibited Imports) Regulations 1956
+4  For further information about how to obtain approval for a restricted import refer to the “Prohibited and Restricted Imports” page at  www.customs.gov.au
+
+10 Documentary Import Declaration Comprehensive Guide6.1 Why was my parcel
+stopped by Customs and Border Protection?
+All goods imported into Australia are subject to Customs and Quarantine controls. Your parcel may be held by Customs and Border Protection and/or DAFF Biosecurity for any of the following reasons:
+• a permit or approval is required
+• evidence of value is required
+• more information about the goods is required
+• an import declaration is required
+• a payment is required for duty, GST and other taxes
+and charges
+• a DAFF Biosecurity examination or treatment is required.
+6.2 My goods are for my private or personal use, so why does Customs and Border Protection not send them on?
+The law requires that all goods – whether secondhand or new, commercial or private – are subject to the assessment for Customs duties, Goods and Services Tax (GST) and other taxes and checked for community protection risks.
+When goods with a value that exceeds A$1000 are
+imported, the importer may be required to pay duty, GST and other taxes and charges. The goods must also be declared to Customs and Border Protection using an import declaration.6.3 My goods were sent as a gift, so why should I pay anything at all?
+There is no longer a concession for goods that are sent as a gift. The ‘gift concession’ (by-law number 9740019) was revoked on and from 1 October 2008.
+Goods that are gifted, donated, loaned or supplied free of
+charge are still subject to assessment for duty and other taxes and charges if they have a value over A$1000 or if the goods are tobacco and/or alcohol products. Where there is no evidence of the value of the goods available the legislation provides other ways of determining value. 6 Frequently asked questions
+
+Documentary Import Declaration Comprehensive Guide 11The import/export industry has many participants who
+each play a vital role in international commerce. Not all of these industry types are well-known. A brief description of the major roles these participants play is provided below.
+7.1 Agents
+Agents are parties who act on behalf of another party when dealing with Customs and Border Protection. There are special requirements about who can act as an agent to make an import declaration on your behalf.
+7.2 Airlines
+Airlines lodge arrival reports and air cargo reports either as the owner of the aircraft or as an agent for other airlines. They may also lodge import declarations and sub-manifests for their own cargo or act as agents for their clients if they are also Customs brokers. Some airlines may also act as a Cargo Terminal Operator (CTO).
+7.3 Cargo Terminal Operators
+A Cargo Terminal Operator (CTO) is an organisation operating at a place appointed under section 77G of the Customs Act 1901 to load and unload cargo and is a Depot. CTOs are permitted to move goods under Customs control with permission to approved places. CTOs may release cargo directly into home consumption or for movement to a section 79 Warehouse or another section 77G Depot when approved.7.4 Consolidators/Deconsolidators (Depots)
+Consolidators are persons or organisations that pack together groups of two or more consignments into one consignment. Deconsolidators are persons or organisations that unpack consolidated cargo for distribution to two or more consignees.
+7.5 Customs brokers
+Customs brokers are trained professionals in Customs business. They have undertaken formal training and must be a licensed member of their industry group. Customs brokers can provide a full range of services for you and may act on your behalf when you are importing or exporting goods. Brokers often are affiliated with Freight Forwarders.
+Customs brokers can be found on the Customs and
+Border Protection website, the internet or the local telephone directories.
+7.6 Depots
+Depots are facilities licensed under section 77G of the Customs Act 1901, at which cargo is stored prior to the release from Customs control. These Depots may also undertake deconsolidation of cargo.7 Industry participants
+
+12 Documentary Import Declaration Comprehensive Guide7.7 Freight Forwarders
+A Freight Forwarder’s main business is getting clients’
+cargo to their door. A Freight Forwarder is an enterprise engaged in the consolidation and movement of freight often by a combination of transport modes.
+Freight Forwarders can be found on the internet or local
+telephone directories.
+7.8 Permit Issuing Agencies
+Permit Issuing Agencies (Government agencies) are responsible for granting permission for certain goods to be imported or exported. Permissions may be granted subject to conditions. Those agencies also receive regular downloads of data or reports from Customs and Border Protection information systems regarding imports and exports of goods regulated by them.
+7.9 Shipping companies
+Shipping companies lodge arrival reports and sea cargo reports either as a principal agent for a ship or as a slot charterer. They may also lodge import declarations and sub-manifests for their own cargo or acting as agents for their clients if they are also Customs brokers. Shipping companies generally move cargo over sea routes between international ports.7.10 Slot Charterer
+Slot Charters are shipping companies that hire space for their cargo on a ship other than their own ship. They are responsible for their cargo and obtaining cargo clearances but are not responsible for obtaining port and ship clearances, payment of fees and levies etc.
+7.11 Stevedores
+Stevedores are persons or organisations responsible for loading and unloading ships on behalf of shipping companies at section 15 places (wharves).
+7.12 Warehouses
+Warehouses are places that are licensed under section 79 of the Customs Act 1901 to use for warehousing goods. Once known as bonded warehouses or bonds, these warehouses store goods on which duty and GST liabilities remain unpaid until the goods are cleared from the warehouse and delivered into home consumption.
+
+Documentary Import Declaration Comprehensive Guide 13If you have difficulties in completing an import declaration,
+Customs and Border Protection officers can provide some limited assistance but cannot make decisions for you or complete a declaration on your behalf.
+The use of a Customs broker is recommended for
+someone who is new to the process of importing. Please note that there is a fee for services provided by a Customs broker.
+Brokers specialise in the clearance of imported goods
+and are licensed by Customs and Border Protection. They may be found on the Customs and Border Protection website, internet or the local telephone directories.
+For assistance, phone the Customs Information and
+Support Centre (CI&SC) on 1300 363 263.
+This section of the Guide shows you how to complete
+each field on the documentary import declaration (Form B650).
+Each field is numbered, with a matching explanation
+of what is required. The layout of the Guide follows the three sections of the form: Section A Header, Section B Transport Details and Section C Tariff Details.
+Please complete the form in black ink and use block
+letters throughout. The form is included as an attachment to this document in 12.1.8 Assistance with completing an import declaration
+
+14 Documentary Import Declaration Comprehensive Guide8.1 Acronyms
+There are many acronyms (a short way of referring to
+other words) used in the import/export industry. The most commonly used acronyms in relation to import declarations are listed below.
+Table 1: Acronyms
+Acronym Description
+ABN Australian Business Number
+ABS Australian Bureau of Statistics
+ATD Authority to Deal
+ATO Australian Taxation Office
+CAC Client Activity Centre
+CCID Customs Client Identifier
+CITES Convention for International Trade in Endangered Species
+CI&SC Customs Information and Support Centre
+CMR Cargo Management Reengineering
+CTO Cargo Terminal Operator
+EFT Electronic Funds Transfer
+EOI Evidence of identity
+FOB Free On Board
+GST Goods and Services Tax
+HAWB House Air Waybill
+IATA International Air Travel Association
+ICS Integrated Cargo System
+ISO International Organization for Standardization
+LCT Luxury Car Tax
+MAWB Master Air Waybill
+OBOL Ocean Bill of Lading
+T&I Transport and Insurance
+UN/Locode United Nations Location Code
+VAN Valuation Advice Number
+VOTI Value of Taxable Importation
+WET Wine Equalisation Tax
+
+Documentary Import Declaration Comprehensive Guide 158.2 Import Declaration Header
+Figure 2: Import Declarations – Header Information
+When completing this form you must provide all the
+required information so we can ensure that your goods are properly cleared for delivery into home consumption
+1a. Import Declaration (s71A) – Under section
+71A of the Customs Act 1901, the term ‘Import Declaration’ is a communication to Customs in accordance with this section of information about:
+a) goods to which section 68 applies, or
+b) warehoused goods that are intended to be
+entered for home consumption that require Nature 30 Import Declaration (N30).
+1b. Return in relation to special clearance goods (s70(7)) – Under section 70 of the Customs Act 1901, the term ‘Special Clearance Goods’ means:
+a) goods reasonably required for disaster relief
+or for urgent medical purposes
+b) engines or spare parts that are unavailable in Australia and are urgently required for ships or aircraft, or for other machinery that serves a public purpose, or
+c) perishable goods.
+Tick this box to indicate if approval was given to clear Special Clearance Goods and this is the return that is required to be lodged. 2. Owner Name – Broadly there are three types of owners:
+Note: also known as the importer name
+a) Individual – If the individual is the owner of
+the goods, enter the individual’s name here.
+b) Company – If the company is the owner of the goods, enter the company name here (includes sole traders, partnerships etc.).
+c) Organisation – If the organisation is the owner of the goods, enter the organisation’s name here.
+3. Owner ID – There are three types of Owner IDs:
+Note: also referred to as importer ID
+a) ABN – The Australian Business Number
+(ABN) of the owner of the goods.
+b) ABN/CAC – the ABN and the CAC identifier (if any) issued by the Australian Taxation Office (ATO) to the owner. (Format example: 12345678910/123).
+c) CCID – If the owner does not have an ABN, an identifier is assigned by Customs and Border Protection to the registered owner. If you do not already have a CCID, you must complete a client registration form. (Form B319).
+Provide the ABN, ABN/CAC or CCID of the owner of the goods.Import Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:
+(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDER
+PROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.
+(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )b a
+
+16 Documentary Import Declaration Comprehensive Guide4. Owner Reference – The identifier assigned
+by the owner to identify (and distinguish from others) the import declaration and all subsequent amendments to the declaration. This may be any reference of the owner’s choosing that can be tracked. 5. AQIS Inspection Location – If an AQIS (DAFF Biosecurity) inspection is required, indicate the address where this will take place. AQIS (DAFF  will have advised you (the owner) of this location.
+6. Owner Phone Home – The home telephone number of the person who may be contacted about the declaration.
+7. Owner Phone Work – The work (or alternate) telephone number of the person who may be contacted about the declaration.8. Owner Phone Mobile – The mobile
+telephone number of the person who may be contacted about the declaration.
+9. Owner Fax – The facsimile number of the person who may be contacted about the declaration.
+10. Owner Email – The email address of the person who may be contacted about the declaration.
+11. Destination Port Code – The UN/Locode of the place in Australia where the goods were (or will be) unloaded (refer to section 11.1 Australian Ports – UN/Locodes).
+12. Invoice Term Type – The type of invoice term under which the goods were sold (refer to section11.5 Invoice Term Types).13. Valuation Date – The date of export of the goods from the place of export (the date of export can be found at the bottom of the Air Waybill or the Ocean Bill of lading).
+14. Header Valuation Advice No. – If you have sought advice from Customs and Border Protection relating to the valuation of the goods, indicate the Valuation Advice Number (VAN) relating to this advice.Figure 3: Owner DetailsImport Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:
+(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )7 8 9 10
+Figure 4: Header Cargo DetailsImport Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:
+(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )12 11 13 14
+
+Documentary Import Declaration Comprehensive Guide 17Note: Refer to Table 11.4 Currency Codes for the
+applicable International Standards Organisation (ISO) code that identifies the currency of the invoice.
+15. Invoice Total amount and currency – The
+sum total and currency code of all invoice prices for goods described on the declaration.
+16. Overseas Freight amount and currency – If relevant for determining the Customs value of the goods, indicate the amount and currency for the value of the overseas freight.
+17. Overseas Insurance amount and currency – If relevant for determining the Customs value of the goods, indicate the amount and currency for the value of the overseas insurance.18. Packing Costs amount and currency – If relevant for determining the Customs value of the goods, indicate the amount and currency for the value of the packing costs.
+19. Foreign Inland Freight – If relevant for
+determining the Customs value of the goods, indicate the amount and currency for the value of foreign inland freight.
+20. Landing Charges – If relevant for determining the Customs value of the goods, indicate the amount for the value of landing charges for the goods in Australia.
+21. Transport & Insurance – If the individual line amounts for Transport and Insurance (T&I) are to be determined by the owner rather than Customs and Border Protection, indicate the amount for T&I costs to override the T&I amounts calculated by Customs and Border Protection.Figure 5: Valuation ElementsImport Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.
+(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )
+15
+16
+17
+18
+19
+20
+21
+
+18 Documentary Import Declaration Comprehensive Guide22. Free on Board amount and currency – The
+Free On Board (FOB) value of the goods. The FOB value should include all costs (including inland transport and insurance) relating to the goods until they reach the place of export (see section 2). If you do not record an amount here you must record an amount for Cost, Insurance & Freight.23. Cost, Insurance & Freight amount and currency – The Cost, Insurance and Freight (CIF) value of the goods. The CIF value should include the total invoice value of the goods and all costs (including overseas transport and insurance) relating to the goods until they reach the destination port. If you do not record an amount here you must record an amount for Free on Board as described previously. NB only record one amount.
+24. Paid Under Protest Indicator – Indicate whether the duty payable in respect of the declaration is being paid under protest. If you are “paying under protest” you must attach a statement to the import declaration of the reason/s you are protesting the payment of duty. This applies to goods subject to appeal to the Administrative Appeals Tribunal.25. Amber Statement/Reason – If the person
+making the declaration is uncertain about information included in, or omission of information from the declaration and considers that, as a result, the declaration might be false or misleading, the importer/broker must specify any amber reason/s for the header and/or the line Figure 6: Free on Board and Cost, Insurance and FreightImport Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )
+22
+23
+Figure 7: Payment Under Protest, Amber Statement and DeclarationImport Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )
+24
+25
+26
+27
+
+Documentary Import Declaration Comprehensive Guide 19of the declaration and complete the associated
+amber statement. The amber statement allows the importer/broker to clearly state the details of their concern. Details of the amber reason must be included as an attachment to the import declaration the reason(s) why the person is uncertain about the information (refer to section 11.8 Header Amber Reason Types).
+26. Declaration – The name of the owner of the goods or agent of the owner who acknowledges that the declaration is true and correct and the number of pages of the import declaration.27. Import Declaration Signature and Date – Either the owner of the goods or the agent of the owner acknowledges that the import declaration is true and correct by signing and dating the declaration. Making false or misleading statements (which includes information you may have recorded on the form) to Customs and Border Protection may result in penalties. Please sign and date your name here.
+8.3 Section B Transport Details
+It is important to indicate the mode of transport that brought the goods to Australia. You must complete one of the following AIR, SEA, POST or OTHER transport details and provide all the required information.
+8.4 Air
+If the goods are imported into Australia by AIR (air freight), you MUST complete this section and provide all the required information.
+28. Airline Code – The International Air
+Transport Association (IATA) code identifying the airline that is providing the flight upon which the goods are being, or were, imported (refer Table 11.3 Airline Codes).
+29. Loading Port – The UN/Locode for the place at which the goods were loaded on to an aircraft for the purposes of being transported to Australia (refer to section 11.2 Overseas Ports – UN/Locodes).
+30. First Arrival Port – The UN/Locode for the first Australian airport the aircraft will, or did, arrive at from a place outside Australia (refer to section 11.1 Australian Ports – UN/Locodes).31. Discharge Port – The UN/Locode for the first Australian airport where goods will be, or were, unloaded. (refer to section 11.1 Australian Ports – UN/Locodes).
+32. First Arrival Date – The date of the aircraft’s arrival at the first Australian airport where any goods were, or will be, discharged (including goods not the subject of the declaration).
+33. Gross Weight – The gross weight of the goods including the packaging.
+34. Gross Weight Unit – The unit of quantity used to measure the weight of the goods (refer to section 11.6 Gross Weight Unit).Figure 8: Air Transport – Cargo Details
+Import Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details28
+31 3229
+333034
+
+20 Documentary Import Declaration Comprehensive Guide35. Line No. – The line number of the transport
+details. Where more than one master air waybill or more than one house air waybill is to be listed then it must be on a separate line starting at number one – this field is incremented by 1 for each additional line (e.g. Line 1, Line 2 etc).
+36. Master Air Waybill No. – The master air waybill number. This number is in the format 123-12345678 and is issued by the airline moving the freight.
+37. House Air Waybill No. – The house air waybill number.38. No. of Packages – The number of packages in the consignment.
+39. Marks and Numbers Description – Describe
+the package marks and carton/box numbers for all packages and any other identifying marks and brands on the packages. These marks and numbers usually relate to the packing list.
+8.5 Sea
+If the goods are imported into Australia by SEA (sea freight), you MUST complete this section and provide all the required information.
+40. Vessel Name – The name of the ship that carried the goods to Australia.
+41. Vessel ID – The identifier of the ship on which the goods were transported to Australia. This can be:
+a) the Lloyd’s identification number of the ship, or
+b) if the ship does not have a Lloyd’s identification number, the identification code allocated to the operator of the ship by Customs and Border Protection.
+42. Voyage No. – The voyage number of the ship that is, or was, carrying the goods. The correct voyage number can be established by liaising with the shipping line (or its agent) that reports the impending arrival of the ship.43. Loading Port – The UN/Locode for the place at which the goods were loaded on to a ship for the purposes of being transported to Australia (refer to section 11.2 Overseas Ports – UN/Locodes).
+44. First Arrival Port – The UN/Locode for the first Australian port the ship will, or did, arrive at from a place outside Australia (refer to section 11.1 Australian Ports – UN/Locodes).
+45. Discharge Port – The UN/Locode for the first Australian port where goods will be, or were, unloaded (refer to section 11.1 Australian Ports – UN/Locodes).Figure 9: Air Transport – Line DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details35 36
+Figure 10: Sea Transport – Cargo DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+4440 41 42 43
+45 46 47 4837 38 39
+
+Documentary Import Declaration Comprehensive Guide 2146. First Arrival Date – The date of arrival of the
+ship at the first Australian port at which any goods have been, or will be, discharged (including goods not the subject of the declaration).
+47. Gross Weight – The gross weight of the goods including the packaging.48. Gross Weight Unit – The unit of quantity used to measure the weight of the goods (refer to section 11.6 Gross Weight Unit).
+49. Line No. – The line number of the transport details. Where more than one ocean bill of lading or more than one house bill of lading is to be listed then it must be on a separate line starting at number one – this field is incremented by 1 for each additional line (e.g. Line 1, Line 2 etc).
+50. Cargo Type – Indicate whether the goods are containerised, non-containerised or bulk (refer to section 11.11 Cargo Type).
+51. Container No. – The unique identifier assigned by the maritime industry to the container, in which the goods are packed. A container number is
+usually in the form of XXXU1234567 i.e. 4 alpha
+characters followed by 7 numeric characters.
+52. Ocean Bill of Lading No. – The ocean bill of lading number. This number is on the ocean bill of lading, determined by the shipping company for the carriage of the consignment and formats vary greatly.53. House Bill of Lading No. – The house bill of lading number. This number can be in several different formats and is usually issued by the freight forwarder with you as the consignee.
+54. No of Packages – The number of packages in the consignment (not including packages in a container).
+55. Marks & Numbers Description – Describe the package marks and carton/box numbers
+for all packages and any other identifying marks
+and brands on the packages. These marks and numbers usually relate to the packing list.Figure 11: Sea Transport – Line DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+49 50 51 52 53 54 55
+
+22 Documentary Import Declaration Comprehensive Guide8.6 Post
+If the goods are imported into Australia by POST, you
+MUST complete this section and provide all the required information.
+56. Loading Port – The UN/Locode for the
+place at which the goods were loaded on to a ship or aircraft for the purposes of being transported to Australia (refer to section 11.2 Overseas Ports – UN/Locodes).
+57. First Arrival Port – The UN/Locode for the first Australian port or airport where the consignment arrived or will arrive from a place outside Australia (refer Table 12.1 Australian Ports – UN/Locodes).
+58. Discharge Port – The UN/Locode for the place where the first Australian port or airport where goods will be, or were, unloaded (refer to section 11.1 Australian Ports – UN/Locodes).
+59. First Arrival Date – The date of arrival of the ship or aircraft at the first Australian port or airport at which any goods were, or will be, discharged (including goods not the subject of the declaration).60. Parcel Post Card No(s) – The unique reference number(s) that identify the parcel arriving by international mail, as issued by Australia Post. This is found on the notice sent by Australia Post advising of the arrival of a parcel and informing the consignee that Customs and Border Protection clearance is required.
+61. Gross Weight – The gross weight of the goods including the packaging.
+62. Gross Weight Unit – The unit of quantity used to measure the weight of the goods (refer to section 11.6 Gross Weight Unit).
+63. No. of Packages – The number of packages in the consignment.
+64. Marks and Numbers Description – Describe the package marks and carton/box numbers for all packages and any other identifying marks and brands on the packages. These marks and numbers usually relate to the packing list.Figure 12: Post DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+6056 57 58 59
+6461 62 63
+
+Documentary Import Declaration Comprehensive Guide 238.7 Other
+If the goods came to Australia by other means (e.g.
+hand carried with a passenger), you MUST complete this section and provide all the required information.
+65. Customs Receipt for Goods No. – If you
+have been issued with a Customs and Border Protection receipt for goods, which are held pending further action, enter the number of the Customs and Border Protection receipt.
+66. No. of Packages – The number of packages in the consignment.
+67. Loading Port – The UN/Locode for the place at which the goods were loaded on to a ship or aircraft for the purposes of being transported to Australia (refer to section 11.2 Overseas Ports – UN/Locodes).
+68. First Arrival Port – The UN/Locode for the first Australian port or airport where the ship or aircraft arrived or will arrive from a place outside Australia (refer to section 11.1 Australian Ports – UN/Locodes).69. Discharge Port – The UN/Locode for the place where the first Australian port or airport where goods will be, or were, unloaded (refer to section 11.1 Australian Ports – UN/Locodes).
+70. First Arrival Date – The date of arrival of a ship or aircraft at the first Australian port or airport at which any goods have been, or will be, discharged (including goods not the subject of the declaration).
+71. Gross Weight – The gross weight of the goods including the packaging.
+72. Gross Weight Unit – The unit of quantity used to measure the weight of the goods (refer to section 11.6 Gross Weight Unit).Figure 13: Other DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+65 66 67 68
+69 70 71 72
+
+24 Documentary Import Declaration Comprehensive Guide8.8 Important information
+You MUST complete the delivery address details
+regardless of the mode of transport and provide all the required information.
+73. Name – The name of the person who will receive
+the imported goods at the delivery address.
+74. Address – The address where the imported goods are to be delivered.
+75. Locality – The suburb or city where the imported goods are to be delivered.
+76. State – The state where the imported goods are to be delivered.77. Postcode – The postcode where the imported goods are to be delivered
+78. Country – The country where the imported goods are to be delivered.
+79. Contact Phone No. – The telephone number of the person who will accept delivery of the goods.
+8.9 Section C Tariff details
+You MUST complete the Tariff details section and provide all the required information.
+80. Line No. – The line number of the tariff information. Starting at number one, this field is incremented by 1 for each additional line (e.g. Line 1, Line 2 etc).
+81. Supplier ID – The Customs Client Identifier
+(CCID) of the supplier of the goods.
+82. Supplier Name – The name of the supplier of the goods.83. Tariff Classification No. – The eight-digit tariff classification, under which the goods are classified, as specified in Schedule 3 of the Customs Tariff Act 1995 (the Tariff).
+84. Statistical Code – The two-digit number that identifies the goods against the classification, which provides more specific detail for the Australian Bureau of Statistics.Figure 14: Delivery Address DetailsImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+7573 74
+76 77 78 79
+Figure 15: Tariff Line DetailsImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:80 81 82
+88 87 86 85 84 83
+
+Documentary Import Declaration Comprehensive Guide 2585. Related Transaction Indication – Tick
+box if there is a relationship between the supplier of the goods and the owner.
+86. Valuation Basis Type – Select the code identifying the method used to determine the Customs value of the good’s:
+a) CV – Computed Value
+b) DV – Deductive Value
+c) FB – Fall Back Value
+d) IG – Identical Goods
+e) SG – Similar Goods
+f) TV – Transaction Value87. Treatment Code – If the goods are subject
+to a concessional item in Schedule 4 to the Customs Tariff Act 1995, indicate the code as set out in the tariff classification which identifies the item and provides the rate of duty applicable to goods covered by that item.
+88. GST Exemption Code – If the goods are exempt from GST indicate the relevant exemption code (refer to section 11.14 GST Exemption Codes).
+89. Goods Description – The description of the goods sufficient for Customs and Border Protection to ascertain the correct tariff classification of the goods.
+90. Quantity – If the tariff classification requires the quantity of the goods to be provided, the net quantity of the goods.91. Unit – If a quantity is required under item 101, indicate the unit of quantity (refer to section 11.7 Units of Quantity).
+92. Valuation Elements Type – The valuation element types that are relevant to the goods. These elements are to be used when calculating the Customs value. The first valuation element must be “Price” as shown.93. Price Amount and currency – The invoice amount and currency code for the goods relating to this line only.
+Figure 17: Valuation ElementsImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:92 93 94Figure 16: Goods Description and Quantity DetailsImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+Treatment
+InstrumentsInstrument Number: Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:89 90 91
+
+26 Documentary Import Declaration Comprehensive Guide94. Price Currency – Provide ISO Currency Code
+that identifies the currency of the price amount.(Refer to section 11.4 Currency Codes).
+Please note: Items 95 to 99 are also Valuation Elements; these items should be included as required.
+95. Transport and Insurance Amount – If
+the individual line amounts for T&I are to be determined by the owner rather than by Customs and Border Protection, provide the amount and ISO Currency Code for transport and insurance to override the T&I amounts calculated by the ICS. Note the total of T&I at the line level must equal that at the header level.
+96. Transport and Insurance Currency – The ISO Currency Code that identifies the currency of the T&I amount.
+97. Price Adjustment Amount and currency – If any adjustments to the invoice amount are to be made to individual lines, indicate the amount. 98. Dumping Export Price – If the goods are subject to any form of anti-dumping measures, provide the Dumping Export Price (DXP). The DXP is used in conjunction with the Dumping Specification Number (DSN) to calculate the amount of Interim Dumping Duty (IDD), security or dumping duty payable or to assess if an undertaking is being breached. The currency and terms of the DXP must correspond to those listed against the relevant DSN.
+99. Dumping Export Price Currency – The ISO Currency Code that identifies the currency of the dumping export price.
+100. Override Duty Amount and currency – If the duty amounts, as automatically calculated, needs to be overridden, indicate the correct amount of duty payable.
+101. Override Standard Duty and currency – If the standard amounts of duty, as automatically calculated, needs to be overridden, indicate the correct amount of standard duty payable.
+102. Origin Country – The code for the country in which the goods were made, produced, manufactured, or otherwise originated, other than for preferential purposes, being:
+(a) the ISO Country Code for that country, or
+(b) where there is no ISO Country code
+available for that country, another code for that country, as provided by Customs and Border Protection (refer to section 11.15 Country Codes).103. Preference Origin Country – If the goods are subject to a preference scheme, the country of origin for which preferential duty rates are being claimed.
+104. Preference Scheme Type – The abbreviation that represents the trade arrangement that provides the basis for the preferential rate of duty that applies to the goods.
+Figure 18: Origin and Preference DetailsImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin and
+PreferencePreference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:102 103 104 105
+
+Documentary Import Declaration Comprehensive Guide 27105. Preference Rule Type – The preference rule
+type, being an abbreviation that represents:
+(a) the rule of origin specified in Part VIII of the
+Customs Act 1901 that the goods meet for preferential purposes, or(b) the South Pacific Regional Trade and Economic Co-operation Agreement (SPARTECA) (TCF Provisions) Scheme.
+106. 1st Treatment Instrument Type – If a treatment code applies to the goods and one of the following instruments applies to the goods, the type of instrument:
+a) AusIndustry Determination
+b) By-Law
+c) Determination
+d) Import Credit Number
+e) Trade Concession Order
+f) Tariff Quota
+g) Tradex Order
+107. Treatment Instrument Number – If the
+goods are subject to an instrument identified in item 106, the number of the instrument.108. Tariff Classification Instrument Type – When
+the tariff classification is a Schedule 4 classification (99 99 ….) and that classification requires an additional instrument, the type of instrument:
+a) AusIndustry Determination
+b) By-Law
+c) Determination
+d) Import Credit Number
+e) Trade Concession Order
+f) Tariff Quota
+g) Tradex Order
+109. Tariff Classification Instrument Number – If
+the goods are subject to an instrument identified in item 108, the number of the instrument.Figure 19: Tariff Instruments DetailsImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+Valuation
+Elements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+Treatment
+InstrumentsInstrument Number: Instrument Type:
+TariffClassification
+InstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:106 107
+108 109
+
+28 Documentary Import Declaration Comprehensive Guide110. Additional Information – any additional
+information that pertains to the goods.
+111. AQIS Producer Code – If your overseas supplier has an AQIS (DAFF Biosecurity) producer code, the code.
+Please note: Items 111 to 140 are items that should be included in the Additional Information Field (Item 110) as required.
+112. Tariff Advice Number – If you have applied for
+a decision by Customs and Border Protection regarding the classification of the goods, the reference number relating to the decision.
+113. Valuation Advice Number – If you have applied for a decision by Customs and Border Protection in relation to their valuation, the Valuation Advice Number (VAN) relating to that decision.
+114. Dumping Export Country Code – If the country of export is different from the country of origin, the ISO country code for the country of export. The country of export will be different if the goods were produced or manufactured in a country but have entered the commerce or trade of another country (country of export). This must not be used for transhipped goods (refer to section 11.15 Country Codes).
+115. Dumping Exchange Rate – If the exchange rate to be used to convert the DXP to Australian dollars is different to the exchange rate for the date of valuation, the different exchange rate.
+116. Dumping Exemption Type – If the goods are exempt from anti-dumping or countervailing measures select one of the following exemption types:• Country
+• Supplier, or
+• Goods.
+This field cannot be populated if the goods are subject to any form of anti-dumping measures.
+117. Dumping Specification Number – If the goods
+are subject to any anti-dumping measures (including an undertaking or securities), the
+appropriate DSN for the goods as listed in the
+Dumping Commodities Register (DCR) published by Customs and Border Protection. DSNs are used to differentiate between the types of measure (e.g. security, undertaking or interim dumping duty) and may be used to differentiate between models, types, sizes or grades of the goods, specifying different ascertained export prices and levels of IDD accordingly.
+118. Vehicle Identification Number – If the
+goods are a motor vehicle, the Vehicle
+Identification Number (VIN) allocated by the vehicle manufacturer to the motor vehicle.
+119. Second Tariff Classification Number – If the rate of duty applying to the goods is the rate that applies to other goods, the classification of the other goods.
+120. Tariff Classification Rate Number – If a treatment code has more than one rate of duty applicable, the rates of duty that apply to the parts.
+121. Treatment Code Rate Number – If a treatment code applies to the goods and different parts of the goods are subject to different rates of duty, the rates of duty that apply to the parts.Figure 20: Additional Information and AQIS (DAFF Biosecurity) Producer CodeImport Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction
+Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+ValuationElements:AmountRelated Transaction Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstrumentsInstrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:110 111
+
+Documentary Import Declaration Comprehensive Guide 29122. Second Treatment Code – If a second treatment
+code applies to the goods, the treatment code.
+123. Second Treatment Instrument Type – If a second treatment code applies to the goods and one of the following instruments applies to the goods, the type of instrument.
+• AusIndustry Determination
+• By-Law
+• Determination
+• Import Credit Number
+• Tariff Concession Order
+• Tariff Quota
+• Tradex Order
+124. Second Treatment Instrument Number – If
+the goods are subject to an instrument identified in item 109, the number of the instrument.
+125. Firm Order Date – If the goods are made-to-order capital equipment classified to chapters 84-90 of Schedule 3 to the Customs Tariff Act 1995, advise us of the date on which the goods were ordered.
+126. Import Credit Number – If credits (however described) are going to be used to offset the duty payable on the goods, use the identifier allocated by Customs and Border Protection to the person who owns or has been issued the credits.
+127. Instrument Security Code – If the goods are subject to a concessional instrument, use the security code (if any) for the instrument.
+128. Other Duty Factor – If the goods are subject to a duty rate that is not an ad valorem or quantity rate, indicate the factor used to calculate the duty payable on the goods.
+129. Preference Instrument Type – The type of instrument relied upon to comply with a rule of origin in Part VIII of the Customs Act 1901, and thereby qualify for a preferential rate of duty, being one of the following:
+• AusIndustry Determination
+• By-Law
+• Determination• Import Credit Number
+• Tariff Concession Order
+• Tariff Quota
+• Tradex Order.
+130. Preference Instrument Number – The number
+for the instrument relied upon to comply with a rule of origin in Part VIII of the Customs Act 1901, and therefore qualify for a preferential rate of duty.
+131. Local Content Percentage – Where the Chief Executive Officer (CEO) has determined, under a rule of origin for preferential purposes specified in Part VIII of the Customs Act 1901, that a lesser percentage of local content applies to the goods than would otherwise apply, the actual level of local content for the goods.
+132. Invoice Spirit Strength Percentage – If the statistical code or unit, as set out in the Customs Tariff classification, requires the alcoholic strength of the goods to be specified, advise us of the percentage by volume of the alcoholic content of the goods.
+133. ELAC Number – If item 68 of Schedule 4 to the Customs Tariff Act 1995 applies to the goods, indicate the Excess Local Area Content (ELAC) identification number for the goods as defined in the SPARTECA (TCF Provisions) Scheme.
+134. Luxury Car Tax Payable – LCT applies to road vehicles (except motor cycles or similar road vehicles). Indicate whether luxury car tax is payable on the goods.
+135. Luxury Car Tax Exemption Code – If the goods are exempt from luxury car tax, use the code indicating which exemption applies to the goods.
+136. Luxury Car Tax Quote Indicator – If the goods are luxury cars and the owner has been approved for deferral, indicate whether the payment of luxury car tax is being deferred.
+137. Wine Equalisation Tax Exemption Code – If the goods are exempt from wine equalisation tax, use the code indicating which exemption applies to the goods.
+
+30 Documentary Import Declaration Comprehensive Guide138. Wine Equalisation Tax Quote Indicator – If
+the goods are wines and the owner has been
+approved for deferral, advise whether the payment of wine equalisation tax is being deferred.
+139. Security Identifier – If the goods are subject to an end-use condition, dumping or countervailing provisional measures or are temporary importations, use the number allocated by Customs and Border Protection to the security which relates to the goods.
+140. Security Calculate Indicator – Indicate here that an amount of security for the goods is required to be calculated.
+8.10 Amendments
+When you sign your import declaration you are declaring the information on that form is true and correct.
+If, for any reason, you need to amend your declaration
+you must notify Customs and Border Protection without delay. Customs and Border Protection will provide you with a new import declaration form.
+Record your correct information in the necessary fields
+and present it to a Customs and Border Protection counter.
+If you fail to make amendments for errors and/or
+omissions and Customs and Border Protection finds such errors or omissions on your declaration form, you could be held liable for making a false or misleading statement to Customs and Border Protection and penalties may be applied.Amendments can be made under the following circumstances:
+• Prior to lodgement – Nil Effect
+• Prior to payment of duty, taxes and charges – Nil
+Effect
+After payment of duty, taxes and charges:
+a) Any amendment which results in a lesser
+amount of duty, taxes and/or charges than was paid will require a Refund Application (Form B653) to be submitted to Customs and Border Protection.
+b) Any amendment which results in a greater
+amount of duty, taxes and/or charges than was paid will mean a new outstanding payment advice will be issued to you.
+Withdrawal of the import declaration can also be  made prior to the goods being delivered using  Import/Warehouse Declaration Withdrawal Form B371.
+
+Documentary Import Declaration Comprehensive Guide 31When you have filled in all the necessary fields on the
+import declaration you can present it to a Customs and Border Protection counter.
+A Customs and Border Protection officer will enter the
+information you have provided into the ICS. Errors may be flagged at this time and you will need to correct them by amending your form. Once the officer has entered your correct information into the ICS, the officer will submit the declaration.
+Depending upon the information you have supplied, you
+may be asked, in the form of lodgement questions, to provide additional information. These questions seek additional responses from you regarding community protection, prohibitions, restrictions, permits or other relevant information. The Customs and Border Protection officer who is entering the information on your behalf will not know if you will be asked any lodgement questions.
+You are required to answer these questions. This can
+be done at the Customs and Border Protection counter when you present the document if it is convenient at the time for both you and the officer. If you are not able to complete the responses at the counter you must complete them at a later time and return them to Customs and Border Protection before your declaration can be entered into the ICS.
+The onus is on you, the owner, to contact Customs
+and Border Protection to confirm the status of your declaration.
+If you are required to answer further questions, Customs
+and Border Protection may fax, email or post them to you, or you may collect them from a Customs and Border Protection counter. You are required to provide your responses to lodgement questions in writing – verbal answers cannot be accepted.If you have a restricted item, you will be requested to produce the permit/letter of authority before you can receive your Authority to Deal (ATD) (effectively your release notice).
+If Customs and Border Protection require further
+information about your goods in addition to the information required in the lodgement questions, we will contact you using the details you have provided on the declaration.
+9.1 Sample lodgement questions
+The lodgement questions referred to above are usually in relation to the goods description or tariff classification specified on your import declaration.
+Lodgement questions are raised when Customs
+and Border Protection require further information or clarification to ensure goods are properly declared.
+Below are a few examples of questions that may be
+asked.
+• Do these goods contain knives that are daggers or
+goods incorporating a concealed blade or flick knives and the like?
+• Do these goods contain CITES-listed species?
+• Do any of these goods contain objectionable material as described by Regulation 4A of the Customs (prohibited imports) Regulations?
+• Does the importer have a licence to import ozone depleting substances as required under Regulation 5K of the Customs (prohibited imports) Regulations?
+• Do these goods contain arsenic, cadmium or lead at levels in excess of those prescribed by the Hazardous Waste (regulations of exports and imports) Act?9 Lodgement questions
+
+32 Documentary Import Declaration Comprehensive GuideCustoms and Border Protection and DAFF Biosecurity
+conduct checks on imported goods to ensure the protection of Australian borders. There are several steps that need to be finalised before you are able to take delivery of your goods (see figure 21). Customs and Border Protection require you to provide enough information to assess your goods. The commercial documentation you have that relates to your goods (e.g. ocean bill of lading, master air waybill and packing lists) should be referred to when completing your declaration. You will need to present those documents to Customs and Border Protection if requested to do so.Once the imported goods reach their destination port they enter Customs control.
+Goods will be released (through an ATD) when Customs
+and Border Protection are satisfied the goods were properly reported and declared; permits are produced; duty, GST/and or LCT and other liabilities are paid; and DAFF Biosecurity concerns are addressed.
+The ATD is your advice that the goods are available to
+you (known as ‘delivery into home consumption’). 10 Process and clearance of goods
+Owner pays
+liabilities then
+goods are
+releasedThe owner must be registered as an
+ICS client. If you are not registered
+complete a client registration form.Generally, the owner is the owner of
+the goods that have arrived.  The Cargo Reporter may be the
+shipping company, slot charterer,
+freight forwarder or other participant.
+Customs requires more information
+about the goods or an Examination
+is required.Community Protection, Tariff,
+Reference Data, Securities and other
+checks are performed.
+NOOwner must respond to DAFF
+Biosecurity concerns/questions if
+any.
+YESInformation supplied
+ok or Exam clear. Then
+Declaration receives clear
+status.  Anyone dealing with
+Customs for the purpose
+of Import Declarations
+is required to meet the
+Evidence of Identity (EOI)
+Standard.Goods imported by air,
+sea, post or other means.Cargo Reporter reports
+goods to Customs
+When the owner contacts
+Customs errors on the
+declaration will be advised.
+Written amendments are
+required on the form.Cargo Reporter/Post
+notifies owner that goods
+have arrived.
+The owner completes
+a documentary Import
+Declaration.
+EOI check is completed at
+a Customs counter.
+ICS will allocate an Import
+Declaration ID. This is
+recorded on the form.
+Customs submits the
+declaration.
+Community Protection and
+lodgement questions are
+asked, if any.
+Declaration status is clearInformation passed to
+DAFF Biosecurity.Customs will accept the
+declaration after EOI
+check and process it using
+the ICS.
+ICS will validate
+information and will identify
+errors
+Owner must answer Community
+Protection and lodgement questions
+in writing.
+Customs lodges the
+declaration. It is processed
+by COB day after lodging
+a complete and accurate
+declarationFigure 21: Import Declaration Process
+
+Documentary Import Declaration Comprehensive Guide 33The following tables contain reference information, which
+is useful in completing an import declaration.
+Information such as Airline codes, Country codes, UN/
+Locodes and Currency codes are commonly reported to Customs and Border Protection on a declaration.
+If the information you require is not listed you may need
+to use the electronic references provided in Section 13 or seek other assistance.
+The remaining tables provide the codes that are
+acceptable for use on a declaration form and are complete i.e. only codes listed may be used.
+While information provided here was correct at the time of
+publication it is subject to change from external sources.
+11.1 Australian Ports – UN/Locodes
+Table 2: Australian Ports – UN/Locodes
+NSW UN/Locode
+Ballina AUBNK
+Bankstown AUBWU
+Botany Bay AUBTB
+Coffs Harbour AUCFS
+Eden AUQDN
+Grafton AUGFN
+Griffith AUGFF
+Kurnell AUKUR
+Lord Howe Island AULDH
+Newcastle AUNTL
+Parramatta AUPRM
+Port Kembla AUPKL
+Richmond AURCH
+Sydney AUSYD
+Trial Bay AUTRB
+Williamtown Airport AUWLMSouth Australia UN/Locode
+Adelaide Airport AUADA
+Adelaide AUADL
+Ardrossan AUARD
+Berri AUBER
+Edithburg AUEDB
+Nuriootpa AUNOO
+Port Adelaide AUPAE
+Port Augusta AUPUG
+Port Lincoln AUPLO
+Port Pirie AUPPI
+Port Stanvac AUPST
+Rapid Bay AURAB
+Wallaroo AUWAL
+Whyalla AUWYA
+Queensland UN/Locode
+Abbot Point AUABP
+Bowen AUZBO
+Brisbane AUBNE
+Brisbane Airport AUBRA
+Bundaberg AUBDB
+Cairns AUCNS
+Gladstone AUGLT
+Haypoint AUHPT
+Innisfail AUIFL
+Karumba AUKRB
+Lucinda AULUC
+Mackay AUMKY
+Maryborough AUMBH
+Rockhampton AUROK
+Thursday Island AUTIS
+Townsville AUTSV
+Weipa AUWEI11 Reference tables
+
+34 Documentary Import Declaration Comprehensive GuideWestern Australia UN/Locode
+Albany AUALH
+Barrow Island AUBWB
+Broome AUBME
+Bunbury AUBUY
+Busselton AUBUS
+Cape Cuvier AUCCU
+Cape Lambert AUCLT
+Carnarvon AUCVQ
+Dampier AUDAM
+Derby AUDRB
+Esperance AUEPR
+Exmouth AUPEX
+Fremantle AUFRE
+Geraldton AUGET
+Kwinana AUKWI
+Legendre Terminal AULGT
+Onslow AUONS
+Pearce Airport AUPCE
+Point Samson AUPSM
+Port Headland AUPHE
+Port Walcott AUPWL
+St Peters AUSTP
+Useless Loop AUUSL
+Wandoo Terminal AUWNT
+Walcha AUWLC
+Wyndham AUWYN
+Yampi Sound AUYAMNorthern Territory UN/Locode
+Alice Springs AUASP
+Buffalo Venture AUBUV
+Darwin AUDRW
+Groote Eylandt AUGTE
+Gove AUGOV
+Melville Island AUMLI
+Northern Endeavour AUNTE
+Victoria UN/Locode
+Albury AUABX
+Geelong AUGEX
+Melbourne AUMEL
+Portland AUPTJ
+Tullamarine AUTME
+Welshpool AUWHL
+Westernport AUWEP
+Wodonga AUWOD
+Tasmania UN/Locode
+Spring Bay AUSPB
+Burnie AUBWT
+Devonport AUDPO
+Hobart AUHBA
+Launceston AULST
+Macquarie Island AUMQI
+Narracoopa AUNAR
+Port Latta AUPLA
+Port Stanley AUPSY
+
+Documentary Import Declaration Comprehensive Guide 3511.2 Overseas Ports – UN/Locodes
+Table 3: Overseas Ports – UN/Locodes
+Country Port NameUN/
+Locode
+Belgium Antwerpen BEANR
+Belgium Brussel (Bruxelles) BEBRU
+Canada Ontario USONT
+Canada Toronto CAYYZ
+China Chiwan CNCWN
+China Dalian CNDLC
+China Guangzhou CNCAN
+China Huangpu CNHUA
+China Ningbo CNNGB
+China Qingdao CNTAO
+China Shanghai CNSHA
+China Shekou CNSHK
+China Shenzhen CNSZX
+China Xiamen CNXMN
+China Xingang CNXGG
+China Yantian CNYTN
+Denmark Kobenhavn DKCPH
+Finland Helsinki (Helsingfors) FIHEL
+France Charles De Gaulle Apt/Paris FRCDG
+France Le Havre FRLEH
+Germany Bremerhaven DEBRV
+Germany Dusseldorf DEDUS
+Germany Frankfurt Am Main DEFRA
+Germany Hamburg DEHAM
+Germany Koln DECGN
+Germany Munchen DEMUC
+Germany Nurnberg DENUE
+Germany Stuttgart DESTR
+Great Britain East Midlands Apt GBEMATable 3: Overseas Ports – UN/Locodes
+Country Port NameUN/
+Locode
+Great Britain Felixstowe GBFXT
+Great Britain Heathrow Apt/London GBLHR
+Great Britain London GBLON
+Great Britain Southampton GBSOU
+Great Britain Tilbury GBTIL
+Hong Kong Hong Kong HKHKG
+India Chennai (Ex Madras) INMAA
+India Delhi INDEL
+India Mumbai (Ex Bombay) INBOM
+Indonesia Jakarta Java IDJKT
+Indonesia Semarang Java IDSRG
+Indonesia Surabaya IDSUB
+Israel Tel Aviv Yafo ILTLV
+Italy La Spezia ITSPE
+Italy Milano ITMIL
+Italy Rome ITROM
+Japan Kobe JPUKB
+Japan Nagoya Aichi JPNGO
+Japan Narita Apt/Tokyo JPNRT
+Japan Osaka JPOSA
+Japan Tokyo JPTYO
+Japan Yokohama JPYOK
+Korea Busan KRPUS
+Korea Inchon KRICN
+Korea Seoul – Kimpo Apt KRSEL
+Malaysia Kuala Lumpur MYKUL
+Malaysia Pasir Gudang Johor MYPGU
+Malaysia Penang (Georgetown) MYPEN
+Malaysia Port Kelang MYPKG
+
+36 Documentary Import Declaration Comprehensive GuideTable 3: Overseas Ports – UN/Locodes
+Country Port NameUN/
+Locode
+Netherlands Amsterdam NLAMS
+Netherlands Rotterdam NLRTM
+New Zealand Auckland NZAKL
+New Zealand Christchurch NZCHC
+New Zealand Lyttelton NZLYT
+New Zealand Tauranga NZTRG
+New Zealand Wellington NZWLG
+Philippines Manila PHMNL
+Singapore Singapore SGSIN
+Spain Barcelona ESBCN
+Sweden Goteborg SEGOT
+Sweden Stockholm SESTO
+Switzerland Zurich CHZRH
+Taiwan Kaohsiung TWKHH
+Taiwan Keelung (Chilung) TWKEL
+Taiwan Taipei TWTPE
+Thailand Bangkok THBKK
+Thailand Laem Chabang THLCH
+USA Atlanta USATL
+USA Boston USBOS
+USA Chicago USCHI
+USA Cleveland USCLE
+USA Dallas-Fort Worth Int. Apt USDFW
+USA Honolulu USHNL
+USA Houston USHOU
+USAJohn F. Kennedy Apt/New
+YorkUSJFK
+USA Long Beach USLGB
+USA Los Angeles USLAX
+USA Minneapolis/St Paul Apt USMSP
+USA New York USNYCTable 3: Overseas Ports – UN/Locodes
+Country Port NameUN/
+Locode
+USA Oakland USOAK
+USA O’hare Apt/Chicago USORD
+USA Philadelphia USPHL
+USA San Francisco USSFO
+USA Savannah USSAV
+USA Seattle USSEA
+Vietnam Ho Chi Minh City VNSGN
+South Africa Durban ZADUR
+South Africa Johannesburg ZAJNB
+11.3 Airline Codes
+Table 4: Airline Codes
+Airline Airline Code
+Air Canada AC
+Air China CA
+Air Mauritius MK
+Air New Zealand NZ
+Air Niugini PX
+Air Pacific FJ
+Air Zimbabwe UM
+Alaska Airlines AS
+Areolineas Argentinas AR
+Asiana Airlines OZ
+Australian Airlines AO
+Austrian Airlines OS
+British Airways BA
+Cathay Pacific CX
+China Airlines CI
+China Eastern Airlines MU
+China Southern CZ
+Continental Airlines CO
+
+Documentary Import Declaration Comprehensive Guide 37Table 4: Airline Codes
+Airline Airline Code
+Emirates EK
+Eva Airways BR
+FedEx FX
+Garuda Indonesia GA
+Gulf Air GF
+Hawaiian Airlines HA
+Japan Airlines JL
+Korean Airlines KE
+LAN Chile LA
+Lion Air JT
+Malaysia Airlines MH
+Philippine Airlines PR
+Qantas QF
+Royal Brunei BI
+Singapore Airlines SQ
+South African Airways SA
+Thai Airways TG
+Transaero Airlines UN
+United Airlines UA
+Valuair VF
+Vietnam Airlines VN
+Virgin Atlantic VS
+Virgin Blue DJ
+11.4 Currency Codes
+Table 5: Currency Codes
+Country Currency NameCurrency
+Code
+Australia Dollar AUD
+Brazil Real BRL
+Canada Dollar CADTable 5: Currency Codes
+Country Currency NameCurrency
+Code
+China Yuan Renminbi CNY
+Denmark Danish DKK
+European Union Euro EUR
+Fiji Dollar FJD
+Hong Kong Dollar HKD
+India Indian Rupee INR
+Indonesia Rupiah IDR
+Ireland Euro EUR
+Israel Israeli Shekel ILS
+Japan Yen JPY
+Korea, Republic
+ofWon KRW
+Malaysia Ringgit MYR
+New Zealand Dollar NZD
+Norway Norwegian Krone NOK
+Pakistan Rupee PKR
+Papua New GuineaKina PGK
+Philippines Peso PHP
+Singapore Dollar SGD
+Solomon Islands Dollar SBD
+South Africa Rand ZAR
+Sri Lanka Sri Lanka Rupee LKR
+Sweden Swedish Krona SEK
+Switzerland Franc CHF
+Taiwan Taiwan Dollar TWD
+Thailand Baht THB
+United Kingdom Pound Sterling GBP
+United States DollarDollar USD
+
+38 Documentary Import Declaration Comprehensive Guide11.5 Invoice Term Types
+(also known as Incoterms)
+Table 6: Invoice Term Types
+Code Short Name Description
+CFR Cost & FreightThe seller delivers when the goods pass the ship’s rail in the port of shipment. The seller must pay the cost and freight necessary to bring the goods to the named port of destination.
+CIF Cost, Insurance& FreightThe seller delivers when the goods pass the ship’s rail in the port of shipment. The seller must pay the cost and freight necessary to bring the goods to the named port of destination. The seller also has to pay for insurance against loss or damage to the goods during the carriage.
+CIP Carriage & Insurance Paid ToThe carrier nominated by him, but the seller must in addition pay the cost of carriage necessary to bring the goods to the named destination.
+CPT Carriage Paid ToThe seller delivers the goods to the carrier nominated by him but the seller must in addition pay the cost of carriage necessary to bring the goods to the name destination.
+DAP Delivered at PlaceThis is the named place of destination. The seller pays for carriage to the named place, except for costs related to import clearance, and assumes all risks prior to the point that the goods are ready for unloading by the buyer.
+DAT Delivered at TerminalThis is the named terminal at port or place of destination. The seller pays for carriage to the terminal, except for costs related to import clearance, and assumes all risks up to the point that the goods are unloaded at the terminal.
+DDP Delivered Duty PaidThe seller delivers the goods to the buyer, cleared for import, and not unloaded from any arriving means of transport at the named place of destination.
+EXW EX WorksThe seller delivers when he places the goods at the disposal of the buyer at the seller’s premises.
+FAS Free Alongside ShipThe seller delivers when the goods are placed alongside the ship at the named port of shipment.
+FCA Free CarrierThe seller delivers the goods, cleared for export, to the carrier nominated by the buyer at the named place.
+FOB Free On BoardThe seller delivers when the goods pass the ship’s rail at the named port of shipment.
+
+Documentary Import Declaration Comprehensive Guide 3911.6 Gross Weight Unit
+Table 7: Gross Weight Unit
+Unit of Quantity Code
+Gram G
+Hectogram HG
+Hundredweight CW
+Kilogram KG
+Quintal (Metric Quintal = 100kg) CK
+Tonne T
+Ounce OZ
+Ounce Troy TO
+Pound Troy – (Troy Pound US) LT
+Pound LB
+1000 Pounds – (Gross) T1
+Ton – (Ton (UK) or Long Ton (US)) LT
+11.7 Units of Quantity
+Table 8: Units of Quantity
+Unit of Quantity Code
+Billet B5
+Barrel BA
+Basic Carton BC
+Bag BG
+Bale BK
+Bulk BN
+Bottle BO
+Bulk Tank BT
+Box BX
+Cubic Decimetre C8
+Can CA
+Cubic Centimetre CC
+Cubic Foot CFTable 8: Units of Quantity
+Unit of Quantity Code
+Container CH
+Quintal (Metric Quintal = 100Kg) CK
+Centilitre CL
+Centimetre CM
+Crate CR
+Case CS
+Carton CT
+Cubic Metre CU
+Hundredweight CW
+Cubic Yard CY
+Square Decimetre D3
+Decametre DK
+Decalitre DL
+Decimetre DM
+Dozen Pairs DP
+Dozen Rolls DR
+Drum DU
+Dozen DZ
+Foot FT
+Gram G
+U.S. Gallon GA
+Gross Boxes GB
+Gallon GI
+Gross GS
+Hectogram HG
+Hectolitre HL
+Hectometre HM
+Hundred HU
+Inch IN
+International Unit IU
+Kilogram KG
+
+40 Documentary Import Declaration Comprehensive GuideTable 8: Units of Quantity
+Unit of Quantity Code
+Kilolitre KL
+Kilometre KM
+Litre L
+Litre Alcohol LA
+Pound LB
+Pound Troy – (Troy Pound (US)) LT
+Metre M
+Metric Carat MC
+Millimetre MM
+Mega MA
+Metric Carat MC
+Millilitre ML
+Millimetre MM
+Million International Units MU
+Number of Bundles NB
+Number NO
+Not Recorded NR
+Number of Drums NU
+Vehicle NV
+Ounce OZ
+Piece PC
+Dozen Packs PD
+Package PK
+Pallet – (Pallet / Unit Load) PL
+Pair PR
+Pint PT
+Puncheon PU
+Number of Rolls RL
+Ream RMTable 8: Units of Quantity
+Unit of Quantity Code
+Roll RO
+Sack SA
+Super Feet SF
+Square Inch SI
+Square Metre SM
+Square Foot SQ
+Number of Sets SR
+Skid SV
+Square Yard SY
+Tonne T
+1000 Pounds – (Gross) T1
+Thousand TH
+Ton – (Ton (UK) or Long Ton (US)) TN
+Ounce Troy TO
+Unit UN
+Yard YD
+Cask Z3
+Hogshead Z4
+Dozen Pieces ZP
+11.8 Header Amber Reason Type
+Table 9: Header Amber Reason Type
+Code Short Name
+Dump Dumping / Countervailing
+Origin Origin
+Prefer Preference
+Quantity Quantity
+Value Valuation
+
+Documentary Import Declaration Comprehensive Guide 4111.9 Line Amber Reason Type
+Table 10: Line Amber Reason Type
+Code Short Name
+Class Classification
+Dump Dumping / Countervailing
+Origin Origin
+Prefer Preference
+Quantity Quantity
+Treatcode Treatment Code
+Value Valuation
+11.10 Instrument Type
+Table 11: Instrument Type
+Code Description
+AD AusIndustry Determinations
+BL By Laws
+DE Determinations
+ICN Import Credits
+TC Tariff Concession Orders
+TFQ Tariff Quotas
+TX Tradex Orders
+11.11 Cargo Type
+Table 12: Cargo Type
+Code Description
+LCL Less than Container load
+FCL Full Container load
+FCXFull Container load with multiple house
+bills
+B/B Break bulk
+BLK Bulk11.12 Preference Rule Type
+Table 13: Preference Rule Type
+Code Description
+A30AMinimum 30% content accumulation rule – tariff classification
+A30BMinimum 30% content accumulation rule – tariff classification / tariff concession
+A50Minimum 50% content accumulation rule – tariff classification
+CTHChange in tariff heading (“General Rule” goods only – AANZFTA)
+P25Minimum 25% content rule – determination* tariff concession
+P30AMinimum 30% content rule – tariff
+classification
+P30BMinimum 30% content rule – tariff
+concession
+P40Minimum 40% content rule – determination* Country Code WS tariff classification Local content 40-50%
+P50 Minimum 50% content rule
+P75 Minimum 75% content rule
+PEProduced entirely from originating materials (AANZFTA)
+POM Produced entirely from originating materials
+PS Product specific rules
+RVCRegional value content of 40% (“General Rule” goods only – AANZFTA)
+TCFSPARTECA (TCF Provisions) Scheme for certain textiles, clothing and footwear – 255 to 50% content required – Schedule 4 item 68 applies – Treatment code 468 Tariff classification ELAC ID number
+URP Unmanufactured Raw Products
+WMDManufactured goods with determined manufactured raw materials
+WMNWholly manufactured goods with no determined manufactured raw materials
+WO Wholly obtained goods
+
+42 Documentary Import Declaration Comprehensive Guide11.13 Preference Scheme Type
+Table 14: Preference Scheme Type
+Code Description
+GEN General rate (no preference)
+AANZ ASEAN – Australia-New Zealand Free Trade Agreement
+CA Canada – Australia Trade Agreement
+CL Australia – Chile Free Trade Agreement
+DC Australian System of Tariff Preferences – Developing Countries – DC rate
+DCS Australian System of Tariff Preferences – Developing Countries – DCS rate
+DCT Australian System of Tariff Preferences – Developing Countries – DCT rate
+EXT External Territories
+FI Forum Islands – South Pacific regional Trade and Economic Cooperation Agreement
+LDC Australian System of Tariff Preferences – Least Developed Countries – LDC rate
+MFTA Malaysia – Australia Free Trade Agreement
+MYT Malaysia – Australia Trade Agreement
+NZ Australia – New Zealand Closer Economic Relations Trade Agreement
+PG Papua New Guinea – Australia Trade and Commercial Relations Agreement
+SG Singapore – Australia Free Trade Agreement
+TH Thailand – Australia Free Trade Agreement
+US Australia – United States Free Trade Agreement
+
+Documentary Import Declaration Comprehensive Guide 4311.14 Preference Scheme Type and Preference Rule Type Matrix
+Table 15: Preference Scheme Type and Preference Rule Type Matrix
+GEN AANZ CA CL DC DCS DCT EXT FI LDC MFTA MYT NZ PG SG TH US
+A30A YES
+A30B YES
+A50 YES
+CTH YES
+P25 YES YES
+P30A YES
+P30B YES
+P40 YES
+P50 YES YES YES YES YES YES YES YES YES
+P75 YES
+PE YES
+POM YES YES YES YES
+PS YES YES YES YES YES
+PSR YES
+RVC YES
+TCF YES
+URP YES YES YES YES YES YES YES YES YES YES
+WMD YES YES YES YES YES
+WMN YES YES YES YES YES
+WO YES YES YES YES YES YES YES
+
+44 Documentary Import Declaration Comprehensive Guide11.15 GST Exemption Codes
+Table 16: GST Exemption Codes
+Code Description
+404ITEM 4 Customs Tariff Act Goods owned by and for official use of the government of a country other
+than Australia
+408ITEM 8 Customs Tariff Act Goods for use by or sale to persons the subject of a Status of Forces Agreement
+415ITEM 15 Customs Tariff Act Goods imported by passenger and crew, inward duty free purchases, goods brought in or sent to Australia by members of the Defence Force stationed outside Australia, goods imported by members of forces of Canada, New Zealand or United Kingdom, and passengers’ personal effects
+417 Goods returned to Australia in an unaltered condition (refer to S.42-10 of GST Act for conditions)
+418AITEM 18A Customs Tariff Act Goods, or parts of goods, previously imported into Australia and returned after repair overseas free of charge in accordance with the provision of a warranty applicable to the previously imported goods
+418BITEM 18B Customs Tariff Act Goods, or parts of goods, supplied free of charge under the provisions of a warranty to replace goods or parts of goods previously imported into Australia
+418CITEM 18C Customs Tariff Act Goods, or parts of goods, supplied free of charge as part of a global product safety recall due to a product safety fault
+419ITEM 19 Customs Tariff Act Goods that a TCO under s. 269Q of the Customs Act declares are goods to which this item applies. (Exemption only applies to the value of the goods before repair)
+420AITEM 20A Customs Tariff Act Goods that have been exported from Australia for repair or renovation. (Exemption only applies to the value of the goods before repair or renovation)
+420BITEM 20B Customs Tariff Act Imported goods that are part of a batch repair process to replace goods exported from Australia for repair or renovation. (Exemption only applies to the value of the goods before repair or renovation).
+421ITEM 21 Customs Tariff Act Goods that are imported for repair, alteration or industrial processing and are to be exported
+421A ITEM 21A Customs Tariff Act Goods imported by the holder of a TRADEX order
+423AITEM 23A Customs Tariff Act Goods donated or bequeathed by non residents to an organisation established in Australia for the purposes of performing work of a philanthropic nature
+423B ITEM 23B Customs Tariff Act Goods donated or bequeathed to the public or a public institution
+424ITEM 24 Customs Tariff Act Goods that are not to be sold or to be used for the purpose of trade that became the property of the importer under a will or intestacy of a deceased person
+425A ITEM 25A Customs Tariff Act Trophies won outside Australia
+425BITEM 25B Customs Tariff Act Decorations, medallions or certificates awarded or to be awarded outside Australia and sent from outside Australia to persons within Australia
+425CITEM 25C Customs Tariff Act Trophies or prizes sent by donor resident outside Australia for presentation or competition in Australia
+
+Documentary Import Declaration Comprehensive Guide 45Table 16: GST Exemption Codes
+Code Description
+433AITEM 33A Customs Tariff Act Calenders, catalogues and overseas travel literature, overseas price lists
+and other overseas printed matter
+433B ITEM 33B Customs Tariff Act Samples of negligible value
+434ITEM 34 Customs Tariff Act Goods imported on or in containers, being containers that will be exported without being put to any other use. (Exemption only applies to the containers).
+464ITEM 64 Customs Tariff Act Goods imported by, or on behalf of, non-Australian Olympic and Paralympic Family members, for use in, or for purposes related to, the Sydney 2000 Olympic Games, the Sydney 2000 Paralympic Games etc
+4101ITEM 10l Customs Tariff Act Goods, for the official use of a diplomatic mission in Australia, for the personal use of a person who is the head of such a mission or a member of the diplomatic staff, or goods for the personal use of a household family member of the head of the diplomatic mission or of the diplomatic staff
+4102ITEM 102 Customs Tariff Act Goods, for the personal use of a member of the administrative and technical staff and the household family members of the staff of a diplomatic mission in Australia and are imported when the staff member first takes up duty at the diplomatic mission, in Australia, of that
+country
+4103ITEM 103 Customs Tariff Act Goods, for the official use in a consular post in Australia, for the personal
+use of a person who is the head of a consular post in Australia, or for the personal use of a household family member of the head of a consular post in Australia
+4104ITEM 104 Customs Tariff Act Goods, for personal use of person who is employed in the administrative or technical service of a consular post in Australia and are imported when that person first takes up duty at a consular post, in Australia, of that country
+4105ITEM 105 Customs Tariff Act Goods for the official use of a consular post in Australia, being a consular post to which Item 103 does not apply
+4106ITEM 106 Customs Tariff Act Goods, for the official use of an organisation which is an international organisation to which the International Organisations (Privileges & Immunities) Act 1963 applies, or for the personal use of a person appointed to high office of such an organisation, or for the personal use of a household family member of that official, or goods that consist of the furniture or effects of the official if imported at the time when the official takes up office in Australia (NB exemption only applies to eligible international organisations)
+AB1Milk, skim milk, butter milk (whether liquid, powdered, concentrated or condensed); casein; whey,
+whey powder or paste
+AB2Beverages consisting of products referred to in AB1 (or a combination of those products) to the extent
+of at least 95%, but not including flavoured beverages
+AB3 Lactose
+AB4 Beverages consisting principally of soy milk or rice milk but not including flavoured beverages
+AB5Tea (including herbal tea, fruit tea, ginseng tea and other similar beverage preparations), coffee and coffee essence, chicory and chicory essence, and malt
+AB6 Malt extract, if it is marketed principally for drinking purposes
+
+46 Documentary Import Declaration Comprehensive GuideTable 16: GST Exemption Codes
+Code Description
+AB7Preparations for drinking purposes that are marketing principally as tea preparations, coffee
+preparations, or preparations for malted beverages
+AB8 Preparations marketed principally as substitutes for preparations covered by AB6 or AB7
+AB9 Dry preparation marketed for the purpose of flavouring milk
+AB10Concentrates for making non alcoholic beverages, if the concentrates consist of at least 90% by volume of juices of fruit
+AB11 Non-alcoholic carbonated beverages, if they consist wholly of juices of fruit or vegetables
+433B ITEM 33B Customs Tariff Act Samples of negligible value
+434ITEM 34 Customs Tariff Act Goods imported on or in containers, being containers that will be exported without being put to any other use. (Exemption only applies to the containers).
+464ITEM 64 Customs Tariff Act Goods imported by, or on behalf of, non-Australian Olympic and Paralympic Family members, for use in, or for purposes related to, the Sydney 2000 Olympic Games, the Sydney 2000 Paralympic Games etc
+4101ITEM 10l Customs Tariff Act Goods, for the official use of a diplomatic mission in Australia, for the personal use of a person who is the head of such a mission or a member of the diplomatic staff, or goods for the personal use of a household family member of the head of the diplomatic mission or of the diplomatic staff
+4102ITEM 102 Customs Tariff Act Goods, for the personal use of a member of the administrative and technical staff and the household family members of the staff of a diplomatic mission in Australia and are imported when the staff member first takes up duty at the diplomatic mission, in Australia, of that country
+4103ITEM 103 Customs Tariff Act Goods, for the official use in a consular post in Australia, for the personal use of a person who is the head of a consular post in Australia, or for the personal use of a household family member of the head of a consular post in Australia
+4104ITEM 104 Customs Tariff Act Goods, for personal use of person who is employed in the administrative or technical service of a consular post in Australia and are imported when that person first takes up duty at a consular post, in Australia, of that country
+4105ITEM 105 Customs Tariff Act Goods for the official use of a consular post in Australia, being a consular post to which Item 103 does not apply
+4106ITEM 106 Customs Tariff Act Goods, for the official use of an organisation which is an international organisation to which the International Organisations (Privileges & Immunities) Act 1963 applies, or for the personal use of a person appointed to high office of such an organisation, or for the personal use of a household family member of that official, or goods that consist of the furniture or effects of the official if imported at the time when the official takes up office in Australia (NB exemption only applies to eligible international organisations)
+AB1Milk, skim milk, butter milk (whether liquid, powdered, concentrated or condensed); casein; whey, whey powder or paste
+AB2Beverages consisting of products referred to in AB1 (or a combination of those products) to the extent of at least 95%, but not including flavoured beverages
+
+Documentary Import Declaration Comprehensive Guide 47Table 16: GST Exemption Codes
+Code Description
+AB3 Lactose
+AB4 Beverages consisting principally of soy milk or rice milk but not including flavoured beverages
+AB5Tea (including herbal tea, fruit tea, ginseng tea and other similar beverage preparations), coffee and
+coffee essence, chicory and chicory essence, and malt
+AB6 Malt extract, if it is marketed principally for drinking purposes
+AB7Preparations for drinking purposes that are marketing principally as tea preparations, coffee
+preparations, or preparations for malted beverages
+AB8 Preparations marketed principally as substitutes for preparations covered by AB6 or AB7
+AB9 Dry preparation marketed for the purpose of flavouring milk
+AB10Concentrates for making non alcoholic beverages, if the concentrates consist of at least 90% by volume of juices of fruit
+AB11 Non-alcoholic carbonated beverages, if they consist wholly of juices of fruit or vegetables
+AB12Non-alcoholic non-carbonated beverages, if they consist of at least 90% by volume of juices of fruits or vegetable
+AB13Beverages, and ingredients for beverages of a kind marketed principally for as foods for infants or invalids
+AB14 Natural water, non-carbonated and without any other additives
+B1 Heart monitors
+B2 Pacemakers
+B3 Surgical stockings
+B4 Communication boards and voice output devices
+B5 Communication cards
+B6 Page turners
+B7 Eye pointing frames
+B8 Software programs specifically designed for people with disabilities
+B9 Printers and scanners specifically designed for software and hardware used by people with disabilities
+B10 Switches and switch interfaces
+B11 Mouth/head/stick pointers
+B12 Alternative keyboards
+B13 Electrolarynx replacements
+B14 Speech amplification/clarification aids
+B15 Urine/faecal drainage/collection devices
+
+48 Documentary Import Declaration Comprehensive GuideTable 16: GST Exemption Codes
+Code Description
+B16 Waterproof covers or mattress protectors
+B17 Absorbent pads for beds and chairs
+B18Disposable/reusable continence pads, pants and nappies required for continence use (excluding
+nappies for babies, sanitary pads or tampons)
+B19 Enuresis alarms
+B20 Incontinence appliances
+B21 Hospital/medical/continence deodorising products
+B22 Waterproof protection for beds and chairs
+B23 Sterile plastic bags
+B24 Electric bag emptiers
+B25 Enemas, suppositories and applicators
+B26 Urinals and bedpans
+B27 Penile clamps
+B28 Customised eating equipment for people with disabilities
+B29 Customised toothbrushes for people with disabilities
+B30 Dentures and artificial teeth
+B31 Environmental control units designed for the disability of a particular person
+B32 Computer modifications required for people with disabilities
+B33 Medical alert devices
+B41 Surgical shoes, boots, braces and irons
+B42 Orthotics
+B43 Hearing aids
+B44Visual display units specifically designed for deaf people, or for people with a speech impairment, to
+communicate with others
+B45Telephone communication devices specifically designed to allow deaf people to send and receive
+messages by telephone
+B34 Finger prickers
+B35 Alcohol skin wipes
+B36 Test strips
+B37 Needles and syringes
+B38 Glucose monitors
+
+Documentary Import Declaration Comprehensive Guide 49Table 16: GST Exemption Codes
+Code Description
+B39 Home dialysis machines
+B40 Entral nutrition and associated delivery equipment
+B46 Batteries specifically designed specifically for use with hearing aids
+B47 Visual/tactile alerting devices
+B48 Interactive and broadcast videotext systems
+B49 Closed caption decoding devices
+B50 External processors for cochlear implants
+B51 Bidet/bidet toilet attachments for people with disabilities
+B52 Special door fittings relating to the disability of a particular person
+B53 Special purpose car seats
+B54 Car seat harness specifically designed for people with disabilities
+B55 Wheelchair and occupant restraint
+B56 Wheelchair ramp
+B57 Electric/hydraulic wheelchair lifting device
+B58 Motor vehicle modifications
+B59 Manually operated adjustable beds
+B60 Electronically operated adjustable beds
+B61 Hospital-type beds
+B62 Customised bed rails for people with disabilities
+B63 Bed cradles
+B64 Bed restraints
+B65 bed poles and sticks
+B66 Pressure management mattresses and overlays
+B67 Backrests, leg rests and footboards for bed use
+B68 Spinal orthoses
+B69 Lower limb orthoses
+B70 Upper limb orthoses
+B71 Pressure management garments and lymphoedema pumps
+B72 Callipers
+B73 Surgical corsets
+
+50 Documentary Import Declaration Comprehensive GuideTable 16: GST Exemption Codes
+Code Description
+B74 Hand splints and cervical collars
+B75 Mandibular advancement splints
+B76 Alternative positional seating corner chairs
+B77 Alternative positional seating abduction cushion or long leg wedges
+B78 Alternative positional seating modifications
+B79 Standing frames
+B80 Standing frames or tilt table modifications
+B81 Side lying boards
+B82 Night-time positioning equipment modifications
+B83 Artificial limbs and associated supplements and aids
+B84 Mammary prostheses
+B85 Postural support seating trays
+B86 Electrically operated therapeutic lounge/recliner chairs specifically designed for people with disabilities
+B87 Cushions specifically designed for people with disabilities
+B88 Manual, electric, ceiling track or pool hoists specifically designed for people with disabilities
+B89 Hoist slings
+B90 Goosenecks
+B91 Transfer boards
+B92 Transfer sheets, mats or belts
+B93 Stairlifts
+B94 Portable stair climbers
+B95 Monkey rings for people with disabilities
+B96 Crutches
+B97 Walking sticks – specialised
+B98 Walking frames – standard adult
+B99 Walking frames – standard child
+B100 Walking frames – specialised
+B101 Walking frames modifications
+B102 Specialised ambulatory orthoses
+B103 Specialised ambulatory orthosis modifications
+
+Documentary Import Declaration Comprehensive Guide 51Table 16: GST Exemption Codes
+Code Description
+B104 Quadrupod and tripod walking aids
+B105Wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the
+carriage people with disabilities
+B106Accessories associated with wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the carriage people with disabilities
+B107Battery chargers for wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the carriage people with disabilities
+B108 Stair-aid apparatus designed for carrying people with disabilities in wheelchairs up or down stairs
+B109 Syringe drivers
+B110 Patient control analgesia
+B111 Bathboards or toilet seats for people with disabilities
+B112 Bath supports
+B113 Shower chairs or stools
+B114 Shower supports
+B115 Shower trolleys
+B116 Mobile shower chairs
+B117 Commodes
+B118 Commode cushions
+B102 Specialised ambulatory orthoses
+B103 Specialised ambulatory orthosis modifications
+B104 Quadrupod and tripod walking aids
+B105Wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the carriage people with disabilities
+B106Accessories associated with wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the carriage people with disabilities
+B107Battery chargers for wheelchairs, motorised wheelchairs, scooters, tricycles, spinal carriages and other goods for the carriage people with disabilities
+B108 Stair-aid apparatus designed for carrying people with disabilities in wheelchairs up or down stairs
+B109 Syringe drivers
+B110 Patient control analgesia
+B111 Bathboards or toilet seats for people with disabilities
+B112 Bath supports
+
+52 Documentary Import Declaration Comprehensive GuideTable 16: GST Exemption Codes
+Code Description
+B113 Shower chairs or stools
+B114 Shower supports
+B115 Shower trolleys
+B116 Mobile shower chairs
+B117 Commodes
+B118 Commode cushions
+B119 Commode pans
+B120 Toilet frames
+B121 Toilet supports
+B122 Self-help poles
+B123 Ventilators
+B124 Continuous positive airway pressure (CPAP) appliances
+B125 Respiratory appliance mask assemblies – complete
+B126 Respiratory appliance mask assemblies – components
+B127 Respiratory appliance accessories
+B128 Sleep apnoea machines
+B129 Peak flow meters
+B130 Nebulisers
+B131 Spacers
+B132 Vaporisers
+B133 Respirators
+B134 Air pumps
+B135 Bottled oxygen and associated hardware
+B136 Oxygen concentrators
+B137 Breathing monitors
+B138 Ventilators
+B139 Safety helmets specifically designed for people with disabilities
+B140 Jobst suits
+B141 Transcutaneous nerve stimulator machines
+
+Documentary Import Declaration Comprehensive Guide 53Table 16: GST Exemption Codes
+Code Description
+B142Stoma products including all bags and related equipment for patients with colostomies and
+ileostomies
+B143 Tactile or braille books, magazines or newspapers
+B144 Electronic reading aids
+B145 Talking book machines (and parts) specifically designed for people with a vision impairment
+B146 Enlarged text computer monitors for people with a vision impairment
+B147 Braille note takers
+B148 Braille printers and papers
+B149 Braille translators (hardware & software)
+B150 Money identification equipment
+B151 Auditory/tactile alterting devices
+B152 Sonar canes
+B153 Reading magnification devices (excluding magnifying glasses)
+B154 Artificial eyes
+B155 Lenses for prescription spectacles
+B156 Prescription contact lenses
+B157 Ultrasonic sensing devices specifically designed for use by people with a vision impairment
+B158 Viewscan apparatus specifically designed for use by people with a vision impairment
+R1 Alginate
+R2 Hydro colloids
+R3 Hydro gel
+R4 Polyurethane film
+R5 Polyurethane Foam
+R6 Tracheostomy appliance and accessories
+R7 Laryngotomy appliances and accessories
+R8 Skin bond
+R9 Artificial ears
+R10 Nose prostheses
+R11 Hearing loops
+R12 Infusion sets
+
+54 Documentary Import Declaration Comprehensive GuideTable 16: GST Exemption Codes
+Code Description
+R13 Infusion pumps
+R14 Compression garments
+R15 Supplements and aids associated with mammary prostheses
+R16 Postural support seating
+R17 Accessories associated with walking frames or specialised ambulatory ortheses
+R18Customised modifications and accessories for the aids and appliances mentioned in items 111 to 121
+of Schedule 3 to the Act
+R19 Tilt tables
+R20 Stoma products including all bags and related equipment for patients with urostomies
+FOOD Food for human consumption not otherwise excluded in the GST Act
+BMOOther GST-free health goods as specified by the Minister in GST-free Supply (Health Goods) Determination 2000 of 22 June 2000 and GST-free (Drugs and Medicinal Preparations) Determination 2000 of 22 June 2000
+CCM Course materials (as defined by s 195-1 of GST Act)
+IWA Water
+LPM Precious metals (as defined by s 195-1 of GST Act)
+PVET Cars for use by disabled veterans (as defined by s 38-505 of GST Act)
+PODP Cars for use by other disabled people (as defined by s 38-510 of GST Act)
+G135 Money (as defined by s 195-1of GST Act)
+TRAN Transition Act Section 13
+OTHR Other – not specified above
+FEV LCT exemption
+11.16 Country Codes
+Table 17: Country Codes
+Description Code
+Argentina AR
+Australia AU
+Austria AT
+Bahrain BH
+Bangladesh BD
+Brazil BRTable 17: Country CodesDescription Code
+Canada CA
+Chile CL
+China CN
+Colombia CO
+Czech Republic CZ
+Egypt EG
+
+Documentary Import Declaration Comprehensive Guide 55Table 17: Country Codes
+Description Code
+France FR
+Germany DE
+Greece GR
+Hong Kong HK
+Hungary HU
+India IN
+Indonesia ID
+Iran, Islamic Republic of IR
+Iraq IQ
+Ireland IE
+Israel IL
+Italy IT
+Japan JP
+Korea, Republic of KR
+Kuwait KW
+Macedonia, The Former Yugoslav
+Republic of MK
+Malaysia MY
+Mexico MXTable 17: Country Codes
+Description Code
+Netherlands NL
+New Zealand NZ
+Norway NO
+Pakistan PK
+Philippines PH
+Saudi Arabia SA
+Serbia and Montenegro CS
+Singapore SG
+South Africa ZA
+Spain ES
+Sri Lanka LK
+Sweden SE
+Thailand TH
+United Kingdom GB
+United States US
+Vietnam VN
+Yugoslavia YU
+
+56 Documentary Import Declaration Comprehensive Guide12.1 Import Declaration Form B650
+The following three pages contain the Import
+Declaration form.
+Note 1 Import declarations are required for all imported goods with a Customs value that exceeds the entry threshold as defined in Section 68 of the Customs Act 1901. At time of publication the threshold value is A$1000.12 Attachments
+
+Documentary Import Declaration Comprehensive Guide 57Import Declaration (N10)
+Customs Use Only:
+Declaration ID
+Destination Port Code:SECTION A
+Owner Details: Owner Name Owner ID (ABN, ABN/CAC or CCID):
+Invoice Term Type:Import Declaration (s71A)         OR Return in relation to special clearance goods (S70(7))
+IMPORTANT! Please complete sections A, B and C of this form
+Owner Reference: AQIS Inspection Location:
+Contact Details: Owner Phone Owner Fax: Owner Email:
+Home: (         ) Work: (         ) Mobile:
+Valuation Date: Header Valuation Advice No: EFT Payment Indicator:
+(Please tick one only)YES NO/ /
+Valuation Elements Type:Amount Currency
+a. Invoice Total
+b. Overseas Freight
+c. Overseas Insurance
+d. Packing Costs
+e. Foreign Inland Freight
+f. Landing Charges
+g. Transport & Insurance
+Free on Board
+Cost Insurance & FreightPAID UNDERPROTEST INDICATORYou MUST attach a statement of the reason/s for protesting the payment of duty.
+AMBER STATEMENT/REASON: If you are uncertain about information included in the declaration, or omis -
+sion of information from that declaration, and consider that as a result the declaration may be false or mislead -
+ing in a material particular, you must specify the reason/s for that uncertainty.(Must be included as an attachment)
+B650 (NOV2010)DECLARATION:
+I, _________________________________________________________________ *the owner of the goods/agent
+of the owner hereby acknowledge that this import declaration of______  pages is true and correct.
+(*Delete which is not applicable)
+Date: / /Signature of *the owner of the goods/agent of the ownerApproved Form Section 71K of the Customs Act 1901
+(         )
+
+58 Documentary Import Declaration Comprehensive GuideImport Declaration (N10) - Transport Details
+Line No:AIRMode of Transport: Airline Code: Loading Port: First Arrival Port:
+Discharge Port:
+B650 (NOV 2010)SECTION B Please complete the section relevant to the mode of transport for your goods along with the Delivery Address details.
+AIR
+First Arrival Date: Gross Weight: Gross Weight Unit:
+/ /
+Master Air Waybill No: House Air Waybill No: No. of Packages: Marks & Numbers Description:
+Line No:SEAMode of Transport: Vessel Name: Vessel ID: Voyage No:
+First Arrival Port:SEA
+Discharge Port: First Arrival Date: Gross Weight
+/ /
+Cargo Type: Container No: Ocean Bill of Lading No: House Bill of Lading No:OR
+Loading Port:
+Gross Weight Unit:
+No. of Packages:
+Marks & Numbers Description:POSTMode of Transport: Loading Port: First Arrival Port: Discharge Port:
+Parcel Post Card No(s):POST
+Gross Weight: Gross Weight Unit:/ /OR
+First Arrival Date:
+Number of Packages:OTHERMode of Transport: Customs Receipt for Goods No.: No. of Packages: Loading Port:
+Discharge Port:OTHER
+First Arrival Date: Gross Weight:
+/ /OR
+First Arrival Port:
+Gross Weight Unit:
+DELIVERY ADDRESS:
+IMPORTANT!
+Please complete de-
+livery address detailsName: Address:
+Locality: Country: Contact Phone No:AUSTRALIAPostcode:Marks & Numbers Description:
+State:Line Details Line Details
+
+Documentary Import Declaration Comprehensive Guide 59Import Declaration (N10) - Tariff Details
+SECTION C
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+Valuation
+Elements:AmountRelated Transaction
+Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstruments Instrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+Goods Description:Line No.: Supplier ID: Supplier Name:
+Tariff Classification No: Stat. Code: Valuation Basis Type:
+Valuation
+Elements:AmountRelated Transaction
+Indicator: (Please tick)
+Currency Type
+PriceOrigin andPreference Preference Origin Country: Preference Scheme Type: Preference Rule Type: Origin Country:
+TreatmentInstrumentsInstrument Number:
+Instrument Type:
+TariffClassificationInstruments Instrument Type:
+Additional Information: AQIS Producer Code:Instrument Number:Treatment Code: GST Exempt Code:
+B650(NOV 2010)Quantity: Unit:
+Quantity: Unit:
+
+60 Documentary Import Declaration Comprehensive GuideThe following is a list of other references found on the internet you may find useful when completing your import
+declaration:
+Attorney-General’s Department www.ag.gov.au
+Australian Taxation Office (ATO) www.ato.gov.au
+Department of Agriculture, Fisheries and Forestry (DAFF) Biosecurity www.daff.gov.au
+Department of Broadband, Communications and the Digital Economy www.dbcde.gov.au
+Department of Defence www.defence.gov.au
+Department of Education, Employment and Workplace Relations (DEEWR) www.deewr.gov.au
+Department of the Sustainability, Environment, Water, Population and
+Communitieswww.environment.gov.au
+Department of Families, Housing Community Services and Indigenous Affairs
+(FaHCSIA)www.fahcsia.gov.au
+Department of Finance and Deregulation www.finance.gov.au
+Department of Foreign Affairs and Trade (DFAT) www.dfat.gov.au
+Department of Health and Ageing www.health.gov.au
+Department of Human Services www.humanservices.gov.au
+Department of Immigration and Citizenship (DIAC) www.immi.gov.au
+Department of Industry, Innovation, Science, Research and Tertiary Education www.innovation.gov.au
+Department of the Prime Minister and Cabinet (DPMC) www.dpmc.gov.au
+Department of the Treasury www.treasury.gov.au
+Department of Infrastructure and Transport www.infrastructure.gov.au
+Department of Veterans’ Affairs (DVA) www.dva.gov.au
+Safe Work Australia www.safeworkaustralia.gov.au
+Therapeutic Goods Administration (TGA) www.tga.gov.au
+Department of Resources, Energy and Tourism www.ret.gov.au
+Useful Sites
+www.unece.com Provides up to date listings for any UN/Locodes that you require.
+www.iccwco.org Provides a list of current Incoterms.13 Internet references
+
+Documentary Import Declaration Comprehensive Guide 6114.1 Customs and Border
+Protection manuals
+This list is not exhaustive:
+• Volume 8 – Valuation and Origin
+• Volume 13 – Tariff Concessions
+• Volume 22 – Dumping and Subsidisation
+• Import Clearance Manual – Module 15 Import
+Declarations Overview
+• Import Clearance Manual – Module 16 Import Declaration Nature 10
+14.2 Customs Law
+This list is not exhaustive:
+• Customs Act 1901
+• Customs Administration Act 1985
+• Customs Regulations 1926
+• Customs (Prohibited Imports) Regulations 1956
+• Customs Tariff Act 1995
+• Import Processing Charges Act 200114.3 Customs-Related Law
+This list is not exhaustive:• A New Tax System (Goods and Services Tax) Act
+1999
+• A New Tax System (Luxury Car Tax) Act 1999
+• A New Tax System (Wine Equalisation Tax) Act 1999
+• Commerce (Trade Descriptions) Act 1905
+• Copyright Act 1968
+• Crimes Act 1914
+• Financial Transactions Report Act 1988
+• Imported Food Control Act 1992
+• Motor Vehicle Standards Act 1999
+• Quarantine Act 1908
+• Trade Marks Act 1995
+• Wildlife Protection (Regulation of Exports and Imports) Act 198214 Reference documents
+
+62 Documentary Import Declaration Comprehensive Guide

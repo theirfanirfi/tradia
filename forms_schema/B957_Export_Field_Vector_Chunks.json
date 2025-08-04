@@ -1,0 +1,422 @@
+[
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Reporting Party Type",
+    "content": "Field 2.0: Reporting Party Type - Tick the applicable box. Format: Owner / Agent. Required: Yes.",
+    "metadata": {
+      "field_number": 2.0,
+      "required": "Yes",
+      "format": "Owner / Agent",
+      "notes": "Tick the applicable box."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Reporting Party ID",
+    "content": "Field 4.0: Reporting Party ID - Required if Reporter Type selected. Format: ABN or CCID. Required: Yes.",
+    "metadata": {
+      "field_number": 4.0,
+      "required": "Yes",
+      "format": "ABN or CCID",
+      "notes": "Required if Reporter Type selected."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Intended Date of Export",
+    "content": "Field 5.0: Intended Date of Export - Planned date of goods departure. Format: DD/MM/YYYY. Required: Yes.",
+    "metadata": {
+      "field_number": 5.0,
+      "required": "Yes",
+      "format": "DD/MM/YYYY",
+      "notes": "Planned date of goods departure."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Unique Consignment Reference",
+    "content": "Field 6.0: Unique Consignment Reference - For contingency reference. Format: Alphanumeric. Required: Optional.",
+    "metadata": {
+      "field_number": 6.0,
+      "required": "Optional",
+      "format": "Alphanumeric",
+      "notes": "For contingency reference."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Customable / Excisable Goods",
+    "content": "Field 7.0: Customable / Excisable Goods - Indicate if goods are customs/excise controlled. Format: Yes / No. Required: Yes.",
+    "metadata": {
+      "field_number": 7.0,
+      "required": "Yes",
+      "format": "Yes / No",
+      "notes": "Indicate if goods are customs/excise controlled."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Prescribed Goods",
+    "content": "Field 8.0: Prescribed Goods - Indicate if goods are prescribed. Format: Yes / No. Required: Yes.",
+    "metadata": {
+      "field_number": 8.0,
+      "required": "Yes",
+      "format": "Yes / No",
+      "notes": "Indicate if goods are prescribed."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Warehouse Establishment ID",
+    "content": "Field 9.0: Warehouse Establishment ID - Required if excisable goods. Format: Code. Required: Conditional.",
+    "metadata": {
+      "field_number": 9.0,
+      "required": "Conditional",
+      "format": "Code",
+      "notes": "Required if excisable goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Goods Owner Party ID",
+    "content": "Field 10.0: Goods Owner Party ID - Common law owner of goods. Format: ABN or CCID. Required: Yes.",
+    "metadata": {
+      "field_number": 10.0,
+      "required": "Yes",
+      "format": "ABN or CCID",
+      "notes": "Common law owner of goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Goods Owner Party Name",
+    "content": "Field 11.0: Goods Owner Party Name - Full legal name. Format: Text. Required: Yes.",
+    "metadata": {
+      "field_number": 11.0,
+      "required": "Yes",
+      "format": "Text",
+      "notes": "Full legal name."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Goods Origin Type",
+    "content": "Field 12.0: Goods Origin Type - Source of the goods. Format: Domestic / Overseas. Required: Yes.",
+    "metadata": {
+      "field_number": 12.0,
+      "required": "Yes",
+      "format": "Domestic / Overseas",
+      "notes": "Source of the goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Consignor Name",
+    "content": "Field 13.0: Consignor Name - Entity sending goods. Format: Text. Required: Optional.",
+    "metadata": {
+      "field_number": 13.0,
+      "required": "Optional",
+      "format": "Text",
+      "notes": "Entity sending goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Consignor Address",
+    "content": "Field 14.0: Consignor Address - Full address. Format: Text. Required: Optional.",
+    "metadata": {
+      "field_number": 14.0,
+      "required": "Optional",
+      "format": "Text",
+      "notes": "Full address."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Consignee Name",
+    "content": "Field 15.0: Consignee Name - Entity receiving goods. Format: Text. Required: Optional.",
+    "metadata": {
+      "field_number": 15.0,
+      "required": "Optional",
+      "format": "Text",
+      "notes": "Entity receiving goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Consignee Country Code",
+    "content": "Field 16.0: Consignee Country Code - Destination country. Format: ISO Country Code. Required: Yes.",
+    "metadata": {
+      "field_number": 16.0,
+      "required": "Yes",
+      "format": "ISO Country Code",
+      "notes": "Destination country."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Port of Loading",
+    "content": "Field 17.0: Port of Loading - Australian port or airport. Format: UN/LOCODE or Name. Required: Yes.",
+    "metadata": {
+      "field_number": 17.0,
+      "required": "Yes",
+      "format": "UN/LOCODE or Name",
+      "notes": "Australian port or airport."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Port of Discharge",
+    "content": "Field 18.0: Port of Discharge - Foreign port. Format: UN/LOCODE or Name. Required: Optional.",
+    "metadata": {
+      "field_number": 18.0,
+      "required": "Optional",
+      "format": "UN/LOCODE or Name",
+      "notes": "Foreign port."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Nature of the Transaction",
+    "content": "Field 19.0: Nature of the Transaction - Type of movement. Format: Export / Repair / Temporary. Required: Yes.",
+    "metadata": {
+      "field_number": 19.0,
+      "required": "Yes",
+      "format": "Export / Repair / Temporary",
+      "notes": "Type of movement."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Cargo Type",
+    "content": "Field 20.0: Cargo Type - Freight type. Format: FCL / LCL / Bulk / Air. Required: Yes.",
+    "metadata": {
+      "field_number": 20.0,
+      "required": "Yes",
+      "format": "FCL / LCL / Bulk / Air",
+      "notes": "Freight type."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Cargo Status",
+    "content": "Field 21.0: Cargo Status - Declared container status. Format: Empty / Full. Required: Yes.",
+    "metadata": {
+      "field_number": 21.0,
+      "required": "Yes",
+      "format": "Empty / Full",
+      "notes": "Declared container status."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Declared Value",
+    "content": "Field 22.0: Declared Value - FOB value. Format: AUD. Required: Yes.",
+    "metadata": {
+      "field_number": 22.0,
+      "required": "Yes",
+      "format": "AUD",
+      "notes": "FOB value."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Terms of Trade (Incoterms)",
+    "content": "Field 23.0: Terms of Trade (Incoterms) - Agreed delivery term. Format: EXW / FOB / CIF / DDP.... Required: Yes.",
+    "metadata": {
+      "field_number": 23.0,
+      "required": "Yes",
+      "format": "EXW / FOB / CIF / DDP...",
+      "notes": "Agreed delivery term."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Permit Number",
+    "content": "Field 24.0: Permit Number - If required for controlled goods. Format: Text. Required: Conditional.",
+    "metadata": {
+      "field_number": 24.0,
+      "required": "Conditional",
+      "format": "Text",
+      "notes": "If required for controlled goods."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Permit Issuer Code",
+    "content": "Field 25.0: Permit Issuer Code - Who issued the permit. Format: Text. Required: Conditional.",
+    "metadata": {
+      "field_number": 25.0,
+      "required": "Conditional",
+      "format": "Text",
+      "notes": "Who issued the permit."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Freight Forwarder Name",
+    "content": "Field 26.0: Freight Forwarder Name - Booking agent. Format: Text. Required: Optional.",
+    "metadata": {
+      "field_number": 26.0,
+      "required": "Optional",
+      "format": "Text",
+      "notes": "Booking agent."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Freight Forwarder ABN",
+    "content": "Field 27.0: Freight Forwarder ABN - Australian number. Format: ABN. Required: Optional.",
+    "metadata": {
+      "field_number": 27.0,
+      "required": "Optional",
+      "format": "ABN",
+      "notes": "Australian number."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "AHECC Code",
+    "content": "Field 28.0: AHECC Code - Australian export classification. Format: 8-digit numeric. Required: Yes.",
+    "metadata": {
+      "field_number": 28.0,
+      "required": "Yes",
+      "format": "8-digit numeric",
+      "notes": "Australian export classification."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Line Number",
+    "content": "Field 28.1: Line Number - For multi-line exports. Format: Numeric. Required: Yes.",
+    "metadata": {
+      "field_number": 28.1,
+      "required": "Yes",
+      "format": "Numeric",
+      "notes": "For multi-line exports."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Goods Description",
+    "content": "Field 29.0: Goods Description - Detailed description. Format: Text. Required: Yes.",
+    "metadata": {
+      "field_number": 29.0,
+      "required": "Yes",
+      "format": "Text",
+      "notes": "Detailed description."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Origin Country",
+    "content": "Field 30.0: Origin Country - Manufacturing origin. Format: ISO Country Code. Required: Yes.",
+    "metadata": {
+      "field_number": 30.0,
+      "required": "Yes",
+      "format": "ISO Country Code",
+      "notes": "Manufacturing origin."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Gross Weight (kg)",
+    "content": "Field 31.0: Gross Weight (kg) - Total gross weight. Format: Decimal. Required: Yes.",
+    "metadata": {
+      "field_number": 31.0,
+      "required": "Yes",
+      "format": "Decimal",
+      "notes": "Total gross weight."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Net Weight (kg)",
+    "content": "Field 32.0: Net Weight (kg) - Net product weight. Format: Decimal. Required: Yes.",
+    "metadata": {
+      "field_number": 32.0,
+      "required": "Yes",
+      "format": "Decimal",
+      "notes": "Net product weight."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Quantity",
+    "content": "Field 33.0: Quantity - Total number of items. Format: Decimal. Required: Yes.",
+    "metadata": {
+      "field_number": 33.0,
+      "required": "Yes",
+      "format": "Decimal",
+      "notes": "Total number of items."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Unit of Measure",
+    "content": "Field 34.0: Unit of Measure - Unit (e.g. KG, LTR, NO). Format: ISO UOM. Required: Yes.",
+    "metadata": {
+      "field_number": 34.0,
+      "required": "Yes",
+      "format": "ISO UOM",
+      "notes": "Unit (e.g. KG, LTR, NO)."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "FOB Value (AUD)",
+    "content": "Field 35.0: FOB Value (AUD) - Line item value. Format: Decimal. Required: Yes.",
+    "metadata": {
+      "field_number": 35.0,
+      "required": "Yes",
+      "format": "Decimal",
+      "notes": "Line item value."
+    }
+  },
+  {
+    "type": "field_mapping",
+    "section": "Export - B957",
+    "field_name": "Container Number",
+    "content": "Field 36.0: Container Number - If containerized. Format: Text. Required: Optional.",
+    "metadata": {
+      "field_number": 36.0,
+      "required": "Optional",
+      "format": "Text",
+      "notes": "If containerized."
+    }
+  }
+]

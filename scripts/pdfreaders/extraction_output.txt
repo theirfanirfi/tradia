@@ -1,0 +1,37 @@
+=== Processing invoice.pdf ===
+[Camelot] Found 1 tables.
+-- Table 1 (Camelot) --
+       0                         1       2           3                   4                 5
+Item No.      Description of Goods HS Code    Quantity    Unit Price (USD) Total Price (USD)
+       1   Fresh Mangoes (Cat Chu)  080450 100 cartons               20.00           2000.00
+       2 Fresh Bananas (Cavendish)  080300 200 cartons               15.00           3000.00
+                                                                  Subtotal           5000.00
+                                                       Freight & Insurance            500.00
+                                                                     Total           5500.00
+[Tabula-py] Error extracting invoice.pdf: `java` command is not found from this Python process.Please ensure Java is installed and PATH is set for `java`
+[Tabula-py] Found 0 tables.
+[pdfplumber] Found 1 tables.
+-- Table 1 (pdfplumber) --
+Item No.      Description of Goods HS Code    Quantity Unit Price (USD) Total Price (USD
+       1   Fresh Mangoes (Cat Chu)  080450 100 cartons            20.00          2000.00
+       2 Fresh Bananas (Cavendish)  080300 200 cartons            15.00          3000.00
+                                                               Subtotal          5000.00
+                                                   Fre ight & Insurance           500.00
+                                                                  Total          5500.00
+[PyMuPDF] Extracted text preview (first 1000 chars):
+COMMERCIAL INVOICE Exporter: PakFruits Exports, Lahore, Pakistan Importer: Aussie Imports Pty Ltd, Sydney, Australia Invoice No.: INV-2025-001 Date: July 4, 2025 Terms of Sale: CIF Sydney, Incoterms 2020 Currency: USD Item No. Description of Goods HS Code Quantity Unit Price (USD) Total Price (USD) 1 Fresh Mangoes (Cat Chu) 080450 100 cartons 20.00 2000.00 2 Fresh Bananas (Cavendish) 080300 200 cartons 15.00 3000.00 Subtotal 5000.00 Freight & Insurance 500.00 Total 5500.00 Declaration: I hereby certify that the goods described above are of Pakistani origin and that the information provided is true and correct. Authorized Signature: ______________________ 
+[UnstructuredLoader] Error extracting invoice.pdf: No module named 'unstructured_inference'
+
+=== Processing packing_list.pdf ===
+[Camelot] Found 0 tables.
+[Tabula-py] Error extracting packing_list.pdf: `java` command is not found from this Python process.Please ensure Java is installed and PATH is set for `java`
+[Tabula-py] Found 0 tables.
+[pdfplumber] Found 1 tables.
+-- Table 1 (pdfplumber) --
+Item No.      Description of Goods HS Code Qty (Cartons) Net Wt (kg) Gross Wt (kg )Marks & Nos.
+       1   Fresh Mangoes (Cat Chu)  080450           100        4000       420M0X   -001–MX-100
+       2 Fresh Bananas (Cavendish)  080300           200        5000        525B0  N-001–BN-200
+[PyMuPDF] Extracted text preview (first 1000 chars):
+PACKING LIST Exporter: PakFruits Exports, Lahore, Pakistan Importer: Aussie Imports Pty Ltd, Sydney, Australia Packing List No.: PL-2025-001 Date: July 4, 2025 Port of Loading: Karachi, Pakistan Port of Discharge: Sydney, Australia Item No. Description of Goods HS Code Qty (Cartons) Net Wt (kg) Gross Wt (kg)Marks & Nos. 1 Fresh Mangoes (Cat Chu) 080450 100 4000 4200 MX-001–MX-100 2 Fresh Bananas (Cavendish) 080300 200 5000 5250BN-001–BN-200 
+[UnstructuredLoader] Error extracting packing_list.pdf: No module named 'unstructured_inference'
+

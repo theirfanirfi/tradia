@@ -1,0 +1,87 @@
+{
+  "header": {
+    "edn": "",                            // 1. Department file reference. OFFICIAL USE ONLY. Leave blank.
+    "reference_official_use_only": "",    // 1. OFFICIAL USE ONLY. Leave blank.
+    "your_reference": "",                 // 3. Unique reference for files & consignments (mandatory).
+    "reporting_party": {
+      "type": "",                         // 2. 'owner' or 'agent' (mandatory).
+      "id": ""                            // 4. ABN or CCID (mandatory).
+    },
+    "intended_date_of_export": "",        // 5. DD/MM/YYYY (mandatory).
+    "unique_consignment_reference": "",   // 6. Optional C-CAN number.
+    "customable_excisable_indicator": "", // 7. 'yes' or 'no' (mandatory).
+    "prescribed_goods_indicator": "",     // 8. 'yes' or 'no' (mandatory).
+    "warehouse_establishment_id": "",     // 9. Warehouse/excise place code (if excisable=yes).
+    "goods_owner": {
+      "party_id": "",                     // 10. ABN/CCID (mandatory; if agent, ≠ reporting_party.id).
+      "branch_id": ""                     // 11. Branch ID linked to goods_owner.party_id.
+    },
+    "confirming_exporter_type": "",       // 12. 'Y','N','C' (mandatory).
+    "export_goods_type": "",              // 13. 'ST','PO','SP','AB','OP','OT' (mandatory).
+    "mode_of_transport": "",              // 19. 'air','sea' (blank if PO).
+    "vessel_or_flight_id": "",            // 20. Lloyd’s or aircraft reg. (if ST/SP/AB).
+    "voyage_number": "",                  // 21. Voyage no. (if required by vessel ID).
+    "total_number_packages": null,        // 23. Mandatory if air OR (sea AND cargo_type in N,CO).
+    "total_number_containers": null,      // 24. Mandatory if sea AND cargo_type in C,CO.
+    "invoice_currency": "",               // 25. Mandatory.
+    "fob_currency": "",                   // 26. Mandatory.
+    "total_fob_value": null               // 27. Nearest dollar (mandatory).
+  },
+
+  "parties": {
+    "consignor": {
+      "name": "",                         // – (not on B957; optional)
+      "address": ""                       // – (map to ‘Contact address’ if used)
+    },
+    "consignee": {
+      "name": "",                         // 14. Mandatory.
+      "city": "",                         // 15. Mandatory.
+      "country_code": ""                  // 18. Mandatory.
+    },
+    "final_destination_country_code": ""  // 18. (same as parties.consignee.country_code)
+  },
+
+  "line_items": [
+    {
+      "line_number": null,                // 28A. Mandatory.
+      "ahecc_code": "",                   // 28. AHECC code (mandatory).
+      "goods_description": "",            // 29. Mandatory.
+      "goods_origin": {
+        "code": "",                       // 30. AU-NS, AU-TS, … or 'Foreign' (mandatory).
+        "country_codes": []               // 31. If code='Foreign', list country codes.
+      },
+      "temporary_import_number": "",      // 32. If AHECC = temporary import.
+      "net_quantity": {
+        "amount": null,                   // 33. Mandatory (NR if unit='NR').
+        "unit": ""                        // 33. Prescribed unit (KG, T, NO, NR).
+      },
+      "gross_weight": {
+        "amount": null,                   // 34. Mandatory (include immediate packaging).
+        "unit": ""                        // 34. G, KG, or T.
+      },
+      "line_fob_value": null,             // 35. Nearest dollar (mandatory).
+      "permit": {
+        "prefix": "",                     // 36. Permit prefix (if required).
+        "number": ""                      // 36. Permit number.
+      }
+    }
+  ],
+
+  "declaration": {
+    "supplementary_pages_count": null,    // # supplementary pages (excl. notes).
+    "declarant_role": "",                // owner_authorised_principal_exporter | authorised_agent
+    "entry_maker": {
+      "name": "",                        // Name of person making the entry.
+      "position": "",                    // Position in company.
+      "company_name": "",                // Company name.
+      "contact": {
+        "address": "",                   // Contact address.
+        "phone_number": "",              // Contact phone.
+        "fax_number": "",                // Contact fax.
+        "email_address": ""              // Contact email.
+      }
+    },
+    "signature": "",                     // Signature.
+    "date_signed": ""                    // DD/MM/YYYY.
+  }
+}

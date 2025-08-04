@@ -1,0 +1,62 @@
+Section,Field ID,Field Name,Description,Source Documents,Extraction Hint,Data Type,Validation Rules,Risk Flag,Required,Optional,Requirement Level,N10 Item Number,Shown on N10 Form
+A - Header,1a,Import Declaration Type,Type of declaration (s71A or S70(7) for special clearance goods),"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,,No
+A - Header,2,Owner Name,"Name of the owner/importer (individual, company, or organisation)","['Invoice', 'Purchase Order', 'Consignee Details']",Look for company or individual listed as 'Bill To' or 'Consignee',string,custom_rule,No,True,No,Always Required,,No
+A - Header,3,Owner ID,"ABN, ABN/CAC or Customs Client Identifier (CCID)","['Invoice', 'Purchase Order', 'Consignee Details']",Look for company or individual listed as 'Bill To' or 'Consignee',code/identifier,custom_rule,No,True,No,Always Required,,No
+A - Header,4,Owner Reference,Internal reference number used by the owner,"['Invoice', 'Purchase Order', 'Consignee Details']",Look for company or individual listed as 'Bill To' or 'Consignee',code/identifier,custom_rule,No,False,Yes,Conditionally Required,8,Yes
+A - Header,5,AQIS Inspection Location,Location where AQIS inspection will occur if required,[],,code/identifier,custom_rule,Yes,False,Yes,Conditionally Required,,No
+A - Header,6-10,Contact Details,"Phone, fax, and email of the owner/contact person",[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+A - Header,11,Destination Port Code,UN/Locode of the Australian destination port,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,10,Yes
+A - Header,12,Invoice Term Type,"Invoice term like FOB, CIF (Incoterms)",['Invoice'],Extract from invoice header or totals,code/identifier,custom_rule,No,True,No,Always Required,15,Yes
+A - Header,13,Valuation Date,Date of export,[],,code/identifier,custom_rule,No,True,No,Always Required,11,Yes
+A - Header,14,Header Valuation Advice Number,Advice number from Customs if valuation assistance was sought,[],,code/identifier,custom_rule,No,False,Yes,Optional,12,Yes
+A - Header,15-21,Valuation Elements,"Invoice total, overseas freight/insurance, packing, etc.",[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+A - Header,22-23,FOB or CIF,Declared Free on Board or Cost Insurance Freight amount,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+A - Header,24,Paid Under Protest,Checkbox and explanation for disputed duty payment,[],,code/identifier,custom_rule,No,False,Yes,Optional,33,Yes
+A - Header,25,Amber Statement/Reason,Reason for uncertainty if any,[],,code/identifier,custom_rule,No,False,Yes,Optional,34,Yes
+A - Header,26-27,Declaration Signature,Signature and name of person making the declaration,[],,code/identifier,custom_rule,No,False,Yes,Optional,35,Yes
+B - Transport (Air),28,Airline Code,IATA code for the airline,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Air),29,Loading Port,UN/Locode of the loading port,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,20,Yes
+B - Transport (Air),30,First Arrival Port,First Australian airport,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,21,Yes
+B - Transport (Air),31,Discharge Port,Port where goods are unloaded,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,22,Yes
+B - Transport (Air),32,First Arrival Date,Date of first arrival in Australia,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Air),33,Gross Weight,Total weight including packaging,"['Packing List', 'Invoice']",Look for total package weight,code/identifier,custom_rule,No,True,No,Always Required,28,Yes
+B - Transport (Air),34,Gross Weight Unit,Unit for gross weight,"['Packing List', 'Invoice']",Look for total package weight,code/identifier,custom_rule,No,True,No,Always Required,29,Yes
+B - Transport (Air),35,Line Number,Transport line number,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Air),36,Master Air Waybill No.,Airline-issued master AWB number,['Air Waybill (MAWB/HAWB)'],"Look for IATA number format (e.g., 123-45678901)",code/identifier,custom_rule,No,True,No,Always Required,25,Yes
+B - Transport (Air),37,House Air Waybill No.,House AWB from freight forwarder,['Air Waybill (MAWB/HAWB)'],"Look for IATA number format (e.g., 123-45678901)",code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Air),38,Number of Packages,Count of packages,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,27,Yes
+B - Transport (Air),39,Marks & Numbers Description,Package identifiers/labels,[],,string,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),40,Vessel Name,Name of the ship,[],,string,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),41,Vessel ID,Ship's Lloyd ID or Customs code,[],,code/identifier,custom_rule,No,False,Yes,Optional,23,Yes
+B - Transport (Sea),42,Voyage Number,Ship's voyage number,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,24,Yes
+B - Transport (Sea),43,Loading Port,UN/Locode of sea loading port,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,20,Yes
+B - Transport (Sea),44,First Arrival Port,First Australian sea port,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,21,Yes
+B - Transport (Sea),45,Discharge Port,Port where goods were unloaded,"['Air Waybill', 'Bill of Lading']",UN/Locode or city/port name where goods entered or departed,code/identifier,custom_rule,No,True,No,Always Required,22,Yes
+B - Transport (Sea),46,First Arrival Date,Date of arrival in Australia,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),47,Gross Weight,Total weight of sea cargo,"['Packing List', 'Invoice']",Look for total package weight,code/identifier,custom_rule,No,True,No,Always Required,28,Yes
+B - Transport (Sea),48,Gross Weight Unit,Weight unit,"['Packing List', 'Invoice']",Look for total package weight,code/identifier,custom_rule,No,True,No,Always Required,29,Yes
+B - Transport (Sea),49,Line Number,Line reference,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),50,Cargo Type,"Containerised, bulk, etc.",[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),51,Container Number,Container ID,['Bill of Lading'],Container ID format: ABCD1234567,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),52,Ocean Bill of Lading No.,Shipping line document,['Bill of Lading (Ocean BOL)'],Search for containerized shipping document numbers,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),53,House Bill of Lading No.,Issued by freight forwarder,['Bill of Lading (Ocean BOL)'],Search for containerized shipping document numbers,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+B - Transport (Sea),54,Number of Packages,Package count,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,27,Yes
+B - Transport (Sea),55,Marks & Numbers Description,Package labels or IDs,[],,string,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,66,Line Number,Unique identifier for the tariff line item,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,67,Tariff Classification,Customs Tariff Act classification code for the goods,"['Invoice', 'Packing List', 'Customs Tariff Book']",Product description as declared to Customs,code/identifier,custom_rule,No,False,Yes,Conditionally Required,51,Yes
+C - Tariff,68,Goods Description,Description of goods as per invoice,"['Invoice', 'Packing List', 'Customs Tariff Book']",Product description as declared to Customs,string,custom_rule,No,False,Yes,Conditionally Required,53,Yes
+C - Tariff,69,Quantity,Number of goods in the shipment,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,54,Yes
+C - Tariff,70,Unit of Quantity,"Measurement unit used (e.g., KG, LTR)",[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,54,Yes
+C - Tariff,71,Customs Value,Value of goods for customs purposes,['Invoice'],"Monetary values, converted to AUD if needed",code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,72,FOB Value,Free on Board value if applicable,['Invoice'],"Monetary values, converted to AUD if needed",code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,73,CIF Value,"Cost, Insurance and Freight value",['Invoice'],"Monetary values, converted to AUD if needed",code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,74,Origin Country Code,Code for country of origin,"['Invoice', 'Shipping Documents']",Country of origin for goods,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,75,Preference Rule Type,Type of tariff preference rule applied,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,76,Preference Scheme Type,Specific trade agreement or scheme applied,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,77,Tariff Instrument,Concession or licensing instrument if applicable,"['Invoice', 'Packing List', 'Customs Tariff Book']",Product description as declared to Customs,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff,78,Additional Information,Any other relevant comments or DAFF producer code,[],,code/identifier,custom_rule,No,False,Yes,Conditionally Required,,No
+C - Tariff Details,51,Tariff Classification Code,8-digit HS code describing the goods,"Commercial Invoice, Packing List",Usually appears next to item description or tariff reference,code,"Must be 8 digits, numeric",Yes,True,No,Always Required,51,Yes
+C - Tariff Details,53,Goods Description,Detailed description of the item being imported,Commercial Invoice,Usually next to quantity and HS code,string,Must match tariff description as per ICS rules,Yes,True,No,Always Required,53,Yes
+C - Tariff Details,54,Quantity,Declared quantity of the item,"Invoice, Packing List",Appears as unit count or weight,numeric,Positive numeric,No,True,No,Always Required,54,Yes
+C - Tariff Details,56,Unit of Measure,Measurement unit for declared quantity,Invoice,"Often abbreviated (e.g., KG, LTR, EA)",code,ICS unit of measure codes,No,True,No,Always Required,56,Yes
+C - Tariff Details,59,Country of Origin,Country where the goods were produced,"Invoice, Certificate of Origin",Appears as country name or 2-letter ISO code,code,ISO 3166-1 alpha-2 country codes,Yes,True,No,Always Required,30,Yes

@@ -1,0 +1,534 @@
+{
+  "metadata": {
+    "form_type": "B650",
+    "description": "Import Declaration Form with N10 Field Validation Matrix",
+    "version": "1.0",
+    "source": "N10_Field_Validation_Matrix.csv"
+  },
+  "validation_schema": {
+    "header": {
+      "import_declaration_type": {
+        "n10_item_number": null,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string",
+        "allowed_values": ["s71A", "s71B"]
+      },
+      "owner_name": {
+        "n10_item_number": null,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "owner_id": {
+        "n10_item_number": null,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "owner_reference": {
+        "n10_item_number": 8,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "aqis_inspection_location": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": true,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "contact_details": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "object"
+      },
+      "destination_port_code": {
+        "n10_item_number": 10,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "invoice_term_type": {
+        "n10_item_number": 15,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "valuation_date": {
+        "n10_item_number": 11,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "date"
+      },
+      "header_valuation_advice_number": {
+        "n10_item_number": 12,
+        "required": false,
+        "requirement_level": "Optional",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "valuation_elements": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "object"
+      },
+      "fob_or_cif": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string",
+        "allowed_values": ["FOB", "CIF"]
+      },
+      "paid_under_protest": {
+        "n10_item_number": 33,
+        "required": false,
+        "requirement_level": "Optional",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "boolean"
+      },
+      "amber_statement_reason": {
+        "n10_item_number": 34,
+        "required": false,
+        "requirement_level": "Optional",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "declaration_signature": {
+        "n10_item_number": 35,
+        "required": false,
+        "requirement_level": "Optional",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      }
+    },
+    "air_transport_lines": {
+      "airline_code": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "loading_port": {
+        "n10_item_number": 20,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "first_arrival_port": {
+        "n10_item_number": 21,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "discharge_port": {
+        "n10_item_number": 22,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "first_arrival_date": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "date"
+      },
+      "gross_weight": {
+        "n10_item_number": 28,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "number"
+      },
+      "gross_weight_unit": {
+        "n10_item_number": 29,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "line_number": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "number"
+      },
+      "master_air_waybill_no": {
+        "n10_item_number": 25,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "house_air_waybill_no": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "number_of_packages": {
+        "n10_item_number": 27,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "number"
+      },
+      "marks_numbers_description": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      }
+    },
+    "sea_transport_lines": {
+      "vessel_name": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "vessel_id": {
+        "n10_item_number": 23,
+        "required": false,
+        "requirement_level": "Optional",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "voyage_number": {
+        "n10_item_number": 24,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "loading_port": {
+        "n10_item_number": 20,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "first_arrival_port": {
+        "n10_item_number": 21,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "discharge_port": {
+        "n10_item_number": 22,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "first_arrival_date": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "date"
+      },
+      "gross_weight": {
+        "n10_item_number": 28,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "number"
+      },
+      "gross_weight_unit": {
+        "n10_item_number": 29,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "line_number": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "number"
+      },
+      "cargo_type": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "container_number": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "ocean_bill_of_lading_no": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "house_bill_of_lading_no": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "number_of_packages": {
+        "n10_item_number": 27,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "number"
+      },
+      "marks_numbers_description": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      }
+    },
+    "tariff_lines": {
+      "tariff_classification": {
+        "n10_item_number": 51,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "goods_description": {
+        "n10_item_number": 53,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "quantity": {
+        "n10_item_number": 54,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "number"
+      },
+      "unit_of_measure": {
+        "n10_item_number": 54,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "country_of_origin": {
+        "n10_item_number": 30,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "ISO 3166-1 alpha-2 country codes",
+        "risk_flag": true,
+        "shown_on_n10_form": true,
+        "type": "string"
+      },
+      "customs_value": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "number"
+      },
+      "fob_value": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "number"
+      },
+      "cif_value": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "number"
+      },
+      "origin_country_code": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "preference_rule_type": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "preference_scheme_type": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "tariff_instrument": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "additional_information": {
+        "n10_item_number": null,
+        "required": false,
+        "requirement_level": "Conditionally Required",
+        "validation_rules": "custom_rule",
+        "risk_flag": false,
+        "shown_on_n10_form": false,
+        "type": "string"
+      },
+      "tariff_classification_code": {
+        "n10_item_number": 51,
+        "required": true,
+        "requirement_level": "Always Required",
+        "validation_rules": "Must be 8 digits, numeric",
+        "risk_flag": true,
+        "shown_on_n10_form": true,
+        "type": "string",
+        "pattern": "^\\d{8}$"
+      }
+    }
+  }
+} 

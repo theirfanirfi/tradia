@@ -1,0 +1,62 @@
+Section,Field Name,N10 Item Number,Required,Optional,Requirement Level,Validation Rules,Risk Flag,Shown on N10 Form
+A - Header,Import Declaration Type,,True,No,Always Required,custom_rule,No,No
+A - Header,Owner Name,,True,No,Always Required,custom_rule,No,No
+A - Header,Owner ID,,True,No,Always Required,custom_rule,No,No
+A - Header,Owner Reference,8,False,Yes,Conditionally Required,custom_rule,No,Yes
+A - Header,AQIS Inspection Location,,False,Yes,Conditionally Required,custom_rule,Yes,No
+A - Header,Contact Details,,False,Yes,Conditionally Required,custom_rule,No,No
+A - Header,Destination Port Code,10,True,No,Always Required,custom_rule,No,Yes
+A - Header,Invoice Term Type,15,True,No,Always Required,custom_rule,No,Yes
+A - Header,Valuation Date,11,True,No,Always Required,custom_rule,No,Yes
+A - Header,Header Valuation Advice Number,12,False,Yes,Optional,custom_rule,No,Yes
+A - Header,Valuation Elements,,False,Yes,Conditionally Required,custom_rule,No,No
+A - Header,FOB or CIF,,False,Yes,Conditionally Required,custom_rule,No,No
+A - Header,Paid Under Protest,33,False,Yes,Optional,custom_rule,No,Yes
+A - Header,Amber Statement/Reason,34,False,Yes,Optional,custom_rule,No,Yes
+A - Header,Declaration Signature,35,False,Yes,Optional,custom_rule,No,Yes
+B - Transport (Air),Airline Code,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Air),Loading Port,20,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),First Arrival Port,21,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),Discharge Port,22,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),First Arrival Date,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Air),Gross Weight,28,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),Gross Weight Unit,29,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),Line Number,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Air),Master Air Waybill No.,25,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Air),House Air Waybill No.,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Air),Number of Packages,27,False,Yes,Conditionally Required,custom_rule,No,Yes
+B - Transport (Air),Marks & Numbers Description,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Vessel Name,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Vessel ID,23,False,Yes,Optional,custom_rule,No,Yes
+B - Transport (Sea),Voyage Number,24,False,Yes,Conditionally Required,custom_rule,No,Yes
+B - Transport (Sea),Loading Port,20,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Sea),First Arrival Port,21,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Sea),Discharge Port,22,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Sea),First Arrival Date,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Gross Weight,28,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Sea),Gross Weight Unit,29,True,No,Always Required,custom_rule,No,Yes
+B - Transport (Sea),Line Number,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Cargo Type,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Container Number,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Ocean Bill of Lading No.,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),House Bill of Lading No.,,False,Yes,Conditionally Required,custom_rule,No,No
+B - Transport (Sea),Number of Packages,27,False,Yes,Conditionally Required,custom_rule,No,Yes
+B - Transport (Sea),Marks & Numbers Description,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Line Number,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Tariff Classification,51,False,Yes,Conditionally Required,custom_rule,No,Yes
+C - Tariff,Goods Description,53,False,Yes,Conditionally Required,custom_rule,No,Yes
+C - Tariff,Quantity,54,False,Yes,Conditionally Required,custom_rule,No,Yes
+C - Tariff,Unit of Quantity,54,False,Yes,Conditionally Required,custom_rule,No,Yes
+C - Tariff,Customs Value,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,FOB Value,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,CIF Value,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Origin Country Code,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Preference Rule Type,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Preference Scheme Type,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Tariff Instrument,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff,Additional Information,,False,Yes,Conditionally Required,custom_rule,No,No
+C - Tariff Details,Tariff Classification Code,51,True,No,Always Required,"Must be 8 digits, numeric",Yes,Yes
+C - Tariff Details,Goods Description,53,True,No,Always Required,Must match tariff description as per ICS rules,Yes,Yes
+C - Tariff Details,Quantity,54,True,No,Always Required,Positive numeric,No,Yes
+C - Tariff Details,Unit of Measure,56,True,No,Always Required,ICS unit of measure codes,No,Yes
+C - Tariff Details,Country of Origin,30,True,No,Always Required,ISO 3166-1 alpha-2 country codes,Yes,Yes

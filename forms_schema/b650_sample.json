@@ -1,0 +1,505 @@
+{
+  "header": {
+    // Field ID: 1a - Import Declaration Type
+    // Description: Type of declaration (s71A or S70(7) for special clearance goods)
+    // Source: Air Waybill, Bill of Lading
+    // Required: Always Required
+    // Validation: Must be either "s71A" or "s71B"
+    // Risk: No
+    "import_declaration_type": "s71A",
+    
+    // Field ID: 2 - Owner Name  
+    // Description: Name of the owner/importer (individual, company, or organisation)
+    // Source: Invoice, Purchase Order, Consignee Details
+    // Required: Always Required
+    // Extraction Hint: Look for company or individual listed as 'Bill To' or 'Consignee'
+    // Risk: No
+    "owner_name": null,
+    
+    // Field ID: 3 - Owner ID
+    // Description: ABN, ABN/CAC or Customs Client Identifier (CCID)
+    // Source: Invoice, Purchase Order, Consignee Details
+    // Required: Always Required
+    // Data Type: code/identifier
+    // Risk: No
+    "owner_id": null,
+    
+    // Field ID: 4 - Owner Reference
+    // Description: Internal reference number used by the owner
+    // Source: Invoice, Purchase Order, Consignee Details
+    // Required: Conditionally Required
+    // N10 Item Number: 8
+    // Shown on N10 Form: Yes
+    // Risk: No
+    "owner_reference": null,
+    
+    // Field ID: 5 - AQIS Inspection Location
+    // Description: Location where AQIS inspection will occur if required
+    // Required: Conditionally Required
+    // Data Type: code/identifier
+    // Risk: Yes (High Risk Field)
+    "aqis_inspection_location": null,
+    
+    // Field ID: 6-10 - Contact Details
+    // Description: Phone, fax, and email of the owner/contact person
+    // Required: Conditionally Required
+    // Data Type: object
+    // Risk: No
+    "contact_details": null,
+    
+    // Field ID: 11 - Destination Port Code
+    // Description: UN/Locode of the Australian destination port
+    // Source: Air Waybill, Bill of Lading
+    // Required: Always Required
+    // N10 Item Number: 10
+    // Shown on N10 Form: Yes
+    // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+    // Risk: No
+    "destination_port_code": null,
+    
+    // Field ID: 12 - Invoice Term Type
+    // Description: Invoice term like FOB, CIF (Incoterms)
+    // Source: Invoice
+    // Required: Always Required
+    // N10 Item Number: 15
+    // Shown on N10 Form: Yes
+    // Extraction Hint: Extract from invoice header or totals
+    // Risk: No
+    "invoice_term_type": null,
+    
+    // Field ID: 13 - Valuation Date
+    // Description: Date of export
+    // Required: Always Required
+    // N10 Item Number: 11
+    // Shown on N10 Form: Yes
+    // Data Type: date
+    // Risk: No
+    "valuation_date": null,
+    
+    // Field ID: 14 - Header Valuation Advice Number
+    // Description: Advice number from Customs if valuation assistance was sought
+    // Required: Optional
+    // N10 Item Number: 12
+    // Shown on N10 Form: Yes
+    // Risk: No
+    "header_valuation_advice_number": null,
+    
+    // Field ID: 15-21 - Valuation Elements
+    // Description: Invoice total, overseas freight/insurance, packing, etc.
+    // Required: Conditionally Required
+    // Data Type: object
+    // Risk: No
+    "valuation_elements": null,
+    
+    // Field ID: 22-23 - FOB or CIF
+    // Description: Declared Free on Board or Cost Insurance Freight amount
+    // Required: Conditionally Required
+    // Validation: Must be either "FOB" or "CIF"
+    // Risk: No
+    "fob_or_cif": null,
+    
+    // Field ID: 24 - Paid Under Protest
+    // Description: Checkbox and explanation for disputed duty payment
+    // Required: Optional
+    // N10 Item Number: 33
+    // Shown on N10 Form: Yes
+    // Data Type: boolean
+    // Risk: No
+    "paid_under_protest": null,
+    
+    // Field ID: 25 - Amber Statement/Reason
+    // Description: Reason for uncertainty if any
+    // Required: Optional
+    // N10 Item Number: 34
+    // Shown on N10 Form: Yes
+    // Risk: No
+    "amber_statement_reason": null,
+    
+    // Field ID: 26-27 - Declaration Signature
+    // Description: Signature and name of person making the declaration
+    // Required: Optional
+    // N10 Item Number: 35
+    // Shown on N10 Form: Yes
+    // Risk: No
+    "declaration_signature": null
+  },
+  "air_transport_lines": [
+    {
+      // Field ID: 28 - Airline Code
+      // Description: IATA code for the airline
+      // Required: Conditionally Required
+      // Data Type: code/identifier
+      // Risk: No
+      "airline_code": null,
+      
+      // Field ID: 29 - Loading Port
+      // Description: UN/Locode of the loading port
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 20
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "loading_port": null,
+      
+      // Field ID: 30 - First Arrival Port
+      // Description: First Australian airport
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 21
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "first_arrival_port": null,
+      
+      // Field ID: 31 - Discharge Port
+      // Description: Port where goods are unloaded
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 22
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "discharge_port": null,
+      
+      // Field ID: 32 - First Arrival Date
+      // Description: Date of first arrival in Australia
+      // Required: Conditionally Required
+      // Data Type: date
+      // Risk: No
+      "first_arrival_date": null,
+      
+      // Field ID: 33 - Gross Weight
+      // Description: Total weight including packaging
+      // Source: Packing List, Invoice
+      // Required: Always Required
+      // N10 Item Number: 28
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Look for total package weight
+      // Data Type: number
+      // Risk: No
+      "gross_weight": null,
+      
+      // Field ID: 34 - Gross Weight Unit
+      // Description: Unit for gross weight
+      // Source: Packing List, Invoice
+      // Required: Always Required
+      // N10 Item Number: 29
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Look for total package weight
+      // Risk: No
+      "gross_weight_unit": null,
+      
+      // Field ID: 35 - Line Number
+      // Description: Transport line number
+      // Required: Conditionally Required
+      // Data Type: number
+      // Risk: No
+      "line_number": null,
+      
+      // Field ID: 36 - Master Air Waybill No.
+      // Description: Airline-issued master AWB number
+      // Source: Air Waybill (MAWB/HAWB)
+      // Required: Always Required
+      // N10 Item Number: 25
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Look for IATA number format (e.g., 123-45678901)
+      // Risk: No
+      "master_air_waybill_no": null,
+      
+      // Field ID: 37 - House Air Waybill No.
+      // Description: House AWB from freight forwarder
+      // Source: Air Waybill (MAWB/HAWB)
+      // Required: Conditionally Required
+      // Extraction Hint: Look for IATA number format (e.g., 123-45678901)
+      // Risk: No
+      "house_air_waybill_no": null,
+      
+      // Field ID: 38 - Number of Packages
+      // Description: Count of packages
+      // Required: Conditionally Required
+      // N10 Item Number: 27
+      // Shown on N10 Form: Yes
+      // Data Type: number
+      // Risk: No
+      "number_of_packages": null,
+      
+      // Field ID: 39 - Marks & Numbers Description
+      // Description: Package identifiers/labels
+      // Required: Conditionally Required
+      // Data Type: string
+      // Risk: No
+      "marks_numbers_description": null
+    }
+  ],
+  "sea_transport_lines": [
+    {
+      // Field ID: 40 - Vessel Name
+      // Description: Name of the ship
+      // Required: Conditionally Required
+      // Data Type: string
+      // Risk: No
+      "vessel_name": null,
+      
+      // Field ID: 41 - Vessel ID
+      // Description: Ship's Lloyd ID or Customs code
+      // Required: Optional
+      // N10 Item Number: 23
+      // Shown on N10 Form: Yes
+      // Data Type: code/identifier
+      // Risk: No
+      "vessel_id": null,
+      
+      // Field ID: 42 - Voyage Number
+      // Description: Ship's voyage number
+      // Required: Conditionally Required
+      // N10 Item Number: 24
+      // Shown on N10 Form: Yes
+      // Data Type: code/identifier
+      // Risk: No
+      "voyage_number": null,
+      
+      // Field ID: 43 - Loading Port
+      // Description: UN/Locode of sea loading port
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 20
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "loading_port": null,
+      
+      // Field ID: 44 - First Arrival Port
+      // Description: First Australian sea port
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 21
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "first_arrival_port": null,
+      
+      // Field ID: 45 - Discharge Port
+      // Description: Port where goods were unloaded
+      // Source: Air Waybill, Bill of Lading
+      // Required: Always Required
+      // N10 Item Number: 22
+      // Shown on N10 Form: Yes
+      // Extraction Hint: UN/Locode or city/port name where goods entered or departed
+      // Risk: No
+      "discharge_port": null,
+      
+      // Field ID: 46 - First Arrival Date
+      // Description: Date of arrival in Australia
+      // Required: Conditionally Required
+      // Data Type: date
+      // Risk: No
+      "first_arrival_date": null,
+      
+      // Field ID: 47 - Gross Weight
+      // Description: Total weight of sea cargo
+      // Source: Packing List, Invoice
+      // Required: Always Required
+      // N10 Item Number: 28
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Look for total package weight
+      // Data Type: number
+      // Risk: No
+      "gross_weight": null,
+      
+      // Field ID: 48 - Gross Weight Unit
+      // Description: Weight unit
+      // Source: Packing List, Invoice
+      // Required: Always Required
+      // N10 Item Number: 29
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Look for total package weight
+      // Risk: No
+      "gross_weight_unit": null,
+      
+      // Field ID: 49 - Line Number
+      // Description: Line reference
+      // Required: Conditionally Required
+      // Data Type: number
+      // Risk: No
+      "line_number": null,
+      
+      // Field ID: 50 - Cargo Type
+      // Description: Containerised, bulk, etc.
+      // Required: Conditionally Required
+      // Data Type: code/identifier
+      // Risk: No
+      "cargo_type": null,
+      
+      // Field ID: 51 - Container Number
+      // Description: Container ID
+      // Source: Bill of Lading
+      // Required: Conditionally Required
+      // Extraction Hint: Container ID format: ABCD1234567
+      // Risk: No
+      "container_number": null,
+      
+      // Field ID: 52 - Ocean Bill of Lading No.
+      // Description: Shipping line document
+      // Source: Bill of Lading (Ocean BOL)
+      // Required: Conditionally Required
+      // Extraction Hint: Search for containerized shipping document numbers
+      // Risk: No
+      "ocean_bill_of_lading_no": null,
+      
+      // Field ID: 53 - House Bill of Lading No.
+      // Description: Issued by freight forwarder
+      // Source: Bill of Lading (Ocean BOL)
+      // Required: Conditionally Required
+      // Extraction Hint: Search for containerized shipping document numbers
+      // Risk: No
+      "house_bill_of_lading_no": null,
+      
+      // Field ID: 54 - Number of Packages
+      // Description: Package count
+      // Required: Conditionally Required
+      // N10 Item Number: 27
+      // Shown on N10 Form: Yes
+      // Data Type: number
+      // Risk: No
+      "number_of_packages": null,
+      
+      // Field ID: 55 - Marks & Numbers Description
+      // Description: Package labels or IDs
+      // Required: Conditionally Required
+      // Data Type: string
+      // Risk: No
+      "marks_numbers_description": null
+    }
+  ],
+  "tariff_lines": [
+    {
+      // Field ID: 67 - Tariff Classification
+      // Description: Customs Tariff Act classification code for the goods
+      // Source: Invoice, Packing List, Customs Tariff Book
+      // Required: Conditionally Required
+      // N10 Item Number: 51
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Product description as declared to Customs
+      // Risk: No
+      "tariff_classification": null,
+      
+      // Field ID: 68 - Goods Description
+      // Description: Description of goods as per invoice
+      // Source: Invoice, Packing List, Customs Tariff Book
+      // Required: Conditionally Required
+      // N10 Item Number: 53
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Product description as declared to Customs
+      // Data Type: string
+      // Risk: No
+      "goods_description": null,
+      
+      // Field ID: 69 - Quantity
+      // Description: Number of goods in the shipment
+      // Required: Conditionally Required
+      // N10 Item Number: 54
+      // Shown on N10 Form: Yes
+      // Data Type: number
+      // Risk: No
+      "quantity": null,
+      
+      // Field ID: 70 - Unit of Quantity
+      // Description: Measurement unit used (e.g., KG, LTR)
+      // Required: Conditionally Required
+      // N10 Item Number: 54
+      // Shown on N10 Form: Yes
+      // Data Type: string
+      // Risk: No
+      "unit_of_measure": null,
+      
+      // Field ID: 59 - Country of Origin
+      // Description: Country where the goods were produced
+      // Source: Invoice, Certificate of Origin
+      // Required: Always Required
+      // N10 Item Number: 30
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Appears as country name or 2-letter ISO code
+      // Validation: ISO 3166-1 alpha-2 country codes
+      // Risk: Yes (High Risk Field)
+      "country_of_origin": null,
+      
+      // Field ID: 71 - Customs Value
+      // Description: Value of goods for customs purposes
+      // Source: Invoice
+      // Required: Conditionally Required
+      // Extraction Hint: Monetary values, converted to AUD if needed
+      // Data Type: number
+      // Risk: No
+      "customs_value": null,
+      
+      // Field ID: 72 - FOB Value
+      // Description: Free on Board value if applicable
+      // Source: Invoice
+      // Required: Conditionally Required
+      // Extraction Hint: Monetary values, converted to AUD if needed
+      // Data Type: number
+      // Risk: No
+      "fob_value": null,
+      
+      // Field ID: 73 - CIF Value
+      // Description: Cost, Insurance and Freight value
+      // Source: Invoice
+      // Required: Conditionally Required
+      // Extraction Hint: Monetary values, converted to AUD if needed
+      // Data Type: number
+      // Risk: No
+      "cif_value": null,
+      
+      // Field ID: 74 - Origin Country Code
+      // Description: Code for country of origin
+      // Source: Invoice, Shipping Documents
+      // Required: Conditionally Required
+      // Extraction Hint: Country of origin for goods
+      // Data Type: code/identifier
+      // Risk: No
+      "origin_country_code": null,
+      
+      // Field ID: 75 - Preference Rule Type
+      // Description: Type of tariff preference rule applied
+      // Required: Conditionally Required
+      // Data Type: code/identifier
+      // Risk: No
+      "preference_rule_type": null,
+      
+      // Field ID: 76 - Preference Scheme Type
+      // Description: Specific trade agreement or scheme applied
+      // Required: Conditionally Required
+      // Data Type: code/identifier
+      // Risk: No
+      "preference_scheme_type": null,
+      
+      // Field ID: 77 - Tariff Instrument
+      // Description: Concession or licensing instrument if applicable
+      // Source: Invoice, Packing List, Customs Tariff Book
+      // Required: Conditionally Required
+      // Extraction Hint: Product description as declared to Customs
+      // Risk: No
+      "tariff_instrument": null,
+      
+      // Field ID: 78 - Additional Information
+      // Description: Any other relevant comments or DAFF producer code
+      // Required: Conditionally Required
+      // Data Type: string
+      // Risk: No
+      "additional_information": null,
+      
+      // Field ID: 51 - Tariff Classification Code
+      // Description: 8-digit HS code describing the goods
+      // Source: Commercial Invoice, Packing List
+      // Required: Always Required
+      // N10 Item Number: 51
+      // Shown on N10 Form: Yes
+      // Extraction Hint: Usually appears next to item description or tariff reference
+      // Validation: Must be 8 digits, numeric
+      // Pattern: ^\d{8}$
+      // Risk: Yes (High Risk Field)
+      "tariff_classification_code": null
+    }
+  ]
+}
