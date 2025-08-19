@@ -9,6 +9,7 @@ from models import UserDocument, UserProcessItem, UserProcess, ProcessStatus
 from config.database import SessionLocal
 from sqlalchemy.orm import Session
 from celery.utils.log import get_task_logger
+from utils.regex import get_numbers
 
 
 # Initialize Celery
@@ -33,6 +34,7 @@ def process_documents(process_id: str, document_ids: List[str]):
     """Background task to process uploaded documents"""
     db = SessionLocal()
     print('documents processing')
+    process = None
     
     try:
         # Update process status to 'extracting'
@@ -75,20 +77,21 @@ def process_documents(process_id: str, document_ids: List[str]):
                     db.commit()
                     
                     
-            #         # Extract items from LLM response
-            #         if 'items' in llm_response:
-            #             for item_data in llm_response['items']:
-            #                 item = UserProcessItem(
-            #                     process_id=process_id,
-            #                     item_title=item_data.get('item_title', 'Unknown Item'),
-            #                     item_description=item_data.get('item_description'),
-            #                     item_type=item_data.get('item_type'),
-            #                     item_weight=item_data.get('item_weight'),
-            #                     item_weight_unit=item_data.get('item_weight_unit', 'kg'),
-            #                     item_price=item_data.get('item_price'),
-            #                     item_currency=item_data.get('item_currency', 'AUD')
-            #                 )
-            #                 db.add(item)
+                    # Extract items from LLM response
+                    if 'items' in llm_response:
+                        for item_data in llm_response['items']:
+                            item = UserProcessItem(
+                                process_id=process_id,
+                                document_id=document.document_id,
+                                item_title=item_data.get('item_title', 'Unknown Item'),
+                                item_description=item_data.get('item_description'),
+                                item_type=item_data.get('item_type'),
+                                item_weight=get_numbers(item_data.get('item_weight')),
+                                item_weight_unit=item_data.get('item_weight_unit', 'kg'),
+                                item_price=get_numbers(item_data.get('item_price')),
+                                item_currency=item_data.get('item_currency', 'AUD')
+                            )
+                            db.add(item)
                 
                 db.commit()
                 

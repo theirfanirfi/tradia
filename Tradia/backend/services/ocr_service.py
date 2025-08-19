@@ -60,6 +60,8 @@ class OCRService:
         for img in images:
             ocr_text = pytesseract.image_to_string(img, lang="eng")
             ocr_text_content.append(ocr_text)
+        
+        return ocr_text_content
 
         print("OCR Text Content:", ocr_text_content)
         # 3. Merge results — prefer real text, fallback to OCR

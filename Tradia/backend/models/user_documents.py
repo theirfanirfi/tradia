@@ -21,3 +21,4 @@ class UserDocument(Base):
     
     # Relationships
     process = relationship("UserProcess", back_populates="documents")
+    items = relationship("UserProcessItem", back_populates="document", cascade="all, delete-orphan")
