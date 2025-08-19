@@ -1,0 +1,1 @@
+DELETE FROM tradia_db.public.user_documents;

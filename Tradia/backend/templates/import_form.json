@@ -1,0 +1,78 @@
+{
+  "exporter_name": {
+    "field_type": "text",
+    "label": "Exporter Name",
+    "required": true,
+    "max_length": 255,
+    "default": ""
+  },
+  "importer_name": {
+    "field_type": "text",
+    "label": "Importer Name",
+    "required": true,
+    "max_length": 255,
+    "default": ""
+  },
+  "port_of_loading": {
+    "field_type": "text",
+    "label": "Port of Loading",
+    "required": true,
+    "max_length": 100,
+    "default": ""
+  },
+  "port_of_discharge": {
+    "field_type": "text",
+    "label": "Port of Discharge",
+    "required": true,
+    "max_length": 100,
+    "default": ""
+  },
+  "total_weight": {
+    "field_type": "number",
+    "label": "Total Weight (kg)",
+    "required": true,
+    "min_value": 0,
+    "max_value": 999999.999,
+    "decimal_places": 3,
+    "default": 0
+  },
+  "total_value": {
+    "field_type": "number",
+    "label": "Total Value (AUD)",
+    "required": true,
+    "min_value": 0,
+    "max_value": 999999999.99,
+    "decimal_places": 2,
+    "default": 0
+  },
+  "customs_value": {
+    "field_type": "number",
+    "label": "Customs Value (AUD)",
+    "required": false,
+    "min_value": 0,
+    "max_value": 999999999.99,
+    "decimal_places": 2,
+    "default": 0
+  },
+  "country_of_origin": {
+    "field_type": "text",
+    "label": "Country of Origin",
+    "required": true,
+    "max_length": 100,
+    "default": ""
+  },
+  "transport_mode": {
+    "field_type": "select",
+    "label": "Mode of Transport",
+    "required": true,
+    "options": ["Sea", "Air", "Road", "Rail"],
+    "default": "Sea"
+  },
+  "declaration_type": {
+    "field_type": "select",
+    "label": "Declaration Type",
+    "required": true,
+    "options": ["Full", "Simplified", "Temporary"],
+    "default": "Full"
+  }
+}
