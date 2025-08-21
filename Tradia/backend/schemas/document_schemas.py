@@ -2,6 +2,7 @@ from pydantic import BaseModel, UUID4
 from typing import Optional, List
 from datetime import datetime
 
+from schemas.item_schemas import ItemListResponse
 from schemas.process_schemas import ProcessResponse
 
 
@@ -24,6 +25,10 @@ class DocumentListResponse(BaseModel):
     documents: List[DocumentResponse]
     process: ProcessResponse
     total: int
+
+class DocumentItemListResponse(BaseModel):
+    document: DocumentResponse
+    items: ItemListResponse
 
 
 class DocumentUploadResponse(BaseModel):

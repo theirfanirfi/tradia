@@ -3,11 +3,14 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
+from models.user_process_items import UserProcessItem
+from schemas.item_schemas import ItemListResponse, ItemResponse
 from schemas.process_schemas import ProcessResponse
 from models import ProcessStatus
 from config.database import get_db
 from models import UserDocument, UserProcess
 from schemas.document_schemas import (
+    DocumentItemListResponse,
     DocumentResponse,
     DocumentListResponse,
     DocumentUploadResponse
@@ -157,4 +160,36 @@ async def delete_document(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to delete document: {str(e)}"
+        )
+
+@router.get("/{document_id}/items", response_model=DocumentItemListResponse)
+def get_document_with_items(
+    document_id: str,
+    db: Session = Depends(get_db)
+):
+    """GET a document"""
+    document = db.query(UserDocument).filter(UserDocument.document_id == document_id).first()
+    if not document:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Document not found"
+        )
+    
+    try:
+        # GET document items
+        items = db.query(UserProcessItem).filter(UserProcessItem.document_id == document_id).all()
+        
+        return DocumentItemListResponse(
+            document=DocumentResponse.from_orm(document),
+            items=ItemListResponse(
+                items=[ItemResponse.from_orm(item) for item in items],
+                total=len(items)
+            )
+        )
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to load document's items: {str(e)}"
         )
