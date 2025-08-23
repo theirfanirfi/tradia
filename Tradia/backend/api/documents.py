@@ -1,4 +1,6 @@
+from pathlib import Path
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
+from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from typing import List
 import uuid
@@ -18,11 +20,39 @@ from schemas.document_schemas import (
 from services.file_service import file_service
 from services.ocr_service import ocr_service
 from services.llm_service import llm_service
-from tasks.background_tasks import process_documents
+from tasks.background_tasks import process_documents, task_retry_item_extraction_from_document
 from utils.validators import validate_file_upload
+UPLOADS_ROOT = Path("./uploads").resolve()
+
 
 router = APIRouter(prefix="/api/documents", tags=["documents"])
+@router.post("/retry-item-extraction/{document_id}")
+async def retry_item_extraction_from_document(
+    document_id: str,
+    db: Session = Depends(get_db)
+):
+    """Retry item extraction for a single document: re-OCR and re-run LLM extraction."""
+    document = db.query(UserDocument).filter(UserDocument.document_id == document_id).first()
+    if not document:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Document not found"
+        )
 
+    # Re-extract OCR text
+    ocr_text = ocr_service.extract_text_hybrid(document.file_path)
+    if not ocr_text:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="OCR extraction failed"
+        )
+    document.ocr_text = ocr_text
+    db.commit()
+
+    # Trigger background LLM extraction for this document
+    task_retry_item_extraction_from_document.delay(document_id)
+
+    return {"status":"success","message": "Retry extraction started", "document_id": document_id}
 
 @router.post("/upload/{process_id}", response_model=DocumentUploadResponse)
 async def upload_documents(
@@ -193,3 +223,33 @@ def get_document_with_items(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to load document's items: {str(e)}"
         )
+
+
+@router.get("/{document_id}/pdf")
+def get_document_pdf(document_id: str, db: Session = Depends(get_db)):
+    # look up the document, same as your items route
+    doc = (
+        db.query(UserDocument)
+        .filter(UserDocument.document_id == document_id)
+        .first()
+    )
+    if not doc:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    # Resolve and validate path
+    # Your DB stores something like "./uploads/default/filename.pdf"
+    file_path = Path(doc.file_path).expanduser().resolve()
+
+    # Guard against path traversal and ensure it's under uploads/
+    if not str(file_path).startswith(str(UPLOADS_ROOT)):
+        raise HTTPException(status_code=400, detail="Illegal file path")
+
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="File not found on disk")
+
+    # FileResponse supports range requests (seek) for PDFs
+    return FileResponse(
+        path=file_path,
+        media_type="application/pdf",
+        headers={"Content-Disposition": f'inline; filename="{file_path.name}"'},
+    )

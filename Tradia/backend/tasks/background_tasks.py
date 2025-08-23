@@ -10,6 +10,7 @@ from config.database import SessionLocal
 from sqlalchemy.orm import Session
 from celery.utils.log import get_task_logger
 from utils.regex import get_numbers
+from llm_response_formats.items_extraction_format import RESPONSE_FORMAT
 
 
 # Initialize Celery
@@ -53,7 +54,7 @@ def process_documents(process_id: str, document_ids: List[str]):
                     print('document not found')
                 
                 # OCR extraction
-                ocr_text = ocr_service.extract_text_hybrid(document.file_path)
+                ocr_text = ocr_service.extract_complete_document_content(document.file_path)
                 if ocr_text:
                     document.ocr_text = ocr_text
                 
@@ -66,7 +67,8 @@ def process_documents(process_id: str, document_ids: List[str]):
                 llm_response = llm_service.process_item_extract_document(
                     ocr_text, 
                     process_id,
-                    "import"  # Default to import, can be enhanced
+                    "import",  # Default to import, can be enhanced
+                    response_format=RESPONSE_FORMAT
                 )
                 print(f"LLM response: {llm_response}")
                 
@@ -126,3 +128,75 @@ def cleanup_temp_files():
 
 # Import func for database operations
 from sqlalchemy.sql import func
+
+@celery_app.task
+def task_retry_item_extraction_from_document(document_id: str):
+    """Background task to retry item extraction for a single document."""
+    db = SessionLocal()
+    try:
+        document = db.query(UserDocument).filter(UserDocument.document_id == document_id).first()
+        if not document:
+            print(f"Document {document_id} not found for retry.")
+            return {"status": "error", "message": "Document not found"}
+
+        process_id = document.process_id
+        # process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+        # if process:
+        #     process.status = ProcessStatus.EXTRACTING
+        #     db.commit()
+
+        # Use the latest OCR text
+        ocr_text = document.ocr_text
+        if not ocr_text:
+            print(f"No OCR text for document {document_id}.")
+            return {"status": "error", "message": "No OCR text found"}
+
+        # LLM processing
+        llm_response = llm_service.process_item_extract_document(
+            ocr_text,
+            process_id,
+            "import",  # Default to import, can be enhanced
+            response_format=RESPONSE_FORMAT
+        )
+        print(f"LLM response (retry): {llm_response}")
+
+        if llm_response:
+            document.llm_response = llm_response
+            document.processed_at = db.query(func.now()).scalar()
+            # process.status = ProcessStatus.EXTRACTING
+            db.commit()
+
+            # Remove old items for this document
+            db.query(UserProcessItem).filter(UserProcessItem.document_id == document_id).delete()
+            db.commit()
+
+            # Extract items from LLM response
+            if 'items' in llm_response:
+                for item_data in llm_response['items']:
+                    item = UserProcessItem(
+                        process_id=process_id,
+                        document_id=document.document_id,
+                        item_title=item_data.get('item_title', 'Unknown Item'),
+                        item_description=item_data.get('item_description'),
+                        item_type=item_data.get('item_type'),
+                        item_weight=get_numbers(item_data.get('item_weight')),
+                        item_weight_unit=item_data.get('item_weight_unit', 'kg'),
+                        item_price=get_numbers(item_data.get('item_price')),
+                        item_currency=item_data.get('item_currency', 'AUD')
+                    )
+                    db.add(item)
+            db.commit()
+
+        # if process:
+        #     process.status = ProcessStatus.DONE
+        #     db.commit()
+        return {"status": "success", "message": "Retry extraction completed"}
+    except Exception as e:
+        print(f"Retry extraction error: {e}")
+        # if process:
+        #     process.status = ProcessStatus.ERROR
+        #     db.commit()
+        return {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+

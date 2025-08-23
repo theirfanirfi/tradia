@@ -10,13 +10,13 @@ class LLMService:
     def __init__(self):
         pass
 
-    def process_item_extract_document(self, ocr_text: str, process_id: str, declaration_type: str = "import") -> Dict[str, Any]:
+    def process_item_extract_document(self, ocr_text: str, process_id: str, declaration_type: str = "import", response_format: Dict[str, Any]=None) -> Dict[str, Any]:
         """Process OCR text to extract structured information"""
         try:
             # Create prompt for the LLM
             prompt_template = get_items_extraction_prompt(ocr_text, declaration_type)
             prompt = prompt_template.format(ocr_text=ocr_text, declaration_type=declaration_type)
-            response = llm._call(prompt=prompt)
+            response = llm._call(prompt=prompt, response_format=response_format)
             print(f"llm_service LLM response: {response}")
             parsed = self.items_to_json(response)
             return parsed

@@ -1,17 +1,18 @@
 import asyncio
 import httpx
-from typing import Optional, List
+from typing import Any, Optional, List
 from langchain_core.language_models.llms import LLM
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 import logging
 import json
+
+from pyparsing import Dict
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 OLLAMA_MODEL = "llama2"
-
 
 class AsyncTradiaLLM(LLM):
     """Async Custom LLM class for interacting with EC2-hosted LLM API."""
@@ -26,7 +27,9 @@ class AsyncTradiaLLM(LLM):
     ) -> str:
         """Async call to the LLM API."""
         try:
-            payload = {"prompt": prompt, "stream": False, "model": OLLAMA_MODEL}
+            payload = {"prompt": prompt, "stream": False, "model": OLLAMA_MODEL, "options": {"temperature": 0.2},
+                       
+                       }
             headers = {"Content-Type": "application/json"}
 
             # Use httpx for async HTTP requests with proper timeout
@@ -108,11 +111,13 @@ class AsyncTradiaLLM(LLM):
         prompt: str,
         stop: Optional[List[str]] = None,
         run_manager: Optional[CallbackManagerForLLMRun] = None,
+        response_format = None
     ) -> str:
             """Synchronous call to the LLM API."""
-            print(f"Calling LLM with prompt: ...")  # Log first 100 chars of prompt
+            print(f"Calling LLM with prompt: ...", response_format)  # Log first 100 chars of prompt
             try:
-                payload = {"prompt": prompt, "stream": False, "model": OLLAMA_MODEL}
+                payload = {"prompt": prompt, "stream": False, "model": OLLAMA_MODEL, "temperature": 0.2,
+                           "format": response_format}
                 headers = {"Content-Type": "application/json"}
 
                 timeout = httpx.Timeout(connect=30.0, read=300.0, write=30.0, pool=30.0)
