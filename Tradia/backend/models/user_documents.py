@@ -16,6 +16,7 @@ class UserDocument(Base):
     ocr_text = Column(Text, nullable=True)
     llm_response = Column(JSONB, nullable=True)
     process_id = Column(UUID(as_uuid=True), ForeignKey("user_process.process_id"), nullable=False)
+    document_status = Column(String(50), nullable=False, default="uploaded")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     processed_at = Column(DateTime(timezone=True), nullable=True)
     

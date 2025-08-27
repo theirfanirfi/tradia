@@ -5,6 +5,7 @@ import json
 from config.settings import settings
 from services.ocr_service import ocr_service
 from services.llm_service import llm_service
+from services.TariffClassifier import catalog
 from models import UserDocument, UserProcessItem, UserProcess, ProcessStatus
 from config.database import SessionLocal
 from sqlalchemy.orm import Session
@@ -91,7 +92,8 @@ def process_documents(process_id: str, document_ids: List[str]):
                                 item_weight=get_numbers(item_data.get('item_weight')),
                                 item_weight_unit=item_data.get('item_weight_unit', 'kg'),
                                 item_price=get_numbers(item_data.get('item_price')),
-                                item_currency=item_data.get('item_currency', 'AUD')
+                                item_currency=item_data.get('item_currency', 'AUD'),
+                                item_hs_code=catalog.predict_best(item_data.get('item_title', ''))[0].code if item_data.get('item_title') else None
                             )
                             db.add(item)
                 
@@ -182,7 +184,8 @@ def task_retry_item_extraction_from_document(document_id: str):
                         item_weight=get_numbers(item_data.get('item_weight')),
                         item_weight_unit=item_data.get('item_weight_unit', 'kg'),
                         item_price=get_numbers(item_data.get('item_price')),
-                        item_currency=item_data.get('item_currency', 'AUD')
+                        item_currency=item_data.get('item_currency', 'AUD'),
+                        item_hs_code=catalog.predict_best(item_data.get('item_title', ''))[0].code if item_data.get('item_title') else None
                     )
                     db.add(item)
             db.commit()
@@ -197,6 +200,30 @@ def task_retry_item_extraction_from_document(document_id: str):
         #     process.status = ProcessStatus.ERROR
         #     db.commit()
         return {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+
+
+#task for reclassifying items using TariffClassifier
+@celery_app.task
+def task_reclassify_items(item_id: str = None):
+    """Background task to reclassify items using TariffClassifier"""
+    db = SessionLocal()
+    print('reclassifying items task')
+    try:
+        item = db.query(UserProcessItem).filter(UserProcessItem.item_id == item_id).first()
+        if item:
+            if item.item_title:
+                predicted = catalog.predict_best(item.item_title)
+                if predicted:
+                    print('predicted:', predicted[0].code)
+                    item.item_hs_code = predicted[0].code
+        db.commit()
+
+        return True, {"status": "success", "message": f"Reclassified items."}
+    except Exception as e:
+        print(f"Reclassification error: {e}")
+        return False, {"status": "error", "message": str(e)}
     finally:
         db.close()
 

@@ -19,6 +19,7 @@ class UserProcessItem(Base):
     item_weight_unit = Column(String(10), nullable=True)
     item_price = Column(Numeric(12, 2), nullable=True)
     item_currency = Column(String(3), nullable=True)
+    item_hs_code = Column(String(15), nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
     

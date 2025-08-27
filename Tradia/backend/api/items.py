@@ -11,6 +11,7 @@ from schemas.item_schemas import (
     ItemListResponse
 )
 from utils.validators import validate_item_data
+from tasks.background_tasks import task_reclassify_items
 
 router = APIRouter(prefix="/api/items", tags=["items"])
 
@@ -105,4 +106,31 @@ async def delete_item(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to delete item: {str(e)}"
+        )
+
+# route for getting item by id and passing its to background tasks for reprocessing
+@router.post("/{item_id}/reprocess")
+async def reprocess_item(
+    item_id: str,
+    db: Session = Depends(get_db)
+):
+    """Reprocess an item using background tasks"""
+    print(f"Reprocessing item {item_id}")
+    item = db.query(UserProcessItem).filter(UserProcessItem.item_id == item_id).first()
+    if not item:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Item not found"
+        )
+    
+    try:
+        task_reclassify_items.delay(item_id=item_id)
+        return {"success":True,"message": f"Item {item_id} reprocessing initiated"}
+        
+    except Exception as e:
+        print(f"Failed to initiate reprocessing: {e}")
+        return {"success":False,"message": f"Item {item_id} reprocessing failed"}
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to initiate reprocessing: {str(e)}"
         )

@@ -34,6 +34,7 @@ class ItemResponse(BaseModel):
     item_weight_unit: Optional[str]
     item_price: Optional[Decimal]
     item_currency: Optional[str]
+    item_hs_code: Optional[str]
     created_at: datetime
     updated_at: datetime
 

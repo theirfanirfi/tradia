@@ -432,39 +432,8 @@ _DEMO_SECTION_MAP = {
     "Art/Antiques": "XXI",
 }
 
-_DEMO_ROWS = [
-    {
-        "section": "I",
-        "chapter_number": "01",
-        "chapter_title": "Live animals",
-        "table_caption": "Live horses, asses, mules and hinnies",
-        "reference_number": "0101",
-        "subheading": "LIVE HORSES, ASSES, MULES AND HINNIES:",
-        "indent_level": 0,
-        "statistical_code": "",
-        "unit": "",
-        "rate": "",
-        "tco_text": "",
-        "tco_href": "",
-    },
-    {
-        "section": "I",
-        "chapter_number": "01",
-        "chapter_title": "Live animals",
-        "table_caption": "Live horses, asses, mules and hinnies",
-        "reference_number": "0101.21.00",
-        "subheading": "-- Pure-bred breeding animals",
-        "indent_level": 1,
-        "statistical_code": "21",
-        "unit": "No",
-        "rate": "Free",
-        "tco_text": "View TCOs for 0101.21.00",
-        "tco_href": "https://www.abf.gov.au",
-    },
-]
 
-
-if __name__ == "__main__":
+# if __name__ == "__main__":
 
     #read jsonl file for the rows list
     # with open("abf_tariff_schedule3.jsonl", "r") as f:
@@ -476,9 +445,9 @@ if __name__ == "__main__":
     # catalog.build_from_rows(rows_list)
     # catalog.build_bm25()
     # catalog.build_embeddings(model_name="BAAI/bge-m3", use_cache=True)  # or "intfloat/e5-large-v2"
-    catalog = Catalog(index_dir="tradia_tariff_index")
-    catalog.load_index()
-    catalog.build_embeddings(use_cache=True)
+catalog = Catalog(index_dir="tradia_tariff_index")
+catalog.load_index()
+catalog.build_embeddings(use_cache=True)
 
-    best_entry, score = catalog.predict_best("Mosaics")
-    print(best_entry.code, best_entry.chapter_number, best_entry.heading_code, best_entry.title)
+    # best_entry, score = catalog.predict_best("GRAPPLE")
+    # print(best_entry.code, best_entry.chapter_number, best_entry.heading_code, best_entry.title)
