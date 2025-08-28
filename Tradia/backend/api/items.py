@@ -4,12 +4,14 @@ from typing import List
 
 from config.database import get_db
 from models import UserProcessItem, UserProcess
+from models.auth import User
 from schemas.item_schemas import (
     CreateItemRequest,
     UpdateItemRequest,
     ItemResponse,
     ItemListResponse
 )
+from utils.auth_dependencies import get_current_user
 from utils.validators import validate_item_data
 from tasks.background_tasks import task_reclassify_items
 
@@ -19,6 +21,7 @@ router = APIRouter(prefix="/api/items", tags=["items"])
 @router.get("/{process_id}", response_model=ItemListResponse)
 async def get_process_items(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get all items for a process"""
@@ -43,6 +46,7 @@ async def get_process_items(
 async def update_item(
     item_id: str,
     request: UpdateItemRequest,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Update an item"""
@@ -85,6 +89,7 @@ async def update_item(
 @router.delete("/{item_id}")
 async def delete_item(
     item_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Delete an item"""
@@ -112,6 +117,7 @@ async def delete_item(
 @router.post("/{item_id}/reprocess")
 async def reprocess_item(
     item_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Reprocess an item using background tasks"""

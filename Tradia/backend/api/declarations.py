@@ -4,12 +4,14 @@ from typing import Dict, Any
 
 from config.database import get_db
 from models import UserDeclaration, UserProcess, UserProcessItem
+from models.auth import User
 from schemas.declaration_schemas import (
     DeclarationResponse,
     UpdateDeclarationRequest,
     GeneratePdfResponse
 )
 from services.pdf_service import pdf_service
+from utils.auth_dependencies import get_current_user
 from utils.validators import validate_declaration_data
 
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
@@ -18,6 +20,7 @@ router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 @router.get("/{process_id}", response_model=DeclarationResponse)
 async def get_declaration(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get declaration data for a process"""
@@ -35,6 +38,7 @@ async def get_declaration(
 async def update_declaration(
     process_id: str,
     request: UpdateDeclarationRequest,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Update declaration data"""
@@ -75,6 +79,7 @@ async def update_declaration(
 @router.post("/{process_id}/generate-pdf")
 async def generate_declaration_pdf(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Generate PDF declaration form"""

@@ -2,6 +2,7 @@ from .user_process import UserProcess, ProcessStatus
 from .user_declaration import UserDeclaration, DeclarationType
 from .user_documents import UserDocument
 from .user_process_items import UserProcessItem
+from .auth import User, RefreshToken
 from sqlalchemy.orm import relationship
 
 # Establish relationships
@@ -15,5 +16,7 @@ __all__ = [
     "UserDeclaration",
     "DeclarationType",
     "UserDocument",
-    "UserProcessItem"
+    "UserProcessItem",
+    "User",
+    "RefreshToken",
 ]

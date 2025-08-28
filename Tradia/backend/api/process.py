@@ -6,12 +6,14 @@ import os
 
 from config.database import get_db
 from models import UserProcess, UserDeclaration, DeclarationType, ProcessStatus
+from models.auth import User
 from schemas.process_schemas import (
     CreateProcessRequest,
     ProcessResponse,
     ProcessStatusResponse,
     ProcessListResponse
 )
+from utils.auth_dependencies import get_current_active_user, get_current_user
 from utils.validators import validate_declaration_type
 from utils.status_manager import get_process_summary
 
@@ -21,9 +23,10 @@ router = APIRouter(prefix="/api/process", tags=["process"])
 @router.post("/create", response_model=ProcessResponse)
 async def create_process(
     request: CreateProcessRequest,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    print('request', request.declaration_type)
+    print('request', request.declaration_type, current_user)
     """Create a new declaration process"""
     try:
         # Validate declaration type
@@ -79,9 +82,11 @@ async def create_process(
 @router.get("/{process_id}", response_model=ProcessResponse)
 async def get_process(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get process details"""
+    print("current_user", current_user)
     process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
     if not process:
         raise HTTPException(
@@ -95,6 +100,7 @@ async def get_process(
 @router.get("/{process_id}/status", response_model=ProcessStatusResponse)
 async def get_process_status(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get process status and progress"""
@@ -120,9 +126,11 @@ async def get_process_status(
 async def list_processes(
     skip: int = 0,
     limit: int = 100,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """List all processes"""
+    print('current_user', current_user)
     processes = db.query(UserProcess).offset(skip).limit(limit).all()
     total = db.query(UserProcess).count()
     

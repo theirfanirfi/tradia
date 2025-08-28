@@ -14,6 +14,11 @@ class Settings(BaseSettings):
     secret_key: str = "your-secret-key-here"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
+
+    jwt_secret: str = "mysecretkey"
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: 60
+    refresh_token_expire_days: int = 30
     
     # File Storage
     storage_type: str = "local"  # local or s3

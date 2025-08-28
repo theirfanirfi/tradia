@@ -7,12 +7,11 @@ from typing import Dict
 
 from config.settings import settings
 from config.database import engine, Base
-from api import process_router, documents_router, items_router, declarations_router
+from api import process_router, documents_router, items_router, declarations_router, authRouter
 from utils.status_manager import get_process_summary
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
-
 # Initialize FastAPI app
 app = FastAPI(
     title="Australian Customs Declaration API",
@@ -34,6 +33,7 @@ app.include_router(process_router)
 app.include_router(documents_router)
 app.include_router(items_router)
 app.include_router(declarations_router)
+app.include_router(authRouter)
 
 # WebSocket connection manager
 class ConnectionManager:

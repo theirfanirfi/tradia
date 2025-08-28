@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from typing import List
 import uuid
 
+from models.auth import User
 from models.user_process_items import UserProcessItem
 from schemas.item_schemas import ItemListResponse, ItemResponse
 from schemas.process_schemas import ProcessResponse
@@ -21,6 +22,7 @@ from services.file_service import file_service
 from services.ocr_service import ocr_service
 from services.llm_service import llm_service
 from tasks.background_tasks import process_documents, task_retry_item_extraction_from_document
+from utils.auth_dependencies import get_current_user
 from utils.validators import validate_file_upload
 UPLOADS_ROOT = Path("./uploads").resolve()
 
@@ -29,6 +31,7 @@ router = APIRouter(prefix="/api/documents", tags=["documents"])
 @router.post("/retry-item-extraction/{document_id}")
 async def retry_item_extraction_from_document(
     document_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Retry item extraction for a single document: re-OCR and re-run LLM extraction."""
@@ -58,6 +61,7 @@ async def retry_item_extraction_from_document(
 async def upload_documents(
     process_id: str,
     files: List[UploadFile] = File(...),
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Upload documents for processing"""
@@ -141,6 +145,7 @@ async def upload_documents(
 @router.get("/{process_id}", response_model=DocumentListResponse)
 async def get_process_documents(
     process_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get all documents for a process"""
@@ -165,6 +170,7 @@ async def get_process_documents(
 @router.delete("/{document_id}")
 async def delete_document(
     document_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Delete a document"""
@@ -195,6 +201,7 @@ async def delete_document(
 @router.get("/{document_id}/items", response_model=DocumentItemListResponse)
 def get_document_with_items(
     document_id: str,
+    current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """GET a document"""
@@ -226,7 +233,9 @@ def get_document_with_items(
 
 
 @router.get("/{document_id}/pdf")
-def get_document_pdf(document_id: str, db: Session = Depends(get_db)):
+def get_document_pdf(document_id: str,
+                     current_user: User = Depends(get_current_user),
+                      db: Session = Depends(get_db)):
     # look up the document, same as your items route
     doc = (
         db.query(UserDocument)
