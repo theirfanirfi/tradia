@@ -39,6 +39,7 @@ async def create_process(
         # Create process
         process = UserProcess(
             process_name=request.name,
+            user_id=current_user.user_id,
             status=ProcessStatus.CREATED
         )
         db.add(process)
@@ -86,14 +87,16 @@ async def get_process(
     db: Session = Depends(get_db)
 ):
     """Get process details"""
-    print("current_user", current_user)
-    process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+    # print("current_user", current_user)
+    process = db.query(UserProcess).filter(
+        UserProcess.process_id == process_id,
+        UserProcess.user_id == current_user.user_id
+    ).first()
     if not process:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Process not found"
         )
-    
     return ProcessResponse.from_orm(process)
 
 
@@ -106,7 +109,10 @@ async def get_process_status(
     """Get process status and progress"""
     from utils.status_manager import calculate_progress
     
-    process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+    process = db.query(UserProcess).filter(
+        UserProcess.process_id == process_id,
+        UserProcess.user_id == current_user.user_id
+        ).first()
     if not process:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -131,7 +137,7 @@ async def list_processes(
 ):
     """List all processes"""
     print('current_user', current_user)
-    processes = db.query(UserProcess).offset(skip).limit(limit).all()
+    processes = db.query(UserProcess).filter(UserProcess.user_id == current_user.user_id).all()
     total = db.query(UserProcess).count()
     
     return ProcessListResponse(

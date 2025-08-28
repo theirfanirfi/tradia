@@ -20,7 +20,6 @@ from schemas.document_schemas import (
 )
 from services.file_service import file_service
 from services.ocr_service import ocr_service
-from services.llm_service import llm_service
 from tasks.background_tasks import process_documents, task_retry_item_extraction_from_document
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_file_upload
