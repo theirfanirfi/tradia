@@ -72,7 +72,8 @@ async def login(
     return TokenResponse(
         access_token=access_token,
         refresh_token=refresh_token,
-        expires_in=ACCESS_TOKEN_EXPIRE_MINUTES * 60
+        expires_in=ACCESS_TOKEN_EXPIRE_MINUTES * 60,
+        full_name=user.full_name
     )
 
 
