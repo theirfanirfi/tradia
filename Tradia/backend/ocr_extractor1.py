@@ -413,7 +413,7 @@ class OCRService:
 ocr_service = OCRService()
 
 # Complete document extraction (text + tables + OCR)
-content = ocr_service.extract_complete_document_content("document.pdf")
+content = ocr_service.extract_complete_document_content("uploads/default/default_18f82f3a-25ec-4a8d-8908-944b51fb15b6.pdf")
 print(content)
 # Use directly in your LLM prompt
 # prompt = f"Analyze this document:\n\n{content}"

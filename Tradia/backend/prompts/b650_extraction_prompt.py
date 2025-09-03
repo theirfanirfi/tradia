@@ -2,7 +2,7 @@ from langchain.prompts import PromptTemplate
 
 
 
-def get_items_extraction_prompt(ocr_text: str, declaration_type: str) -> str:
+def get_b650_extraction_prompt(ocr_text: str) -> str:
     """
     Persona + MATE engineered prompt for extracting structured data 
     from import/export documents (invoice / bill of lading).
