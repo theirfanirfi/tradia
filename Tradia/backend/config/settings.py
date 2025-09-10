@@ -27,6 +27,13 @@ class Settings(BaseSettings):
     aws_secret_access_key: Optional[str] = None
     aws_region: str = "us-east-1"
     s3_bucket: Optional[str] = None
+
+    # Ollama
+    ollama_url: str = os.getenv("OLLAMA_URL", "http://127.0.0.1:11434")
+    embed_model: str = os.getenv("EMBED_MODEL", "mxbai-embed-large:latest")
+
+    # LLM (served elsewhere via LLMService)
+    llm_model: str = os.getenv("LLM_MODEL", "llama2")
     
     # OpenAI
     openai_api_key: Optional[str] = None

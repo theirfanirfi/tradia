@@ -114,7 +114,7 @@ class AsyncTradiaLLM(LLM):
         response_format = None
     ) -> str:
             """Synchronous call to the LLM API."""
-            print(f"Calling LLM with prompt: ...", response_format)  # Log first 100 chars of prompt
+            print(f"Calling LLM with prompt: ...", prompt)  # Log first 100 chars of prompt
             try:
                 payload = {"prompt": prompt, "stream": False, "model": OLLAMA_MODEL, "temperature": 0.2,
                            "format": response_format}

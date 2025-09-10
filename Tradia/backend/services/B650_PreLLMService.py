@@ -626,114 +626,169 @@ def b650_preprocessor(text: str):
     return filtered_b650_structure
 
 
-# # Example usage
-# if __name__ == "__main__":
-#     sample_invoice = """
-#     COMMERCIAL INVOICE
+# Example usage
+if __name__ == "__main__":
+    sample_invoice = """
+   YANTAIRIMAMACHINERYCO.,LTD.XIBEIYUINDUSTRY SHBNE250400002
+ZONE,LAIZHOU,SHANDONG,CHINA
+TEL/FAX:+86-535-6805690
+AHG0233130P08
+BRADLEYTHOMAS
+ADDRESS:25MOLLERST,GORDONVALEQLD4865
+AUSTRALIA
+TEL:0481042746
+EMAIL:
+BRADLEY@THOMASARBORICULTURE.COM.AU
+ASEA360CONSOLIDATIONPTYLTD
+SAMEASCONSIGNEE
+9/2TULLAMARINEPARKROAD,TULLAMARINEVIC3043
+POBOX659,TULLAMARINEVIC3043
+TEL:+61383460166
+FAX:+61393387447
+ANLGIPPSLAND 082S SHANGHAI,CHINA
+BRISBANE,AUSTRALIA BRISBANE,AUSTRALIA
+1PKGS SAIDTOCONTAIN 237KGS 0.92CBM
+GRAPPLE
+YT250305-07 HYDRAULICROTATOR
+SEGU9412081/M1429568 40NOR
+CFS-CFS
+FREIGHTPREPAID
+OCEANFREIGHT ASARRANGED
+SAYTOTAL:ONEPKGSONLY
+SHANGHAI MAY04,2025
+SHANGHAI
+
+[OCR Text]
+Werd World Jaguar Logistics Inc.
+COMBINED TRANSPORT BILL OF LADING
+
+Shipper
+
+YANTAI RIMA MACHINERY CO., LTD, XIBETYU INDUSTRY DOC No: SHBNE250400002
+ZONE, LAIZHOU, SHANDONG, CHINA ae
+TEL/FAX:+86-535-6805690
+
+B/L No: AHG0233130P08
+
+ensignee
+RADLEYTHOMAS
+DDRESS : 25 MOLLER ST, GORDONVALE QLD 4865
+
+cst COPY
+EL:0481042746
+
+MAIL:
+RADLEY@THOMASARBORICULTURE.COM.AU
+
+Peo
+
+Bos
+
+Notify Party(Gomplete name and address) For delivery of goods Please apply to:
+SAME AS CONSIGNEE ASEA360 CONSOLIDATION PTY LTD
+9/2 TULLAMARINE PARK ROAD, TULLAMARINE VIC 3043
+PO BOX 659, TULLAMARINE VIC 3043
+TEL: +613 8346 0166
+FAX: +613 9338 7447
+
+Place of Receipt
+
+ANL GIPPSLAND 0825 Port SHANGHATCHINA
+BRISBANE AUSTRALIA Place SRISBANE, AUSTRALIA
+
+PARTICULARS FURNISHED BY SHIPPER
+
+Marks and numbers No. of pkgs Description of goods Gross weight Measurement
+1PKGS SAID TO CONTAIN 237KGS 0.92CBM
+GRAPPLE
+YT250305-07 HYDRAULIC ROTATOR,
+
+SEGU9412081/M1429568 40NOR
+
+CFS-CFS
+FREIGHT PREPAID
+FREIGHT&CHARGE REVENUE TONS RATE COLLECT
+OCEAN FREIGHT ED
+SAY TOTAL:ONE PKGS ONLY
+
+The goods and instructions are accepted and dealt with subject to the Standard Conditions printed overleaf.
+
+Taken in charge in apparent good order and condition, unless otherwise noted herein, at the place of receipt for iransport and delivery as mentioned above
+One of these Combined Transport Bills of lading must be surrendered duly endorsed in exchange for the goods. In Witness whereof the original Combined.
+Transport Bills of Lading all of this tenor and date have been signed in the number stated below, one of which being accomplished the other(s) to be void.
+
+Freight amount Place and date of issue
+SHANGHAI MAY 04, 2025
+Freight Payable at
+SHANGHAI
+
+Cargo Insurance through the undersigned
+
+not covered [1] Covered according to attached Polic
+    """
     
-#     Exporter: Shanghai Export Co. Ltd
-#     123 Export Street, Shanghai, China
-#     Phone: +86 21 1234 5678
-#     Email: export@shanghai-export.com
+    # Initialize preprocessor
+    preprocessor = B650InvoicePreprocessor()
     
-#     Importer/Consignee: Australian Import Pty Ltd
-#     ABN: 12 345 678 901
-#     456 Import Avenue
-#     Sydney, NSW 2000, Australia
-#     Phone: +61 2 9876 5432
+    # Process the invoice
+    result = preprocessor.process(sample_invoice)
+    b650_structure = preprocessor.to_b650_structure(result)
     
-#     Invoice Date: 15/03/2024
-#     Valuation Date: 15/03/2024
-#     Shipping Date: 20/03/2024
+    print("=" * 60)
+    print("B650 PREPROCESSED DATA")
+    print("=" * 60)
     
-#     Terms of Sale: FOB Shanghai
+    print("\nSECTION A - OWNER DETAILS:")
+    section_a = b650_structure["section_a_owner_details"]
+    print(f"Owner Name: {section_a['owner_name']}")
+    print(f"Owner ID (ABN): {section_a['owner_id']}")
+    print(f"Phone: {section_a['contact_details']['phone']}")
+    print(f"Email: {section_a['contact_details']['email']}")
+    print(f"Valuation Date: {section_a['valuation_date']}")
+    print(f"Invoice Terms: {section_a['invoice_term_type']}")
     
-#     Port of Loading: Shanghai Port
-#     Port of Discharge: Sydney Port
-#     First Arrival Port: Sydney
+    if section_a['valuation_elements']:
+        print("\nValuation Elements:")
+        for element, details in section_a['valuation_elements'].items():
+            print(f"  {element}: {details['currency']} {details['amount']}")
     
-#     Mode of Transport: Sea Freight
-#     Vessel Name: MV Pacific Star
-#     Voyage Number: 2024-045
-#     Container Number: TEMU1234567
-#     Ocean Bill of Lading: SH240315001
+    print("\nSECTION B - TRANSPORT DETAILS:")
+    section_b = b650_structure["section_b_transport_details"]
+    print(f"Mode of Transport: {section_b['mode_of_transport']}")
     
-#     Gross Weight: 2500 KG
-#     Number of Packages: 100 Cartons
+    common = section_b['common_fields']
+    print(f"Loading Port: {common['loading_port']}")
+    print(f"Discharge Port: {common['discharge_port']}")
+    print(f"First Arrival Date: {common['first_arrival_date']}")
+    print(f"Gross Weight: {common['gross_weight']} {common['gross_weight_unit']}")
+    print(f"Number of Packages: {common['number_of_packages']}")
     
-#     Goods Description: Electronic Components - Semiconductors
-#     Country of Origin: China
+    if section_b['sea_transport']:
+        sea = section_b['sea_transport']
+        print(f"\nSea Transport Details:")
+        print(f"  Vessel Name: {sea['vessel_name']}")
+        print(f"  Voyage Number: {sea['voyage_number']}")
+        print(f"  Container Number: {sea['container_number']}")
+        print(f"  Ocean B/L: {sea['ocean_bill_of_lading']}")
     
-#     Invoice Total: USD 45,000.00
-#     Freight: USD 2,500.00
-#     Insurance: USD 450.00
+    delivery = section_b['delivery_address']
+    print(f"\nDelivery Address:")
+    print(f"  Address: {delivery['address']}")
+    print(f"  State: {delivery['state']}")
+    print(f"  Postcode: {delivery['postcode']}")
+    print(f"  Country: {delivery['country']}")
     
-#     Quantity: 1000 PCS
-#     Unit Price: USD 45.00
-#     """
+    print("\nSECTION C - TARIFF DETAILS:")
+    section_c = b650_structure["section_c_tariff_details"]
+    print(f"Goods Description: {section_c['goods_description']}")
+    print(f"Supplier Name: {section_c['supplier_name']}")
+    print(f"Origin Country: {section_c['origin_country']}")
     
-#     # Initialize preprocessor
-#     preprocessor = B650InvoicePreprocessor()
+    if section_c['price']['amount']:
+        print(f"Price: {section_c['price']['currency']} {section_c['price']['amount']}")
+    if section_c['quantity']['value']:
+        print(f"Quantity: {section_c['quantity']['value']} {section_c['quantity']['unit']}")
     
-#     # Process the invoice
-#     result = preprocessor.process(longer_string1)
-#     b650_structure = preprocessor.to_b650_structure(result)
-    
-#     print("=" * 60)
-#     print("B650 PREPROCESSED DATA")
-#     print("=" * 60)
-    
-#     print("\nSECTION A - OWNER DETAILS:")
-#     section_a = b650_structure["section_a_owner_details"]
-#     print(f"Owner Name: {section_a['owner_name']}")
-#     print(f"Owner ID (ABN): {section_a['owner_id']}")
-#     print(f"Phone: {section_a['contact_details']['phone']}")
-#     print(f"Email: {section_a['contact_details']['email']}")
-#     print(f"Valuation Date: {section_a['valuation_date']}")
-#     print(f"Invoice Terms: {section_a['invoice_term_type']}")
-    
-#     if section_a['valuation_elements']:
-#         print("\nValuation Elements:")
-#         for element, details in section_a['valuation_elements'].items():
-#             print(f"  {element}: {details['currency']} {details['amount']}")
-    
-#     print("\nSECTION B - TRANSPORT DETAILS:")
-#     section_b = b650_structure["section_b_transport_details"]
-#     print(f"Mode of Transport: {section_b['mode_of_transport']}")
-    
-#     common = section_b['common_fields']
-#     print(f"Loading Port: {common['loading_port']}")
-#     print(f"Discharge Port: {common['discharge_port']}")
-#     print(f"First Arrival Date: {common['first_arrival_date']}")
-#     print(f"Gross Weight: {common['gross_weight']} {common['gross_weight_unit']}")
-#     print(f"Number of Packages: {common['number_of_packages']}")
-    
-#     if section_b['sea_transport']:
-#         sea = section_b['sea_transport']
-#         print(f"\nSea Transport Details:")
-#         print(f"  Vessel Name: {sea['vessel_name']}")
-#         print(f"  Voyage Number: {sea['voyage_number']}")
-#         print(f"  Container Number: {sea['container_number']}")
-#         print(f"  Ocean B/L: {sea['ocean_bill_of_lading']}")
-    
-#     delivery = section_b['delivery_address']
-#     print(f"\nDelivery Address:")
-#     print(f"  Address: {delivery['address']}")
-#     print(f"  State: {delivery['state']}")
-#     print(f"  Postcode: {delivery['postcode']}")
-#     print(f"  Country: {delivery['country']}")
-    
-#     print("\nSECTION C - TARIFF DETAILS:")
-#     section_c = b650_structure["section_c_tariff_details"]
-#     print(f"Goods Description: {section_c['goods_description']}")
-#     print(f"Supplier Name: {section_c['supplier_name']}")
-#     print(f"Origin Country: {section_c['origin_country']}")
-    
-#     if section_c['price']['amount']:
-#         print(f"Price: {section_c['price']['currency']} {section_c['price']['amount']}")
-#     if section_c['quantity']['value']:
-#         print(f"Quantity: {section_c['quantity']['value']} {section_c['quantity']['unit']}")
-    
-#     print("\n" + "=" * 60)
-#     print("READY FOR LLM MAPPING TO B650 FORM")
-#     print("=" * 60)
+    print("\n" + "=" * 60)
+    print("READY FOR LLM MAPPING TO B650 FORM")
+    print("=" * 60)

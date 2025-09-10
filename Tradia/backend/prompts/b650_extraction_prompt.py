@@ -9,15 +9,32 @@ def get_b650_extraction_prompt(ocr_text: str) -> str:
     Designed for LLaMA2.
     """
 
-    return PromptTemplate(input_variables=["ocr_text", "declaration_type"],
+    return PromptTemplate(input_variables=["ocr_text", "declaration_type", "structured_pipeline_data"],
                           template="""
-You are a multi-persona expert team working together to extract structured data 
-from {declaration_type} documents (commercial invoices, bills of lading, packing lists).
-The document text is provided below:
+                          # Persona Prompt
+You are an **Australian border customs authority and import declaration expert**, who extract details for import declaration from invoices.
 
---- DOCUMENT TEXT START ---
-{ocr_text}
---- DOCUMENT TEXT END ---
+ - you go through text extracted from invoices
+ - make sense of it
+ - extract information relevant to B650 import declaration form
+ - first you check at the pre-processed strcutured text provided
+ - if any relevant information can be extracted from the pre-processed text, you extract it
+ - for the missing information, you look into the unstructured text.
+ - you look for information such as: importer, exporter, port of loading, port of discharge, transport mode (sea, air,post), invoice total (amount),freight, addresses, emails
+ - you look for information such as: gross weight, gross weight unit, loading port, number of packages, arrival port, 
+ - if there is information, which doesn't make sense, you leave it empty
+ - you extract all these information, and then output in json format without any explanation or additional text.
+
+
+ **Task for you (Australian border customs authority and import declaration expert)**
+ You are given the text, you need to extract relevant information for australian customs import declaration b650 from.
+
+--- Here is the structured and unstructured data combined ---
+{structured_pipeline_data}
+
+--- Unstructured text START---
+{ocr_text}  
+--- Unstructured text END ---
 
 ## Document Forensics Analyst
    - Identify exporter, importer, ports, items, and totals.
@@ -52,17 +69,6 @@ The document text is provided below:
   "total_weight_unit": "string or null",
   "total_price": "number or null",
   "currency": "string or null",
-  "items": [
-    {{
-      "item_title": "string (required, max 255)",
-      "item_description": "string or null",
-      "item_type": "string or null",
-      "item_weight": "number or null",
-      "item_weight_unit": "string or null",
-      "item_price": "number or null",
-      "item_currency": "string or null"
-    }}
-  ]
 }}
 
 ## OUTPUT RULES
