@@ -6,8 +6,9 @@ from datetime import datetime
 class DeclarationResponse(BaseModel):
     declaration_id: UUID4
     declaration_type: str
-    schema_details: Dict[str, Any]
-    declaration_schema: Dict[str, Any]
+    import_declaration_section_a: Dict[str, Any]
+    import_declaration_section_b: Dict[str, Any]
+    import_declaration_section_c: Dict[str, Any]
     process_id: UUID4
     created_at: datetime
     updated_at: datetime

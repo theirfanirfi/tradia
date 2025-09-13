@@ -1,4 +1,5 @@
 from langchain.prompts import PromptTemplate
+from llm_response_formats.b650_response_format import B650_RESPONSE_FORMAT
 
 
 
@@ -12,7 +13,7 @@ def get_b650_extraction_prompt(ocr_text: str) -> str:
     return PromptTemplate(input_variables=["ocr_text", "declaration_type", "structured_pipeline_data"],
                           template="""
                           # Persona Prompt
-You are an **Australian border customs authority and import declaration expert**, who extract details for import declaration from invoices.
+You are an **Australian border customs authority and import declaration expert**, you extract details for import declaration from invoices.
 
  - you go through text extracted from invoices
  - make sense of it
@@ -29,46 +30,320 @@ You are an **Australian border customs authority and import declaration expert**
  **Task for you (Australian border customs authority and import declaration expert)**
  You are given the text, you need to extract relevant information for australian customs import declaration b650 from.
 
---- Here is the structured and unstructured data combined ---
-{structured_pipeline_data}
-
 --- Unstructured text START---
 {ocr_text}  
 --- Unstructured text END ---
 
-## Document Forensics Analyst
-   - Identify exporter, importer, ports, items, and totals.
-   - Map synonyms (Shipper/Exporter, Consignee/Importer, POL/Port of Loading, POD/Port of Discharge).
-
-## Units & Currency Normalizer**
-   - Extract numeric values separately from their units/symbols.
-   - Weights: keep numeric in `item_weight` and `item_weight_unit` separately (e.g., 237 + "KGS").
-   - Prices: keep numeric in `item_price` and currency in `item_currency` separately.
-   - Normalize formats: weights to 3 decimals, prices to 2 decimals.
-
-## Item Constructor
-   - Each item must include: `item_title`, `item_type`, `item_weight`, `item_weight_unit`,
-     `item_price`, `item_currency`, and `item_description`.
-   - Infer logically if not explicitly labeled (e.g., "GRAPPLE 1 1100 1100 USD" → Grapple, 1100.00 USD).
-
-## JSON Auditor
-   - Validate schema.
-   - Ensure strictly valid JSON only.
-   - No explanations, no markdown, no extra text.
-
 # JSON SCHEMA (mandatory output)
 
 {{
-  "exporter_name": "string or null",
-  "importer_name": "string or null",
-  "consignee": "string or null",
-  "buyer": "string or null",
-  "port_of_loading": "string or null",
-  "port_of_discharge": "string or null",
-  "total_weight": "number or null",
-  "total_weight_unit": "string or null",
-  "total_price": "number or null",
-  "currency": "string or null",
+  "type": "object",
+  "properties": {{
+    "header": {{
+      "type": "object",
+      "properties": {{
+        "import_declaration_type": {{
+          "type": "string",
+          "description": "Type of import declaration"
+       }}
+        "owner_name": {{
+          "type": "string",
+          "description": "Name of the owner"
+        }}
+        "owner_id": {{
+          "type": "string",
+          "description": "Owner identification number"
+        }}
+        "owner_reference": {{
+          "type": "string",
+          "description": "Owner reference number"
+        }}
+        "aqis_inspection_location": {{
+          "type": "string",
+          "description": "AQIS inspection location"
+        }}
+        "contact_details": {{
+          "type": "string",
+          "description": "Contact details (email/phone)"
+        }}
+        "destination_port_code": {{
+          "type": "string",
+          "description": "Destination port code"
+        }}
+        "invoice_term_type": {{
+          "type": "string",
+          "description": "Invoice term type (FOB, CIF, etc.)"
+        }}
+        "valuation_date": {{
+          "type": "string",
+          "format": "date",
+          "description": "Valuation date in YYYY-MM-DD format"
+        }}
+        "header_valuation_advice_number": {{
+          "type": "string",
+          "description": "Header valuation advice number"
+        }}
+        "valuation_elements": {{
+          "type": "string",
+          "description": "Valuation elements description"
+        }}
+        "fob_or_cif": {{
+          "type": "string",
+          "enum": ["FOB", "CIF"],
+          "description": "FOB or CIF indicator"
+        }},
+        "paid_under_protest": {{
+          "type": "string",
+          "enum": ["Yes", "No"],
+          "description": "Paid under protest indicator"
+        }},
+        "amber_statement_reason": {{
+          "type": "string",
+          "description": "Amber statement reason"
+        }},
+        "declaration_signature": {{
+          "type": "string",
+          "description": "Declaration signature"
+        }}
+      }},
+      "required": [
+        "import_declaration_type",
+        "owner_name",
+        "owner_id",
+        "destination_port_code",
+        "invoice_term_type",
+        "valuation_date",
+        "fob_or_cif",
+        "paid_under_protest",
+        "declaration_signature"
+      ],
+      "additionalProperties": False
+    }},
+    "air_transport_lines": {{
+      "type": "array",
+      "items": {{
+        "type": "object",
+        "properties": {{
+          "airline_code": {{
+            "type": "string",
+            "description": "Airline code"
+          }},
+          "loading_port": {{
+            "type": "string",
+            "description": "Loading port code"
+          }},
+          "first_arrival_port": {{
+            "type": "string",
+            "description": "First arrival port code"
+          }},
+          "discharge_port": {{
+            "type": "string",
+            "description": "Discharge port code"
+          }},
+          "first_arrival_date": {{
+            "type": "string",
+            "format": "date",
+            "description": "First arrival date in YYYY-MM-DD format"
+          }},
+          "gross_weight": {{
+            "type": "string",
+            "description": "Gross weight as string"
+          }},
+          "gross_weight_unit": {{
+            "type": "string",
+            "description": "Gross weight unit (kg, lbs, etc.)"
+          }},
+          "line_number": {{
+            "type": "string",
+            "description": "Line number"
+          }},
+          "master_air_waybill_no": {{
+            "type": "string",
+            "description": "Master air waybill number"
+          }},
+          "house_air_waybill_no": {{
+            "type": "string",
+            "description": "House air waybill number"
+          }},
+          "number_of_packages": {{
+            "type": "string",
+            "description": "Number of packages"
+          }},
+          "marks_numbers_description": {{
+            "type": "string",
+            "description": "Marks and numbers description"
+          }}
+        }},
+        "required": [
+          "airline_code",
+          "loading_port",
+          "discharge_port",
+          "first_arrival_date",
+          "gross_weight",
+          "line_number"
+        ],
+        "additionalProperties": False
+      }}
+    }},
+    "sea_transport_lines": {{
+      "type": "array",
+      "items": {{
+        "type": "object",
+        "properties": {{
+          "vessel_name": {{
+            "type": "string",
+            "description": "Vessel name"
+          }},
+          "vessel_id": {{
+            "type": "string",
+            "description": "Vessel identification"
+          }},
+          "voyage_number": {{
+            "type": "string",
+            "description": "Voyage number"
+          }},
+          "loading_port": {{
+            "type": "string",
+            "description": "Loading port code"
+          }},
+          "first_arrival_port": {{
+            "type": "string",
+            "description": "First arrival port code"
+          }},
+          "discharge_port": {{
+            "type": "string",
+            "description": "Discharge port code"
+          }},
+          "first_arrival_date": {{
+            "type": "string",
+            "format": "date",
+            "description": "First arrival date in YYYY-MM-DD format"
+          }},
+          "gross_weight": {{
+            "type": "string",
+            "description": "Gross weight as string"
+          }},
+          "gross_weight_unit": {{
+            "type": "string",
+            "description": "Gross weight unit (kg, lbs, etc.)"
+          }},
+          "line_number": {{
+            "type": "string",
+            "description": "Line number"
+          }},
+          "cargo_type": {{
+            "type": "string",
+            "description": "Type of cargo"
+          }},
+          "container_number": {{
+            "type": "string",
+            "description": "Container number"
+          }},
+          "ocean_bill_of_lading_no": {{
+            "type": "string",
+            "description": "Ocean bill of lading number"
+          }},
+          "house_bill_of_lading_no": {{
+            "type": "string",
+            "description": "House bill of lading number"
+          }},
+          "number_of_packages": {{
+            "type": "string",
+            "description": "Number of packages"
+          }},
+          "marks_numbers_description": {{
+            "type": "string",
+            "description": "Marks and numbers description"
+          }}
+        }},
+        "required": [
+          "vessel_name",
+          "loading_port",
+          "discharge_port",
+          "first_arrival_date",
+          "gross_weight",
+          "line_number"
+        ],
+        "additionalProperties": False
+      }}
+    }},
+    "tariff_lines": {{
+      "type": "array",
+      "items": {{
+        "type": "object",
+        "properties": {{
+          "tariff_classification": {{
+            "type": "string",
+            "description": "Tariff classification code"
+          }},
+          "goods_description": {{
+            "type": "string",
+            "description": "Description of goods"
+          }},
+          "quantity": {{
+            "type": "number",
+            "description": "Quantity of goods"
+          }},
+          "unit_of_measure": {{
+            "type": "string",
+            "description": "Unit of measure"
+          }},
+          "country_of_origin": {{
+            "type": "string",
+            "pattern": "^[A-Z]{{2}}$",
+            "description": "Country of origin (2-letter ISO code)"
+          }},
+          "customs_value": {{
+            "type": "string",
+            "description": "Customs value as string"
+          }},
+          "fob_value": {{
+            "type": "string",
+            "description": "FOB value as string"
+          }},
+          "cif_value": {{
+            "type": "string",
+            "description": "CIF value as string"
+          }},
+          "origin_country_code": {{
+            "type": "string",
+            "pattern": "^[A-Z]{{2}}$",
+            "description": "Origin country code (2-letter ISO code)"
+          }},
+          "preference_rule_type": {{
+            "type": "string",
+            "description": "Preference rule type"
+          }},
+          "preference_scheme_type": {{
+            "type": "string",
+            "description": "Preference scheme type"
+          }},
+          "tariff_instrument": {{
+            "type": "string",
+            "description": "Tariff instrument"
+          }},
+          "additional_information": {{
+            "type": "string",
+            "description": "Additional information"
+          }},
+          "tariff_classification_code": {{
+            "type": "string",
+            "description": "Tariff classification code"
+          }}
+        }},
+        "required": [
+          "tariff_classification",
+          "goods_description",
+          "quantity",
+          "unit_of_measure",
+          "country_of_origin",
+          "customs_value"
+        ],
+        "additionalProperties": False
+      }}
+    }}
+  }},
+  "additionalProperties": False
 }}
 
 ## OUTPUT RULES

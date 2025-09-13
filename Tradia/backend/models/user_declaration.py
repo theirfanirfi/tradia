@@ -17,8 +17,9 @@ class UserDeclaration(Base):
     
     declaration_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     declaration_type = Column(Enum(DeclarationType), nullable=False)
-    schema_details = Column(JSONB, default={})  # Extracted and processed data
-    declaration_schema = Column(JSONB, default={})  # Template schema
+    import_declaration_section_a= Column(JSONB, default={})
+    import_declaration_section_b= Column(JSONB, default={})
+    import_declaration_section_c= Column(JSONB, default={})
     process_id = Column(UUID(as_uuid=True), ForeignKey("user_process.process_id"), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

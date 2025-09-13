@@ -33,7 +33,7 @@ class AsyncTradiaLLM(LLM):
             headers = {"Content-Type": "application/json"}
 
             # Use httpx for async HTTP requests with proper timeout
-            timeout = httpx.Timeout(connect=30.0, read=300.0, write=30.0, pool=30.0)
+            timeout = httpx.Timeout(connect=30.0, read=800.0, write=30.0, pool=30.0)
             
             async with httpx.AsyncClient(timeout=timeout) as client:
                 logger.info(f"Sending request to LLM: {self.ec2_url}")
@@ -120,7 +120,7 @@ class AsyncTradiaLLM(LLM):
                            "format": response_format}
                 headers = {"Content-Type": "application/json"}
 
-                timeout = httpx.Timeout(connect=30.0, read=300.0, write=30.0, pool=30.0)
+                timeout = httpx.Timeout(connect=30.0, read=800.0, write=30.0, pool=30.0)
 
                 print(f"Sending SYNC request to LLM: {self.ec2_url}")
                 with httpx.Client(timeout=timeout) as client:

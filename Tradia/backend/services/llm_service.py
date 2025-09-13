@@ -4,6 +4,8 @@ from config.settings import settings
 import json
 from ATradiaLLM import llm
 from prompts.Item_extraction_prompt import get_items_extraction_prompt
+from prompts.B650_section_a_extraction_prompt import get_b650_section_a_extraction_prompt
+from llm_response_formats.B650.Section_a_response_format import B650_SECTION_A_RESPONSE_FORMAT
 
 
 class LLMService:
@@ -49,6 +51,21 @@ class LLMService:
         except (json.JSONDecodeError, IndexError) as e:
             print(f"Failed to parse LLM response: {e}")
             return {}
+    
+    def process_b650_section_a(self, ocr_text: str, declaration_type: str = "import", structured_data=None) -> Dict[str, Any]:
+        """Process OCR text to extract structured information"""
+        try:
+            # Create prompt for the LLM
+            prompt_template = get_b650_section_a_extraction_prompt(ocr_text=ocr_text)
+            prompt = prompt_template.format(ocr_text=ocr_text, declaration_type=declaration_type, structured_pipeline_data=structured_data)
+            response = llm._call(prompt=prompt, response_format=B650_SECTION_A_RESPONSE_FORMAT)
+            print(f"llm_service LLM response: {response}")
+            parsed = json.loads(response)
+            print(parsed)
+            return parsed
+        except Exception as e:
+            print(f"llm_service LLM processing error: {e}")
+            return False
 
 # Global instance
 llm_service = LLMService()

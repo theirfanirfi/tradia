@@ -12,9 +12,10 @@ from enum import Enum
 import logging
 from abc import ABC, abstractmethod
 import difflib
-from ATradiaLLM import llm
-# from services.llm_service import llm_service
-from prompts.b650_extraction_prompt import get_b650_extraction_prompt
+# from ATradiaLLM import llm
+# # from services.llm_service import llm_service
+# from prompts.B650_section_a_extraction_prompt import get_b650_section_a_extraction_prompt
+# from llm_response_formats.B650.Section_a_response_format import B650_SECTION_A_RESPONSE_FORMAT
 
 # =============================================================================
 # PREPROCESSING CONFIGURATION
@@ -866,38 +867,45 @@ Total Tables Found: 1
 
     """
     
-    # Create pipeline
-    pipeline = PreprocessingPipeline()
+#     # Create pipeline
+#     pipeline = PreprocessingPipeline()
     
-    # Process text
-    result = pipeline.process(sample_text)
+#     # Process text
+#     result = pipeline.process(sample_text)
 
-    # llm._call()
+#     # llm._call()
     
-    # Convert to JSON
-    json_result = convert_result_to_json(result)
+#     # Convert to JSON
+#     json_result = convert_result_to_json(result)
     
-    # Print JSON result
-    print("=== PREPROCESSING PIPELINE RESULT (JSON) ===")
-    print(json.dumps(json_result, indent=2, ensure_ascii=False))
+#     # Print JSON result
+#     # print("=== PREPROCESSING PIPELINE RESULT (JSON) ===")
+#     print(json.dumps(json_result, indent=2, ensure_ascii=False))
     
-    print(f"\n=== SUMMARY ===")
-    print(f"Original length: {result.original_length}")
-    print(f"Processed length: {result.processed_length}")
-    print(f"Reduction: {result.reduction_percentage:.1f}%")
-    print(f"Requires LLM: {result.requires_llm}")
-    print(f"Detected fields: {len(result.structured_data)}")
+#     print(f"\n=== SUMMARY ===")
+#     print(f"Original length: {result.original_length}")
+#     print(f"Processed length: {result.processed_length}")
+#     print(f"Reduction: {result.reduction_percentage:.1f}%")
+#     print(f"Requires LLM: {result.requires_llm}")
+#     print(f"Detected fields: {len(result.structured_data)}")
     
-    # Generate LLM prompt
-    llm_prompt = get_b650_extraction_prompt(sample_text)
-    prompt = llm_prompt.format(ocr_text=sample_text, declaration_type="import",structured_pipeline_data=result)
-    response = llm._call(prompt=prompt, response_format=None)
-    print(f"llm_service LLM response: {response}")
-    print(f"LLM prompt length: {len(llm_prompt)}")
+#     # Generate LLM prompt
+#     llm_prompt = get_b650_section_a_extraction_prompt(sample_text)
+#     prompt = llm_prompt.format(ocr_text=sample_text, declaration_type="import", structured_pipeline_data=result)
+#     response = llm._call(prompt=prompt, response_format=B650_SECTION_A_RESPONSE_FORMAT)
+#     print(f"llm_service LLM response: {response}")
+#     print(f"LLM prompt length: {len(response)}")
     
-    if llm_prompt:
-        print(f"\n=== OPTIMIZED LLM PROMPT ===")
-        print(llm_prompt)
+#     if llm_prompt:
+#         print(f"\n=== OPTIMIZED LLM PROMPT ===")
+#         print(llm_prompt)
 
-if __name__ == "__main__":
-    example_usage()
+# if __name__ == "__main__":
+#     example_usage()
+
+
+
+## using it as a service
+
+# Create pipeline
+pipeline = PreprocessingPipeline()

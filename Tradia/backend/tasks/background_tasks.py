@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from celery.utils.log import get_task_logger
 from utils.regex import get_numbers
 from llm_response_formats.items_extraction_format import RESPONSE_FORMAT
+from services.PreLLMB650 import pipeline, convert_result_to_json
 
 
 # Initialize Celery
@@ -218,6 +219,53 @@ def task_reclassify_items(item_id: str = None):
                 if predicted:
                     print('predicted:', predicted[0].code)
                     item.item_hs_code = predicted[0].code
+        db.commit()
+
+        return True, {"status": "success", "message": f"Reclassified items."}
+    except Exception as e:
+        print(f"Reclassification error: {e}")
+        return False, {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+
+
+#task for reclassifying items using TariffClassifier
+@celery_app.task
+def task_b650_extract_section_a_information(process_id: str = None):
+    """Background task to extract b650 section a information"""
+    db = SessionLocal()
+    print('reclassifying items task')
+    try:
+        process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+        if not process:
+            return False, {"status": "error"}
+    
+        documents = db.query(UserDocument).filter(UserDocument.process_id == process_id).all()
+        if not documents:
+            return False, {"status": "error", "message": "No document found"}
+        
+        text = ""
+        for doc in documents:
+            text += doc.llm_response
+        
+        # # Process text
+        result = pipeline.process(text)
+
+        
+
+        # # llm._call()
+
+        # # Convert to JSON
+        json_result = convert_result_to_json(result)
+        # print(json_result)
+
+        parsed = llm_service.process_b650_section_a(ocr_text=text, structured_data=json_result)
+        if parsed:
+            print('parsed',parsed)
+
+
+        ## now call the llm
+
         db.commit()
 
         return True, {"status": "success", "message": f"Reclassified items."}
