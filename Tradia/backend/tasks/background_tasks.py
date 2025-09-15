@@ -13,6 +13,8 @@ from celery.utils.log import get_task_logger
 from utils.regex import get_numbers
 from llm_response_formats.items_extraction_format import RESPONSE_FORMAT
 from services.PreLLMB650 import pipeline, convert_result_to_json
+from schemas.B650.import_section_a import B650SectionAHeader
+from models.user_declaration import UserDeclaration
 
 
 # Initialize Celery
@@ -234,7 +236,7 @@ def task_reclassify_items(item_id: str = None):
 def task_b650_extract_section_a_information(process_id: str = None):
     """Background task to extract b650 section a information"""
     db = SessionLocal()
-    print('reclassifying items task')
+    print('extracting section a task')
     try:
         process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
         if not process:
@@ -246,12 +248,15 @@ def task_b650_extract_section_a_information(process_id: str = None):
         
         text = ""
         for doc in documents:
-            text += doc.llm_response
+            text += str(doc.ocr_text)
         
         # # Process text
         result = pipeline.process(text)
 
         
+        user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+        if not user_declaration:
+            user_declaration = UserDeclaration()
 
         # # llm._call()
 
@@ -261,17 +266,74 @@ def task_b650_extract_section_a_information(process_id: str = None):
 
         parsed = llm_service.process_b650_section_a(ocr_text=text, structured_data=json_result)
         if parsed:
-            print('parsed',parsed)
+            header = parsed["header"]
+            section_a = B650SectionAHeader(**header)
+            json_str = section_a.model_dump(exclude_none=False, mode='json')
+            # user_declaration = UserDeclaration()
+            user_declaration.declaration_type = "import"
+            user_declaration.import_declaration_section_a = json_str
+            user_declaration.process_id = process_id
+            db.add(user_declaration)
+            db.commit()
 
-
-        ## now call the llm
-
-        db.commit()
+        # db.commit()
 
         return True, {"status": "success", "message": f"Reclassified items."}
     except Exception as e:
-        print(f"Reclassification error: {e}")
+        print(f"B650 Section a extraction error: {e}")
         return False, {"status": "error", "message": str(e)}
     finally:
         db.close()
 
+@celery_app.task
+def task_b650_extract_section_b_information(process_id: str = None):
+    """Background task to extract b650 section B information"""
+    db = SessionLocal()
+    print('extracting section a task')
+    try:
+        process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+        if not process:
+            return False, {"status": "error"}
+    
+        documents = db.query(UserDocument).filter(UserDocument.process_id == process_id).all()
+        if not documents:
+            return False, {"status": "error", "message": "No document found"}
+        
+        text = ""
+        for doc in documents:
+            text += str(doc.ocr_text)
+        
+        # # Process text
+        result = pipeline.process(text)
+
+        
+        user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+        if not user_declaration:
+            user_declaration = UserDeclaration()
+
+        # # llm._call()
+
+        # # Convert to JSON
+        json_result = convert_result_to_json(result)
+        # print(json_result)
+
+        parsed = llm_service.process_b650_section_a(ocr_text=text, structured_data=json_result)
+        if parsed:
+            header = parsed["header"]
+            section_a = B650SectionAHeader(**header)
+            json_str = section_a.model_dump(exclude_none=False, mode='json')
+            # user_declaration = UserDeclaration()
+            user_declaration.declaration_type = "import"
+            user_declaration.import_declaration_section_a = json_str
+            user_declaration.process_id = process_id
+            db.add(user_declaration)
+            db.commit()
+
+        # db.commit()
+
+        return True, {"status": "success", "message": f"Reclassified items."}
+    except Exception as e:
+        print(f"B650 Section a extraction error: {e}")
+        return False, {"status": "error", "message": str(e)}
+    finally:
+        db.close()

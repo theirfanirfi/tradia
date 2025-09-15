@@ -25,3 +25,4 @@ class GeneratePdfResponse(BaseModel):
     message: str
     pdf_url: Optional[str] = None
     pdf_data: Optional[bytes] = None
+

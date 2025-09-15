@@ -13,11 +13,12 @@ from schemas.declaration_schemas import (
 from services.pdf_service import pdf_service
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_declaration_data
+from tasks.background_tasks import task_b650_extract_section_a_information
 
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 
 
-@router.get("/{process_id}", response_model=DeclarationResponse)
+@router.get("/import/{process_id}/", response_model=DeclarationResponse)
 async def get_declaration(
     process_id: str,
     current_user: User = Depends(get_current_user),
@@ -26,10 +27,12 @@ async def get_declaration(
     """Get declaration data for a process"""
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     if not declaration:
+        task_b650_extract_section_a_information.delay(process_id)
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Declaration not found"
+            status_code=status.HTTP_201_CREATED,
+            detail="Declarations being ready"
         )
+        # return DeclarationResponse.from_orm(declaration)
     
     return DeclarationResponse.from_orm(declaration)
 
