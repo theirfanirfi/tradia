@@ -13,9 +13,9 @@ from schemas.declaration_schemas import (
 from services.pdf_service import pdf_service
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_declaration_data
-from tasks.background_tasks import task_b650_extract_section_a_information
+from tasks.background_tasks import task_b650_extract_section_a_information, task_b650_extract_section_b_information
 from schemas.B650.import_section_a import B650SectionAHeader
-
+from services.B650_PreLLMService import preprocessor
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 
 
@@ -85,6 +85,29 @@ async def update_declaration(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to update declarationn: {str(e)}"
+        )
+
+
+### section b
+
+@router.put("/import/{process_id}/update/section_b", response_model=DeclarationResponse)
+async def get_declaration_section_b(
+    process_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get declaration data for a process"""
+    declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+    if declaration:
+        if not declaration.import_declaration_section_b:
+            task_b650_extract_section_b_information.delay(process_id)
+        return DeclarationResponse.from_orm(declaration)
+
+
+        # return DeclarationResponse.from_orm(declaration)
+    raise HTTPException(
+            status_code=status.HTTP_201_CREATED,
+            detail="Declarations being ready"
         )
 
 

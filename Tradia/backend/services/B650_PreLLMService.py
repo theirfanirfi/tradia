@@ -627,8 +627,8 @@ def b650_preprocessor(text: str):
 
 
 # Example usage
-if __name__ == "__main__":
-    sample_invoice = """
+# if __name__ == "__main__":
+sample_invoice = """
    YANTAIRIMAMACHINERYCO.,LTD.XIBEIYUINDUSTRY SHBNE250400002
 ZONE,LAIZHOU,SHANDONG,CHINA
 TEL/FAX:+86-535-6805690
@@ -728,67 +728,67 @@ not covered [1] Covered according to attached Polic
     """
     
     # Initialize preprocessor
-    preprocessor = B650InvoicePreprocessor()
+preprocessor = B650InvoicePreprocessor()
     
-    # Process the invoice
-    result = preprocessor.process(sample_invoice)
-    b650_structure = preprocessor.to_b650_structure(result)
+    # # Process the invoice
+    # result = preprocessor.process(sample_invoice)
+    # b650_structure = preprocessor.to_b650_structure(result)
     
-    print("=" * 60)
-    print("B650 PREPROCESSED DATA")
-    print("=" * 60)
+    # print("=" * 60)
+    # print("B650 PREPROCESSED DATA")
+    # print("=" * 60)
     
-    print("\nSECTION A - OWNER DETAILS:")
-    section_a = b650_structure["section_a_owner_details"]
-    print(f"Owner Name: {section_a['owner_name']}")
-    print(f"Owner ID (ABN): {section_a['owner_id']}")
-    print(f"Phone: {section_a['contact_details']['phone']}")
-    print(f"Email: {section_a['contact_details']['email']}")
-    print(f"Valuation Date: {section_a['valuation_date']}")
-    print(f"Invoice Terms: {section_a['invoice_term_type']}")
+    # print("\nSECTION A - OWNER DETAILS:")
+    # section_a = b650_structure["section_a_owner_details"]
+    # print(f"Owner Name: {section_a['owner_name']}")
+    # print(f"Owner ID (ABN): {section_a['owner_id']}")
+    # print(f"Phone: {section_a['contact_details']['phone']}")
+    # print(f"Email: {section_a['contact_details']['email']}")
+    # print(f"Valuation Date: {section_a['valuation_date']}")
+    # print(f"Invoice Terms: {section_a['invoice_term_type']}")
     
-    if section_a['valuation_elements']:
-        print("\nValuation Elements:")
-        for element, details in section_a['valuation_elements'].items():
-            print(f"  {element}: {details['currency']} {details['amount']}")
+    # if section_a['valuation_elements']:
+    #     print("\nValuation Elements:")
+    #     for element, details in section_a['valuation_elements'].items():
+    #         print(f"  {element}: {details['currency']} {details['amount']}")
     
-    print("\nSECTION B - TRANSPORT DETAILS:")
-    section_b = b650_structure["section_b_transport_details"]
-    print(f"Mode of Transport: {section_b['mode_of_transport']}")
+    # print("\nSECTION B - TRANSPORT DETAILS:")
+    # section_b = b650_structure["section_b_transport_details"]
+    # print(f"Mode of Transport: {section_b['mode_of_transport']}")
     
-    common = section_b['common_fields']
-    print(f"Loading Port: {common['loading_port']}")
-    print(f"Discharge Port: {common['discharge_port']}")
-    print(f"First Arrival Date: {common['first_arrival_date']}")
-    print(f"Gross Weight: {common['gross_weight']} {common['gross_weight_unit']}")
-    print(f"Number of Packages: {common['number_of_packages']}")
+    # common = section_b['common_fields']
+    # print(f"Loading Port: {common['loading_port']}")
+    # print(f"Discharge Port: {common['discharge_port']}")
+    # print(f"First Arrival Date: {common['first_arrival_date']}")
+    # print(f"Gross Weight: {common['gross_weight']} {common['gross_weight_unit']}")
+    # print(f"Number of Packages: {common['number_of_packages']}")
     
-    if section_b['sea_transport']:
-        sea = section_b['sea_transport']
-        print(f"\nSea Transport Details:")
-        print(f"  Vessel Name: {sea['vessel_name']}")
-        print(f"  Voyage Number: {sea['voyage_number']}")
-        print(f"  Container Number: {sea['container_number']}")
-        print(f"  Ocean B/L: {sea['ocean_bill_of_lading']}")
+    # if section_b['sea_transport']:
+    #     sea = section_b['sea_transport']
+    #     print(f"\nSea Transport Details:")
+    #     print(f"  Vessel Name: {sea['vessel_name']}")
+    #     print(f"  Voyage Number: {sea['voyage_number']}")
+    #     print(f"  Container Number: {sea['container_number']}")
+    #     print(f"  Ocean B/L: {sea['ocean_bill_of_lading']}")
     
-    delivery = section_b['delivery_address']
-    print(f"\nDelivery Address:")
-    print(f"  Address: {delivery['address']}")
-    print(f"  State: {delivery['state']}")
-    print(f"  Postcode: {delivery['postcode']}")
-    print(f"  Country: {delivery['country']}")
+    # delivery = section_b['delivery_address']
+    # print(f"\nDelivery Address:")
+    # print(f"  Address: {delivery['address']}")
+    # print(f"  State: {delivery['state']}")
+    # print(f"  Postcode: {delivery['postcode']}")
+    # print(f"  Country: {delivery['country']}")
     
-    print("\nSECTION C - TARIFF DETAILS:")
-    section_c = b650_structure["section_c_tariff_details"]
-    print(f"Goods Description: {section_c['goods_description']}")
-    print(f"Supplier Name: {section_c['supplier_name']}")
-    print(f"Origin Country: {section_c['origin_country']}")
+    # print("\nSECTION C - TARIFF DETAILS:")
+    # section_c = b650_structure["section_c_tariff_details"]
+    # print(f"Goods Description: {section_c['goods_description']}")
+    # print(f"Supplier Name: {section_c['supplier_name']}")
+    # print(f"Origin Country: {section_c['origin_country']}")
     
-    if section_c['price']['amount']:
-        print(f"Price: {section_c['price']['currency']} {section_c['price']['amount']}")
-    if section_c['quantity']['value']:
-        print(f"Quantity: {section_c['quantity']['value']} {section_c['quantity']['unit']}")
+    # if section_c['price']['amount']:
+    #     print(f"Price: {section_c['price']['currency']} {section_c['price']['amount']}")
+    # if section_c['quantity']['value']:
+    #     print(f"Quantity: {section_c['quantity']['value']} {section_c['quantity']['unit']}")
     
-    print("\n" + "=" * 60)
-    print("READY FOR LLM MAPPING TO B650 FORM")
-    print("=" * 60)
+    # print("\n" + "=" * 60)
+    # print("READY FOR LLM MAPPING TO B650 FORM")
+    # print("=" * 60)

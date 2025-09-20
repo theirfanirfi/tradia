@@ -5,6 +5,7 @@ import json
 from ATradiaLLM import llm
 from prompts.Item_extraction_prompt import get_items_extraction_prompt
 from prompts.B650_section_a_extraction_prompt import get_b650_section_a_extraction_prompt
+from prompts.B650_section_b_sea_extraction_prompt import get_b650_section_b_sea_extraction_prompt
 from llm_response_formats.B650.Section_a_response_format import B650_SECTION_A_RESPONSE_FORMAT
 from llm_response_formats.B650.section_b_air_response_format import SECTION_B_AIR_RESPONSE_FORMAT
 from llm_response_formats.B650.section_b_sea_response_format import B650_SECTION_B_SEA_RESPONSE_FORMAT
@@ -69,12 +70,22 @@ class LLMService:
             print(f"llm_service LLM processing error: {e}")
             return False
     
-    def process_b650_section_b(self, ocr_text: str, declaration_type: str = "import", structured_data=None, mode_of_tranport="sea") -> Dict[str, Any]:
+    def process_b650_section_b(self, ocr_text: str, declaration_type: str = "import", structured_data=None, mode_of_transport="SEA") -> Dict[str, Any]:
         """Process OCR text to extract structured information FOR SECTION B"""
         try:
-            response_format = SECTION_B_AIR_RESPONSE_FORMAT if mode_of_tranport == "air" else B650_SECTION_B_SEA_RESPONSE_FORMAT
+            response_format =  None
+            prompt_template = get_b650_section_b_sea_extraction_prompt(ocr_text=ocr_text)
+            
+            if mode_of_transport == "SEA":
+                response_format = B650_SECTION_B_SEA_RESPONSE_FORMAT
+                prompt_template = get_b650_section_b_sea_extraction_prompt(ocr_text=ocr_text)
+            elif mode_of_transport == "AIR":
+                response_format = SECTION_B_AIR_RESPONSE_FORMAT
+            
+
+            print('response_format',response_format)
             # Create prompt for the LLM
-            prompt_template = get_b650_section_a_extraction_prompt(ocr_text=ocr_text)
+            # prompt_template = get_b650_section_a_extraction_prompt(ocr_text=ocr_text)
             prompt = prompt_template.format(ocr_text=ocr_text, declaration_type=declaration_type, structured_pipeline_data=structured_data)
             response = llm._call(prompt=prompt, response_format=response_format)
             print(f"llm_service LLM response: {response}")

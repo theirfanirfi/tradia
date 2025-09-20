@@ -14,7 +14,9 @@ from utils.regex import get_numbers
 from llm_response_formats.items_extraction_format import RESPONSE_FORMAT
 from services.PreLLMB650 import pipeline, convert_result_to_json
 from schemas.B650.import_section_a import B650SectionAHeader
+from schemas.B650.import_section_b_sea import SeaTransportLine
 from models.user_declaration import UserDeclaration
+from services.B650_PreLLMService import preprocessor
 
 
 # Initialize Celery
@@ -289,7 +291,7 @@ def task_b650_extract_section_a_information(process_id: str = None):
 def task_b650_extract_section_b_information(process_id: str = None):
     """Background task to extract b650 section B information"""
     db = SessionLocal()
-    print('extracting section a task')
+    print('extracting section b task')
     try:
         process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
         if not process:
@@ -305,35 +307,48 @@ def task_b650_extract_section_b_information(process_id: str = None):
         
         # # Process text
         result = pipeline.process(text)
+        resultt = preprocessor.process(text)
 
+        b650_structure = preprocessor.to_b650_structure(resultt)
+        section_b = b650_structure["section_b_transport_details"]
+        print(f"Mode of Transport: {section_b['mode_of_transport']}")
+        mode_of_transport = section_b['mode_of_transport']
+        # print(section_b)
+        # logger.info(section_b)
+    
         
         user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
         if not user_declaration:
             user_declaration = UserDeclaration()
 
-        # # llm._call()
+        # # # llm._call()
 
-        # # Convert to JSON
+        # # # Convert to JSON
         json_result = convert_result_to_json(result)
-        # print(json_result)
+        # # print(json_result)
 
-        parsed = llm_service.process_b650_section_a(ocr_text=text, structured_data=json_result)
+        parsed = llm_service.process_b650_section_b(ocr_text=text, structured_data=json_result, mode_of_transport=mode_of_transport)
         if parsed:
-            header = parsed["header"]
-            section_a = B650SectionAHeader(**header)
-            json_str = section_a.model_dump(exclude_none=False, mode='json')
+            section_b = None
+            if mode_of_transport == "SEA":
+                sea_transport_lines = parsed["sea_transport_lines"]
+                section_b = SeaTransportLine(**sea_transport_lines)
+            elif mode_of_transport == "AIR":
+                pass
+
+            json_str = section_b.model_dump(exclude_none=False, mode='json')
             # user_declaration = UserDeclaration()
             user_declaration.declaration_type = "import"
-            user_declaration.import_declaration_section_a = json_str
+            user_declaration.import_declaration_section_b = json_str
             user_declaration.process_id = process_id
             db.add(user_declaration)
             db.commit()
 
-        # db.commit()
+        # # db.commit()
 
-        return True, {"status": "success", "message": f"Reclassified items."}
+        return True, {"status": "success", "message": f"Section B extracted."}
     except Exception as e:
-        print(f"B650 Section a extraction error: {e}")
+        print(f"B650 Section b extraction error: {e}")
         return False, {"status": "error", "message": str(e)}
     finally:
         db.close()
