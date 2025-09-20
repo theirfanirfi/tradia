@@ -14,11 +14,12 @@ from services.pdf_service import pdf_service
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_declaration_data
 from tasks.background_tasks import task_b650_extract_section_a_information
+from schemas.B650.import_section_a import B650SectionAHeader
 
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 
 
-@router.get("/import/{process_id}/", response_model=DeclarationResponse)
+@router.get("/import/{process_id}/section_a", response_model=DeclarationResponse)
 async def get_declaration(
     process_id: str,
     current_user: User = Depends(get_current_user),
@@ -37,10 +38,10 @@ async def get_declaration(
     return DeclarationResponse.from_orm(declaration)
 
 
-@router.put("/{process_id}/update")
+@router.put("/import/{process_id}/update/section_a", response_model=DeclarationResponse)
 async def update_declaration(
     process_id: str,
-    request: UpdateDeclarationRequest,
+    request: B650SectionAHeader,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
@@ -52,30 +53,38 @@ async def update_declaration(
             detail="Declaration not found"
         )
     
+    print(request)
+    
     try:
         # Validate data
-        validation_errors = validate_declaration_data(request.schema_details)
-        if validation_errors:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Validation failed: {'; '.join(validation_errors)}"
-            )
+        # validation_errors = validate_declaration_data(request.schema_details)
+        # if validation_errors:
+        #     raise HTTPException(
+        #         status_code=status.HTTP_400_BAD_REQUEST,
+        #         detail=f"Validation failed: {'; '.join(validation_errors)}"
+        #     )
         
         # Update schema details
-        declaration.schema_details.update(request.schema_details)
+        # section_a = B650SectionAHeader(**request)
+        json_str = request.model_dump(exclude_none=False, mode='json')
+        declaration.import_declaration_section_a = json_str
+        db.add(declaration)
         
         db.commit()
         db.refresh(declaration)
         
         return DeclarationResponse.from_orm(declaration)
         
-    except HTTPException:
-        raise
+    except Exception as ee:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to update declaration: {str(ee)}"
+        )
     except Exception as e:
         db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to update declaration: {str(e)}"
+            detail=f"Failed to update declarationn: {str(e)}"
         )
 
 
