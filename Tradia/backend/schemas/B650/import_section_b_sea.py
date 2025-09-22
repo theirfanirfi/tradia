@@ -20,6 +20,7 @@ class SeaTransportLine(BaseModel):
     house_bill_of_lading_no: Optional[str] = Field(None, description="House bill of lading number")
     number_of_packages: Optional[str] = Field(None, description="Number of packages")
     marks_numbers_description: Optional[str] = Field(None, description="Marks and numbers description")
+    mode_of_transport: Optional[str] = Field("SEA", description="Mode of transport")
 
 
 class B650SectionBSeaResponseFormat(BaseModel):

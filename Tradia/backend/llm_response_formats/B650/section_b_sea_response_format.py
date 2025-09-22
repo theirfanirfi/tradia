@@ -4,6 +4,10 @@ B650_SECTION_B_SEA_RESPONSE_FORMAT = {
     "sea_transport_lines": {
       "type": "object",
       "properties": {
+        "mode_of_transport": {
+          "type": "string",
+          "description": "SEA"
+        },
         "vessel_name": {
           "type": "string",
           "description": "Vessel name"

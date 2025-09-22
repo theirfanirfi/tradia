@@ -90,6 +90,8 @@ async def update_declaration(
 
 ### section b
 
+#todo map section b schema into request for updation
+
 @router.put("/import/{process_id}/update/section_b", response_model=DeclarationResponse)
 async def get_declaration_section_b(
     process_id: str,
@@ -101,6 +103,8 @@ async def get_declaration_section_b(
     if declaration:
         if not declaration.import_declaration_section_b:
             task_b650_extract_section_b_information.delay(process_id)
+        
+
         return DeclarationResponse.from_orm(declaration)
 
 

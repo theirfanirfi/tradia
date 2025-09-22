@@ -36,6 +36,10 @@ You are an **Australian border customs authority specializing in sea transport m
     "sea_transport_lines": {{
       "type": "object",
       "properties": {{
+        "mode_of_transport": {{
+          "type": "string",
+          "description": "SEA"
+        }},
         "vessel_name": {{
           "type": "string",
           "description": "Vessel name"
