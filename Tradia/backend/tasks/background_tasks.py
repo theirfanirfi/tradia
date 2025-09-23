@@ -279,6 +279,7 @@ def task_b650_extract_section_a_information(process_id: str = None):
             db.commit()
 
         # db.commit()
+        task_b650_extract_section_b_information.delay(process_id)
 
         return True, {"status": "success", "message": f"Reclassified items."}
     except Exception as e:
