@@ -1,22 +1,6 @@
 RESPONSE_FORMAT = {
   "type": "object",
   "properties": {
-    "exporter_name": {
-      "type": "string",
-      "description": "Company name exporting goods"
-    },
-    "importer_name": {
-      "type": "string", 
-      "description": "Company name importing goods"
-    },
-    "port_of_loading": {
-      "type": "string",
-      "description": "Port where goods are loaded"
-    },
-    "port_of_discharge": {
-      "type": "string",
-      "description": "Port where goods are discharged"
-    },
     "total_weight": {
       "type": "number",
       "multipleOf": 0.001,
@@ -63,10 +47,6 @@ RESPONSE_FORMAT = {
     }
   },
   "required": [
-    "exporter_name",
-    "importer_name", 
-    "port_of_loading",
-    "port_of_discharge",
     "total_weight",
     "total_price",
     "items"

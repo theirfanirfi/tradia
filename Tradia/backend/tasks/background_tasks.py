@@ -15,6 +15,7 @@ from llm_response_formats.items_extraction_format import RESPONSE_FORMAT
 from services.PreLLMB650 import pipeline, convert_result_to_json
 from schemas.B650.import_section_a import B650SectionAHeader
 from schemas.B650.import_section_b_sea import SeaTransportLine
+from schemas.B650.import_section_c_schema import SECTIONC
 from models.user_declaration import UserDeclaration
 from services.B650_PreLLMService import preprocessor
 
@@ -346,10 +347,71 @@ def task_b650_extract_section_b_information(process_id: str = None):
             db.commit()
 
         # # db.commit()
+        task_b650_extract_section_c_information.delay(process_id)
 
         return True, {"status": "success", "message": f"Section B extracted."}
     except Exception as e:
         print(f"B650 Section b extraction error: {e}")
+        return False, {"status": "error", "message": str(e)}
+    finally:
+        db.close()
+
+
+@celery_app.task
+def task_b650_extract_section_c_information(process_id: str = None):
+    """Background task to extract b650 section c information"""
+    db = SessionLocal()
+    print('extracting section c task')
+    try:
+        process = db.query(UserProcess).filter(UserProcess.process_id == process_id).first()
+        if not process:
+            return False, {"status": "error"}
+    
+        documents = db.query(UserDocument).filter(UserDocument.process_id == process_id).all()
+        if not documents:
+            return False, {"status": "error", "message": "No document found"}
+        
+        text = ""
+        for doc in documents:
+            text += str(doc.ocr_text)
+        
+        # # Process text
+        result = pipeline.process(text)
+
+        # print(section_b)
+        # logger.info(section_b)
+    
+        
+        user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+        if not user_declaration:
+            return False
+
+        # # # llm._call()
+
+        # # # Convert to JSON
+        json_result = convert_result_to_json(result)
+        section_c = user_declaration.import_declaration_section_c
+        # # print(json_result)
+
+        parsed = llm_service.process_b650_section_c(ocr_text=section_c, structured_data=json_result)
+        if parsed:
+            print(parsed)
+            tariff_lines = parsed["tariff_lines"]
+            section_c = SECTIONC(**tariff_lines)
+
+            json_str = section_c.model_dump(exclude_none=False, mode='json')
+            # user_declaration = UserDeclaration()
+            user_declaration.declaration_type = "import"
+            user_declaration.import_declaration_section_c = json_str
+            user_declaration.process_id = process_id
+            db.add(user_declaration)
+            db.commit()
+
+        # # db.commit()
+
+        return True, {"status": "success", "message": f"Section B extracted."}
+    except Exception as e:
+        print(f"B650 Section c extraction error: {e}")
         return False, {"status": "error", "message": str(e)}
     finally:
         db.close()
