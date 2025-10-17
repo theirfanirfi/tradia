@@ -6,7 +6,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/customs_db
+      - DATABASE_URL=postgresql://postgres:tradia1234@postgres:5432/tradia_db
       - REDIS_URL=redis://redis:6379
       - STORAGE_TYPE=local
       - UPLOAD_DIR=./uploads
@@ -16,35 +16,68 @@ services:
       - postgres
       - redis
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: "2g"
+        reservations:
+          memory: "1g"
 
   postgres:
     image: postgres:15
     environment:
-      - POSTGRES_DB=customs_db
+      - POSTGRES_DB=tradia_db
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=tradia1234
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "1g"
+        reservations:
+          memory: "512m"
 
   redis:
     image: redis:7-alpine
     ports:
       - "6379:6379"
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "1g"
+        reservations:
+          memory: "512m"
 
   celery:
     build: .
     command: celery -A tasks.background_tasks worker --loglevel=info
     environment:
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/customs_db
+      - DATABASE_URL=postgresql://postgres:tradia1234@postgres:5432/tradia_db
       - REDIS_URL=redis://redis:6379
     depends_on:
       - postgres
       - redis
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "1g"
+        reservations:
+          memory: "512m"
 
 volumes:
   postgres_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./data/postgres
