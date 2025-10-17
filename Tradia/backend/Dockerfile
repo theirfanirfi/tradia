@@ -19,10 +19,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('BAAI/bge-m3')"
 
+RUN apt-get update && apt-get install -y \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/theirfanirfi/tradia.git
 # ===============================
 # 📦 Copy Application Files
 # ===============================
-COPY . .
+WORKDIR /app/tradia/Tradia/backend
 
 # ===============================
 # 🌐 Expose Port
