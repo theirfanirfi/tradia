@@ -59,7 +59,7 @@ async def create_process(
         # Create declaration entry
         declaration = UserDeclaration(
             declaration_type=DeclarationType(request.declaration_type),
-            declaration_schema=declaration_schema,
+            # declaration_schema=declaration_schema,
             process_id=process.process_id
         )
         db.add(declaration)
