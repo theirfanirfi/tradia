@@ -4,7 +4,8 @@ from typing import List
 import json
 from config.settings import settings
 from services.ocr_service import ocr_service
-from services.llm_service import llm_service
+# from services.llm_service import llm_service
+from services.OpenAIService import openai_llm_service as llm_service
 from services.TariffClassifier import catalog
 from models import UserDocument, UserProcessItem, UserProcess, ProcessStatus
 from config.database import SessionLocal

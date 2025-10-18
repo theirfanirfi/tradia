@@ -28,9 +28,10 @@ class OpenAIService:
     """
 
     def __init__(self):
+        logging.info(settings.OPENAI_API_KEY)
         self.llm = ChatOpenAI(
-            model=settings.openai_model,
-            api_key=settings.openai_api_key,
+            model=settings.OPENAI_MODEL,
+            api_key=settings.OPENAI_API_KEY,
             temperature=0.2,
         )
         self.parser = StrOutputParser()
@@ -49,6 +50,7 @@ class OpenAIService:
         try:
             logging.info("Sending prompt to OpenAI model.")
             response = await self.llm.ainvoke(prompt)
+            logging.info(f"response openai {response}")
             text = response.content if hasattr(response, "content") else str(response)
             return text
         except Exception as e:

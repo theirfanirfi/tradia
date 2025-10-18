@@ -36,8 +36,8 @@ class Settings(BaseSettings):
     llm_model: str = os.getenv("LLM_MODEL", "llama2")
     
     # OpenAI
-    openai_api_key: str = os.getenv("OPENAI_KEY","")
-    openai_model: str = os.getenv("OPENAI_MODEL","gpt5")
+    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY","")
+    OPENAI_MODEL: str = os.getenv("OPENAI_MODEL","")
     
     # OCR
     ocr_engine: str = "tesseract"  # tesseract or textract
