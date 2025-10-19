@@ -13,7 +13,7 @@ from schemas.item_schemas import (
 )
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_item_data
-from tasks.background_tasks import task_reclassify_items
+# from tasks.background_tasks import task_reclassify_items
 
 router = APIRouter(prefix="/api/items", tags=["items"])
 
@@ -130,7 +130,7 @@ async def reprocess_item(
         )
     
     try:
-        task_reclassify_items.delay(item_id=item_id)
+        # task_reclassify_items.delay(item_id=item_id)
         return {"success":True,"message": f"Item {item_id} reprocessing initiated"}
         
     except Exception as e:

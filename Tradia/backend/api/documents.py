@@ -20,7 +20,7 @@ from schemas.document_schemas import (
 )
 from services.file_service import file_service
 from services.ocr_service import ocr_service
-from tasks.background_tasks import process_documents, task_retry_item_extraction_from_document
+# from tasks.background_tasks import process_documents, task_retry_item_extraction_from_document
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_file_upload
 UPLOADS_ROOT = Path("./uploads").resolve()
@@ -52,7 +52,7 @@ async def retry_item_extraction_from_document(
     db.commit()
 
     # Trigger background LLM extraction for this document
-    task_retry_item_extraction_from_document.delay(document_id)
+    # task_retry_item_extraction_from_document.delay(document_id)
 
     return {"status":"success","message": "Retry extraction started", "document_id": document_id}
 
@@ -124,7 +124,8 @@ async def upload_documents(
         
         # Start background processing
         if document_ids:
-            process_documents.delay(process_id, document_ids)
+            pass
+            # process_documents.delay(process_id, document_ids)
         
         return DocumentUploadResponse(
             message="Files uploaded successfully",
