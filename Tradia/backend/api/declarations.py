@@ -13,7 +13,7 @@ from schemas.declaration_schemas import (
 from services.pdf_service import pdf_service
 from utils.auth_dependencies import get_current_user
 from utils.validators import validate_declaration_data
-from tasks.background_tasks import task_b650_extract_section_a_information, task_b650_extract_section_b_information, task_b650_extract_section_c_information
+from celeryapp.tasks.background_tasks import celeryapp
 from schemas.B650.import_section_a import B650SectionAHeader
 from services.B650_PreLLMService import preprocessor
 from schemas.B650.import_section_b import SectionB
@@ -31,7 +31,7 @@ async def get_declaration(
     """Get declaration data for a process"""
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     if not declaration:
-        task_b650_extract_section_a_information.delay(process_id)
+        celeryapp.send_task("tasks.task_b650_extract_section_a_information",args=[process_id])
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,
             detail="Declarations being ready"
@@ -202,7 +202,7 @@ async def get_declaration_section_b(
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     if declaration:
         if not declaration.import_declaration_section_b:
-            task_b650_extract_section_b_information.delay(process_id)
+            celeryapp.send_task("tasks.task_b650_extract_section_b_information", args=[process_id])
         
 
         return DeclarationResponse.from_orm(declaration)
@@ -225,7 +225,7 @@ async def get_declaration_section_c(
     """Get declaration data for a process"""
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     if not declaration:
-        task_b650_extract_section_a_information.delay(process_id)
+        celeryapp.send_tasks("tasks.task_b650_extract_section_a_information", args=[process_id])
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,
             detail="Declarations being ready"
