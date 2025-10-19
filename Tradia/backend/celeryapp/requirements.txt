@@ -1,0 +1,14 @@
+numpy
+sentence_transformers
+spacy
+sqlalchemy
+anyio
+pdfplumber
+fitz
+pytesseract
+pdf2image
+pandas
+celery
+langchain
+langchain-openai
+langchain-core
