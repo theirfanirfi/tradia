@@ -39,7 +39,7 @@ class OpenAIService:
     # --------------------------
     # GENERIC LLM CALL HANDLER
     # --------------------------
-    async def _call_llm(
+    def _call_llm(
         self,
         prompt: str,
         response_format: Optional[Dict[str, Any]] = None,
@@ -49,7 +49,7 @@ class OpenAIService:
         """
         try:
             logging.info("Sending prompt to OpenAI model.")
-            response = await self.llm.ainvoke(prompt)
+            response = self.llm.invoke(prompt)
             logging.info(f"response openai {response}")
             text = response.content if hasattr(response, "content") else str(response)
             return text
@@ -60,7 +60,7 @@ class OpenAIService:
     # --------------------------
     # ITEM EXTRACTION
     # --------------------------
-    async def process_item_extract_document(
+    def process_item_extract_document(
         self,
         ocr_text: str,
         process_id: str,
@@ -76,7 +76,7 @@ class OpenAIService:
                 ocr_text=ocr_text, declaration_type=declaration_type
             )
 
-            response = await self._call_llm(prompt, response_format)
+            response = self._call_llm(prompt, response_format)
             parsed = self._parse_to_json(response)
             return parsed
         except Exception as e:
@@ -86,7 +86,7 @@ class OpenAIService:
     # --------------------------
     # SECTION A
     # --------------------------
-    async def process_b650_section_a(
+    def process_b650_section_a(
         self,
         ocr_text: str,
         declaration_type: str = "import",
@@ -103,7 +103,7 @@ class OpenAIService:
                 structured_pipeline_data=structured_data,
             )
 
-            response = await self._call_llm(prompt, B650_SECTION_A_RESPONSE_FORMAT)
+            response = self._call_llm(prompt, B650_SECTION_A_RESPONSE_FORMAT)
             parsed = self._parse_to_json(response)
             return parsed
         except Exception as e:
@@ -113,7 +113,7 @@ class OpenAIService:
     # --------------------------
     # SECTION B
     # --------------------------
-    async def process_b650_section_b(
+    def process_b650_section_b(
         self,
         ocr_text: str,
         declaration_type: str = "import",
@@ -142,7 +142,7 @@ class OpenAIService:
                 structured_pipeline_data=structured_data,
             )
 
-            response = await self._call_llm(prompt, response_format)
+            response = self._call_llm(prompt, response_format)
             parsed = self._parse_to_json(response)
             return parsed
         except Exception as e:
@@ -152,7 +152,7 @@ class OpenAIService:
     # --------------------------
     # SECTION C
     # --------------------------
-    async def process_b650_section_c(
+    def process_b650_section_c(
         self,
         ocr_text: str,
         declaration_type: str = "import",
@@ -169,7 +169,7 @@ class OpenAIService:
                 structured_pipeline_data=structured_data,
             )
 
-            response = await self._call_llm(prompt, SECTION_C)
+            response = self._call_llm(prompt, SECTION_C)
             parsed = self._parse_to_json(response)
             return parsed
         except Exception as e:

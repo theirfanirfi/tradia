@@ -419,6 +419,6 @@ ocr_service = OCRService()
 # prompt = f"Analyze this document:\n\n{content}"
 
 # Get detailed results
-results = ocr_service.extract_text_and_tables_from_pdf("document.pdf")
-tables_only = results['formatted_tables']
-text_only = results['combined_text']
+# results = ocr_service.extract_text_and_tables_from_pdf("document.pdf")
+# tables_only = results['formatted_tables']
+# text_only = results['combined_text']

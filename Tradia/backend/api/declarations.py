@@ -30,7 +30,7 @@ async def get_declaration(
 ):
     """Get declaration data for a process"""
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
-    if not declaration:
+    if declaration:
         task_b650_extract_section_a_information.delay(process_id)
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,
@@ -52,7 +52,7 @@ async def get_declaration(
             total_quantity += float(item.item_weight or 0)
             unit_of_measure = item.item_weight_unit or unit_of_measure
             customs_value += float(item.item_price or 0)
-            additional_info = + additional_info + item.item_title
+            additional_info += additional_info + item.item_title
 
         tariff_line = {
             "tariff_classification": hs_codes,
