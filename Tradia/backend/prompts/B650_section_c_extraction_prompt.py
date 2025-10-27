@@ -1,4 +1,4 @@
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 def get_b650_section_c_extraction_prompt(ocr_text: str) -> str:
     return PromptTemplate(input_variables=["ocr_text", "declaration_type", "structured_pipeline_data"],
                           template="""

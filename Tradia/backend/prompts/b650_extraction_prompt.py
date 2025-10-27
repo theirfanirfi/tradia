@@ -1,4 +1,4 @@
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 from llm_response_formats.b650_response_format import B650_RESPONSE_FORMAT
 
 

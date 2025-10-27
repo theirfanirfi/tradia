@@ -19,10 +19,10 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "0.2"
-          memory: "2g"
+          cpus: "0.5"
+          memory: "6g"
         reservations:
-          memory: "1g"
+          memory: "5g"
 
   postgres:
     image: postgres:15
@@ -56,23 +56,23 @@ services:
         reservations:
           memory: "512m"
 
-  celery:
-    build: .
-    command: celery -A tasks.background_tasks worker --loglevel=info
-    environment:
-      - DATABASE_URL=postgresql://postgres:tradia1234@postgres:5432/tradia_db
-      - REDIS_URL=redis://redis:6379
-    depends_on:
-      - postgres
-      - redis
-    restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: "1g"
-        reservations:
-          memory: "512m"
+  # celery:
+  #   build: .
+  #   command: celery -A tasks.background_tasks worker --loglevel=info
+  #   environment:
+  #     - DATABASE_URL=postgresql://postgres:tradia1234@postgres:5432/tradia_db
+  #     - REDIS_URL=redis://redis:6379
+  #   depends_on:
+  #     - postgres
+  #     - redis
+  #   restart: unless-stopped
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "0.1"
+  #         memory: "1g"
+  #       reservations:
+  #         memory: "512m"
 
 volumes:
   postgres_data:
