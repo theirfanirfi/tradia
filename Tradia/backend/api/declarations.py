@@ -30,7 +30,7 @@ async def get_declaration(
 ):
     """Get declaration data for a process"""
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
-    if declaration:
+    if not declaration:
         task_b650_extract_section_a_information.delay(process_id)
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,

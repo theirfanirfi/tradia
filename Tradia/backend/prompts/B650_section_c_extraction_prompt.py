@@ -41,7 +41,7 @@ You are an **Australian border customs authority and import declaration expert**
                     "description": "Description of goods"
                 }},
                 "quantity": {{
-                    "type": "number",
+                    "type": "float",
                     "description": "Quantity of goods"
                 }},
                 "unit_of_measure": {{

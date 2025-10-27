@@ -57,7 +57,20 @@ You are an **Australian border customs authority and import declaration expert**
           "description": "AQIS inspection location"
         }},
         "contact_details": {{
+          "type": "object",
+          "properties": {{
+          "mobile":{{
           "type": "string",
+          }}
+
+          "email":{{
+          "type": "string",
+          }}
+
+        "phone":{{
+          "type": "string",
+          }}
+          }}
           "description": "Contact details (email or phone)"
         }},
         "destination_port_code": {{
@@ -78,7 +91,7 @@ You are an **Australian border customs authority and import declaration expert**
           "description": "Header valuation advice number"
         }},
         "valuation_elements": {{
-          "type": "string",
+          "type": "object",
           "description": "Valuation elements description"
         }},
         "fob_or_cif": {{
