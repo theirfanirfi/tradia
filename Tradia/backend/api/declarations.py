@@ -19,6 +19,7 @@ from services.B650_PreLLMService import preprocessor
 from schemas.B650.import_section_b import SectionB
 from schemas.B650.import_section_c_schema import SECTIONC
 import json
+from mappings.map_responses_onto_b650 import map_b650_to_formdata
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 
 
@@ -315,21 +316,25 @@ async def generate_declaration_pdf(
             "tariff_lines": user_declaration.import_declaration_section_c,
 
         }
+        print(b650_schema)
+
+        mapped_schema = map_b650_to_formdata(b650_schema)
+        print(mapped_schema)
+
+
+
         
         # Generate PDF
-        pdf_bytes = pdf_service.generate_declaration_pdf(
-            declaration.schema_details,
-            items_data,
-            declaration.declaration_type.value
-        )
+        # pdf_bytes = pdf_service.generate_declaration_pdf(
+        #     declaration.schema_details,
+        #     items_data,
+        #     declaration.declaration_type.value
+        # )
         
         # Return PDF as response
-        return Response(
-            content=pdf_bytes,
-            media_type="application/pdf",
-            headers={
-                "Content-Disposition": f"attachment; filename=declaration_{process_id}.pdf"
-            }
+        return HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to generate PDF: {str(e)}"
         )
         
     except HTTPException:

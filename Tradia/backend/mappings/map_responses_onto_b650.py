@@ -1,10 +1,22 @@
 def map_b650_to_formdata(b650_json):
     """
-    Converts a JSON object in B650_RESPONSE_FORMAT into a flat dictionary
-    that matches the B650 PDF form field schema (form_data).
+    Safely converts a JSON object (B650_RESPONSE_FORMAT) into a flat dictionary (form_data)
+    used to fill the B650 PDF form.
+    Missing fields are filled with empty strings, and missing keys are logged.
     """
 
     form_data = {}
+
+    def safe_get(container, key, context=""):
+        """Safe getter that logs if data is missing."""
+        value = ""
+        if isinstance(container, dict):
+            value = container.get(key, "")
+            if value in (None, ""):
+                print(f"[INFO] Missing or empty: {context}.{key}")
+        else:
+            print(f"[INFO] Invalid container for {context}.{key}")
+        return value
 
     header = b650_json.get("header", {})
     air_lines = b650_json.get("air_transport_lines", [])
@@ -13,23 +25,23 @@ def map_b650_to_formdata(b650_json):
 
     # --- HEADER ---
     form_data.update({
-        "Import type": header.get("import_declaration_type", ""),
-        "Owner Details Owner Name": header.get("owner_name", ""),
-        "Owner ID ABN ABNCAC or CCID": header.get("owner_id", ""),
-        "Owner Reference": header.get("owner_reference", ""),
-        "Biosecurity Inspection Location": header.get("aqis_inspection_location", ""),
-        "Owner email": header.get("contact_details", ""),
-        "Destination Port Code": header.get("destination_port_code", ""),
-        "Invoice Term Type": header.get("invoice_term_type", ""),
-        "Valuation Date": header.get("valuation_date", ""),
-        "Header Valuation Advice No": header.get("header_valuation_advice_number", ""),
-        "EFT": header.get("paid_under_protest", ""),
-        "T3": header.get("amber_statement_reason", ""),
-        "Declaration": header.get("declaration_signature", "")
+        "Import type": safe_get(header, "import_declaration_type", "header"),
+        "Owner Details Owner Name": safe_get(header, "owner_name", "header"),
+        "Owner ID ABN ABNCAC or CCID": safe_get(header, "owner_id", "header"),
+        "Owner Reference": safe_get(header, "owner_reference", "header"),
+        "Biosecurity Inspection Location": safe_get(header, "aqis_inspection_location", "header"),
+        "Owner email": safe_get(header, "contact_details", "header"),
+        "Destination Port Code": safe_get(header, "destination_port_code", "header"),
+        "Invoice Term Type": safe_get(header, "invoice_term_type", "header"),
+        "Valuation Date": safe_get(header, "valuation_date", "header"),
+        "Header Valuation Advice No": safe_get(header, "header_valuation_advice_number", "header"),
+        "EFT": safe_get(header, "paid_under_protest", "header"),
+        "T3": safe_get(header, "amber_statement_reason", "header"),
+        "Declaration": safe_get(header, "declaration_signature", "header")
     })
 
-    # Valuation elements -> split into Amount/Currency pairs
-    valuation_elements = header.get("valuation_elements", "")
+    # Valuation elements → split into Amount/Currency pairs
+    valuation_elements = safe_get(header, "valuation_elements", "header")
     if valuation_elements:
         pairs = valuation_elements.split(",")
         for i, pair in enumerate(pairs, 1):
@@ -38,127 +50,96 @@ def map_b650_to_formdata(b650_json):
                 form_data[f"Amount{i}"], form_data[f"Currency{i}"] = parts
             elif len(parts) == 1:
                 form_data[f"Amount{i}"] = parts[0]
+            else:
+                print(f"[INFO] Could not parse valuation element '{pair}'")
 
     # --- AIR TRANSPORT LINES ---
     for i, line in enumerate(air_lines, start=1):
+        context = f"air_transport_lines[{i}]"
         form_data.update({
-            f"Airline Code": line.get("airline_code", ""),
-            f"Loading Port{i}": line.get("loading_port", ""),
-            f"First Arrival Port{i}": line.get("first_arrival_port", ""),
-            f"Discaharge Port1": line.get("discharge_port", ""),
-            f"First Arrival Date{i}": line.get("first_arrival_date", ""),
-            f"Gross Weight{i}": line.get("gross_weight", ""),
-            f"Gross Weight Unit{i}": line.get("gross_weight_unit", ""),
-            f"Line No{i}": line.get("line_number", ""),
-            f"Master Air Waybill NoRow{i}": line.get("master_air_waybill_no", ""),
-            f"House Air Waybill NoRow{i}": line.get("house_air_waybill_no", ""),
-            f"No of Packages{i}": line.get("number_of_packages", ""),
-            f"Marks  Numbers DescriptionRow{i}": line.get("marks_numbers_description", "")
+            "Airline Code": safe_get(line, "airline_code", context),
+            f"Loading Port{i}": safe_get(line, "loading_port", context),
+            f"First Arrival Port{i}": safe_get(line, "first_arrival_port", context),
+            "Discaharge Port1": safe_get(line, "discharge_port", context),
+            f"First Arrival Date{i}": safe_get(line, "first_arrival_date", context),
+            f"Gross Weight{i}": safe_get(line, "gross_weight", context),
+            f"Gross Weight Unit{i}": safe_get(line, "gross_weight_unit", context),
+            f"Line No{i}": safe_get(line, "line_number", context),
+            f"Master Air Waybill NoRow{i}": safe_get(line, "master_air_waybill_no", context),
+            f"House Air Waybill NoRow{i}": safe_get(line, "house_air_waybill_no", context),
+            f"No of Packages{i}": safe_get(line, "number_of_packages", context),
+            f"Marks  Numbers DescriptionRow{i}": safe_get(line, "marks_numbers_description", context)
         })
 
     # --- SEA TRANSPORT LINES ---
     for idx, line in enumerate(sea_lines, start=1):
         suffix = ["", "_2", "_3", "_4"][idx - 1] if idx <= 4 else f"_{idx}"
+        context = f"sea_transport_lines[{idx}]"
         form_data.update({
-            "Vessel Name": line.get("vessel_name", ""),
-            "Vessel ID": line.get("vessel_id", ""),
-            "Voyage No": line.get("voyage_number", ""),
-            f"Loading Port{suffix}": line.get("loading_port", ""),
-            f"First arrival{idx}": line.get("first_arrival_port", ""),
-            f"Discharge Port{suffix}": line.get("discharge_port", ""),
-            f"First Arrival Date{suffix}": line.get("first_arrival_date", ""),
-            f"Gross Weight{suffix}": line.get("gross_weight", ""),
-            f"Gross Weight Unit{suffix}": line.get("gross_weight_unit", ""),
-            f"Line No{idx+2}": line.get("line_number", ""),
-            f"Cargo TypeRow{idx}": line.get("cargo_type", ""),
-            f"Container NoRow{idx}": line.get("container_number", ""),
-            f"Ocean Bill of Lading No{idx}": line.get("ocean_bill_of_lading_no", ""),
-            f"House Bill of Lading No{idx}": line.get("house_bill_of_lading_no", ""),
-            f"No of Packages{idx+2}": line.get("number_of_packages", ""),
-            f"Marks  Numbers DescriptionRow{idx+2}": line.get("marks_numbers_description", "")
+            "Vessel Name": safe_get(line, "vessel_name", context),
+            "Vessel ID": safe_get(line, "vessel_id", context),
+            "Voyage No": safe_get(line, "voyage_number", context),
+            f"Loading Port{suffix}": safe_get(line, "loading_port", context),
+            f"First arrival{idx}": safe_get(line, "first_arrival_port", context),
+            f"Discharge Port{suffix}": safe_get(line, "discharge_port", context),
+            f"First Arrival Date{suffix}": safe_get(line, "first_arrival_date", context),
+            f"Gross Weight{suffix}": safe_get(line, "gross_weight", context),
+            f"Gross Weight Unit{suffix}": safe_get(line, "gross_weight_unit", context),
+            f"Line No{idx+2}": safe_get(line, "line_number", context),
+            f"Cargo TypeRow{idx}": safe_get(line, "cargo_type", context),
+            f"Container NoRow{idx}": safe_get(line, "container_number", context),
+            f"Ocean Bill of Lading No{idx}": safe_get(line, "ocean_bill_of_lading_no", context),
+            f"House Bill of Lading No{idx}": safe_get(line, "house_bill_of_lading_no", context),
+            f"No of Packages{idx+2}": safe_get(line, "number_of_packages", context),
+            f"Marks  Numbers DescriptionRow{idx+2}": safe_get(line, "marks_numbers_description", context)
         })
 
     # --- TARIFF LINES ---
     for i, line in enumerate(tariff_lines, start=1):
         suffix = "" if i == 1 else "_2"
+        context = f"tariff_lines[{i}]"
         form_data.update({
-            f"Tariff Classification No{suffix}": line.get("tariff_classification", ""),
-            f"Goods DescriptionC{suffix}": line.get("goods_description", ""),
-            f"Quantity1{suffix}": str(line.get("quantity", "")),
-            f"Unit1{suffix}": line.get("unit_of_measure", ""),
-            f"Origin Country1{suffix}": line.get("country_of_origin", ""),
-            f"AmountC1{suffix}": line.get("customs_value", ""),
-            f"PriceRow1{suffix}": line.get("fob_value", ""),
-            f"PriceRow2{suffix}": line.get("cif_value", ""),
-            f"Preference Origin Country1{suffix}": line.get("origin_country_code", ""),
-            f"Preference Rule Type1{suffix}": line.get("preference_rule_type", ""),
-            f"Preference Scheme Type1{suffix}": line.get("preference_scheme_type", ""),
-            f"Instrument Type1{suffix}": line.get("tariff_instrument", ""),
-            f"Additional Information{suffix}": line.get("additional_information", ""),
-            f"Stat code1{suffix}": line.get("tariff_classification_code", "")
+            f"Tariff Classification No{suffix}": safe_get(line, "tariff_classification", context),
+            f"Goods DescriptionC{suffix}": safe_get(line, "goods_description", context),
+            f"Quantity1{suffix}": str(safe_get(line, "quantity", context)),
+            f"Unit1{suffix}": safe_get(line, "unit_of_measure", context),
+            f"Origin Country1{suffix}": safe_get(line, "country_of_origin", context),
+            f"AmountC1{suffix}": safe_get(line, "customs_value", context),
+            f"PriceRow1{suffix}": safe_get(line, "fob_value", context),
+            f"PriceRow2{suffix}": safe_get(line, "cif_value", context),
+            f"Preference Origin Country1{suffix}": safe_get(line, "origin_country_code", context),
+            f"Preference Rule Type1{suffix}": safe_get(line, "preference_rule_type", context),
+            f"Preference Scheme Type1{suffix}": safe_get(line, "preference_scheme_type", context),
+            f"Instrument Type1{suffix}": safe_get(line, "tariff_instrument", context),
+            f"Additional Information{suffix}": safe_get(line, "additional_information", context),
+            f"Stat code1{suffix}": safe_get(line, "tariff_classification_code", context)
         })
 
+    print("[INFO] Mapping completed successfully.")
     return form_data
 
 
 # Example usage
-if __name__ == "__main__":
-    from pprint import pprint
+# if __name__ == "__main__":
+#     from pprint import pprint
 
-    # Sample minimal B650-style JSON
-    b650_sample = {
-        "header": {
-            "import_declaration_type": "s71A",
-            "owner_name": "John Doe",
-            "owner_id": "123456789",
-            "owner_reference": "REF123",
-            "aqis_inspection_location": "Sydney Port",
-            "contact_details": "john.doe@example.com",
-            "destination_port_code": "SYD",
-            "invoice_term_type": "FOB",
-            "valuation_date": "2025-10-28",
-            "header_valuation_advice_number": "VAL001",
-            "valuation_elements": "1000 AUD, 200 Freight",
-            "fob_or_cif": "FOB",
-            "paid_under_protest": "No",
-            "amber_statement_reason": "N/A",
-            "declaration_signature": "John Doe"
-        },
-        "air_transport_lines": [
-            {
-                "airline_code": "QF",
-                "loading_port": "SIN",
-                "first_arrival_port": "SYD",
-                "discharge_port": "SYD",
-                "first_arrival_date": "2025-10-25",
-                "gross_weight": "1200",
-                "gross_weight_unit": "KG",
-                "line_number": "1",
-                "master_air_waybill_no": "QF123456",
-                "house_air_waybill_no": "HAWB001",
-                "number_of_packages": "5",
-                "marks_numbers_description": "Electronics"
-            }
-        ],
-        "tariff_lines": [
-            {
-                "tariff_classification": "850440",
-                "goods_description": "Power Supply Unit",
-                "quantity": 10,
-                "unit_of_measure": "EA",
-                "country_of_origin": "CN",
-                "customs_value": "5000",
-                "fob_value": "4800",
-                "cif_value": "5200",
-                "origin_country_code": "CN",
-                "preference_rule_type": "Rule1",
-                "preference_scheme_type": "SchemeA",
-                "tariff_instrument": "Instrument123",
-                "additional_information": "No remarks",
-                "tariff_classification_code": "001"
-            }
-        ]
-    }
+#     # Example incomplete B650 JSON (some fields missing intentionally)
+#     b650_sample = {
+#         "header": {
+#             "import_declaration_type": "s71A",
+#             "owner_name": "Jane Smith",
+#             "invoice_term_type": "CIF",
+#             # Missing many fields to demonstrate logging
+#         },
+#         "air_transport_lines": [
+#             {
+#                 "airline_code": "EK",
+#                 "loading_port": "DXB",
+#                 "first_arrival_port": "MEL"
+#                 # Missing weight, date, etc.
+#             }
+#         ]
+#     }
 
-    # mapped_form_data = map_b650_to_formdata(b650_sample)
-    # pprint(mapped_form_data)
+#     result = map_b650_to_formdata(b650_sample)
+#     pprint(result)
