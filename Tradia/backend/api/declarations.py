@@ -304,20 +304,17 @@ async def generate_declaration_pdf(
                 detail="Declaration not found"
             )
         
-        # Get items
-        items = db.query(UserProcessItem).filter(UserProcessItem.process_id == process_id).all()
-        items_data = []
-        
-        for item in items:
-            items_data.append({
-                "item_title": item.item_title,
-                "item_description": item.item_description,
-                "item_type": item.item_type,
-                "item_weight": float(item.item_weight) if item.item_weight else None,
-                "item_weight_unit": item.item_weight_unit,
-                "item_price": float(item.item_price) if item.item_price else None,
-                "item_currency": item.item_currency
-            })
+
+        user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+        if not user_declaration:
+            pass
+
+        b650_schema = {
+            "header": user_declaration.import_declaration_section_a,
+            "sea_transport_lines": user_declaration.import_declaration_section_b,
+            "tariff_lines": user_declaration.import_declaration_section_c,
+
+        }
         
         # Generate PDF
         pdf_bytes = pdf_service.generate_declaration_pdf(
