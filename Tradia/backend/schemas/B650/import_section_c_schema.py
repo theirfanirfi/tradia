@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, constr
 
 
 class SECTIONC(BaseModel):
-    quantity: Optional[str] = Field(None, description="Quantity of goods")
+    quantity: Optional[float] = Field(None, description="Quantity of goods")
     cif_value: Optional[str] = Field(None, description="CIF value")
     fob_value: Optional[str] = Field(None, description="FOB value")
     customs_value: Optional[str] = Field(None, description="Customs value")

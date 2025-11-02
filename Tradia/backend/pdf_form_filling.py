@@ -287,225 +287,225 @@ def analyze_pdf_structure(pdf_path):
     return False
 
 
-def create_sample_data():
-    """Create sample data matching common PDF field names"""
-    current_date = datetime.datetime.now().strftime('%d/%m/%Y')
+# def create_sample_data():
+#     """Create sample data matching common PDF field names"""
+#     current_date = datetime.datetime.now().strftime('%d/%m/%Y')
     
-    return {
-        # Common field name variations
-        'OwnerName': 'ABC Import Company Pty Ltd',
-        'Owner name': 'ABC Import Company Pty Ltd',
-        'owner_name': 'ABC Import Company Pty Ltd',
+#     return {
+#         # Common field name variations
+#         'OwnerName': 'ABC Import Company Pty Ltd',
+#         'Owner name': 'ABC Import Company Pty Ltd',
+#         'owner_name': 'ABC Import Company Pty Ltd',
         
-        'OwnerID': '12345678901',
-        'Owner ID': '12345678901',
-        'ABN': '12345678901',
+#         'OwnerID': '12345678901',
+#         'Owner ID': '12345678901',
+#         'ABN': '12345678901',
         
-        'OwnerPhone': '+61 2 1234 5678',
-        'Phone': '+61 2 1234 5678',
-        'Contact phone': '+61 2 1234 5678',
+#         'OwnerPhone': '+61 2 1234 5678',
+#         'Phone': '+61 2 1234 5678',
+#         'Contact phone': '+61 2 1234 5678',
         
-        'OwnerEmail': 'imports@abc.com.au',
-        'Email': 'imports@abc.com.au',
-        'Owner email': 'imports@abc.com.au',
+#         'OwnerEmail': 'imports@abc.com.au',
+#         'Email': 'imports@abc.com.au',
+#         'Owner email': 'imports@abc.com.au',
         
-        'Invoice Total': 15000.00,
-        'Invoice total': 15000.00,
-        'invoice total': 15000.00,
-        ' Amount1': 15000.00,
+#         'Invoice Total': 15000.00,
+#         'Invoice total': 15000.00,
+#         'invoice total': 15000.00,
+#         ' Amount1': 15000.00,
         
-        'GoodsDescription': 'Electronic Components',
-        'Goods description': 'Electronic Components',
+#         'GoodsDescription': 'Electronic Components',
+#         'Goods description': 'Electronic Components',
         
-        'DeclarantName': 'John Smith',
-        'Declarant name': 'John Smith',
-        'a. Invoice total': 15000.00,
-        'Date': current_date,
-        'Declaration date': current_date,
+#         'DeclarantName': 'John Smith',
+#         'Declarant name': 'John Smith',
+#         'a. Invoice total': 15000.00,
+#         'Date': current_date,
+#         'Declaration date': current_date,
         
-        # Add more variations as needed
-        'AirlineCode': 'QF',
-        'LoadingPort': 'LAX',
-        'DestinationPort': 'SYD',
-        'MasterAWB': '176-12345678',
-        'GrossWeight': '250',
-        'NumberOfPackages': '5'
-    }
+#         # Add more variations as needed
+#         'AirlineCode': 'QF',
+#         'LoadingPort': 'LAX',
+#         'DestinationPort': 'SYD',
+#         'MasterAWB': '176-12345678',
+#         'GrossWeight': '250',
+#         'NumberOfPackages': '5'
+#     }
 
 
-def main():
-    """Main function with multiple methods"""
-    template_file = "b650_unlocked.pdf"
+# def main():
+#     """Main function with multiple methods"""
+#     template_file = "b650_unlocked.pdf"
     
-    if not os.path.exists(template_file):
-        print(f"❌ Template file '{template_file}' not found!")
-        return
+#     if not os.path.exists(template_file):
+#         print(f"❌ Template file '{template_file}' not found!")
+#         return
     
-    # First, analyze the PDF structure
-    has_fields = analyze_pdf_structure(template_file)
+#     # First, analyze the PDF structure
+#     has_fields = analyze_pdf_structure(template_file)
     
-    if not has_fields:
-        print("\n⚠️  This PDF doesn't appear to have fillable form fields.")
-        print("You may need:")
-        print("1. A different version of the B650 form with fillable fields")
-        print("2. To use PDF form creation software (like Adobe Acrobat)")
-        print("3. To use a service that converts static PDFs to fillable forms")
-        return
+#     if not has_fields:
+#         print("\n⚠️  This PDF doesn't appear to have fillable form fields.")
+#         print("You may need:")
+#         print("1. A different version of the B650 form with fillable fields")
+#         print("2. To use PDF form creation software (like Adobe Acrobat)")
+#         print("3. To use a service that converts static PDFs to fillable forms")
+#         return
     
-    # Create sample data
-    sample_data = create_sample_data()
-    output_file = f"b650_filled_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+#     # Create sample data
+#     sample_data = create_sample_data()
+#     output_file = f"b650_filled_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
     
-    print(f"\n🚀 Attempting to fill form...")
+#     print(f"\n🚀 Attempting to fill form...")
     
-    # Try PyMuPDF first (most reliable)
-    if PYMUPDF_AVAILABLE:
-        print("\n📝 Trying PyMuPDF method...")
-        filler = B650FormFillerPyMuPDF(template_file, output_file)
-        if filler.set_data(sample_data).fill_form():
-            return
+#     # Try PyMuPDF first (most reliable)
+#     if PYMUPDF_AVAILABLE:
+#         print("\n📝 Trying PyMuPDF method...")
+#         filler = B650FormFillerPyMuPDF(template_file, output_file)
+#         if filler.set_data(sample_data).fill_form():
+#             return
     
-    # Try pdfrw as backup
-    if PDFRW_AVAILABLE:
-        print("\n📝 Trying pdfrw method...")
-        filler = B650FormFillerPDFRW(template_file, output_file)
-        if filler.set_data(sample_data).fill_form():
-            return
+#     # Try pdfrw as backup
+#     if PDFRW_AVAILABLE:
+#         print("\n📝 Trying pdfrw method...")
+#         filler = B650FormFillerPDFRW(template_file, output_file)
+#         if filler.set_data(sample_data).fill_form():
+#             return
     
-    print("\n❌ All methods failed. The PDF may not have properly configured form fields.")
+#     print("\n❌ All methods failed. The PDF may not have properly configured form fields.")
 
 
-def inspect_pdf_fields_detailed(pdf_path):
-    """
-    Detailed inspection of PDF form fields
-    This helps you understand exactly what field names to use
-    """
-    print(f"🔍 Detailed PDF Field Analysis: {pdf_path}")
-    print("=" * 60)
+# def inspect_pdf_fields_detailed(pdf_path):
+#     """
+#     Detailed inspection of PDF form fields
+#     This helps you understand exactly what field names to use
+#     """
+#     print(f"🔍 Detailed PDF Field Analysis: {pdf_path}")
+#     print("=" * 60)
     
-    if PYMUPDF_AVAILABLE:
-        try:
-            doc = fitz.open(pdf_path)
+#     if PYMUPDF_AVAILABLE:
+#         try:
+#             doc = fitz.open(pdf_path)
             
-            for page_num in range(len(doc)):
-                page = doc[page_num]
-                widgets = page.widgets()
+#             for page_num in range(len(doc)):
+#                 page = doc[page_num]
+#                 widgets = page.widgets()
                 
-                if widgets:
-                    print(f"\n📄 PAGE {page_num + 1}")
-                    print("-" * 40)
+#                 if widgets:
+#                     print(f"\n📄 PAGE {page_num + 1}")
+#                     print("-" * 40)
                     
-                    for i, widget in enumerate(widgets):
-                        print(f"Widget {i + 1}:")
-                        print(f"  Field Name: '{widget.field_name}'")
-                        print(f"  Field Type: {widget.field_type_string}")
-                        print(f"  Current Value: '{widget.field_value}'")
-                        print(f"  Rectangle: {widget.rect}")
-                        print(f"  Required: {widget.field_flags & 2 == 2}")
-                        print()
+#                     for i, widget in enumerate(widgets):
+#                         print(f"Widget {i + 1}:")
+#                         print(f"  Field Name: '{widget.field_name}'")
+#                         print(f"  Field Type: {widget.field_type_string}")
+#                         print(f"  Current Value: '{widget.field_value}'")
+#                         print(f"  Rectangle: {widget.rect}")
+#                         print(f"  Required: {widget.field_flags & 2 == 2}")
+#                         print()
             
-            doc.close()
-            return True
+#             doc.close()
+#             return True
             
-        except Exception as e:
-            print(f"PyMuPDF analysis failed: {e}")
+#         except Exception as e:
+#             print(f"PyMuPDF analysis failed: {e}")
     
-    if PDFRW_AVAILABLE:
-        try:
-            print("\n📝 Trying pdfrw analysis...")
-            reader = PDFRWReader(pdf_path)
+#     if PDFRW_AVAILABLE:
+#         try:
+#             print("\n📝 Trying pdfrw analysis...")
+#             reader = PDFRWReader(pdf_path)
             
-            if reader.Root.AcroForm and reader.Root.AcroForm.Fields:
-                print("Form fields found with pdfrw:")
-                for i, field in enumerate(reader.Root.AcroForm.Fields):
-                    print(f"Field {i + 1}:")
-                    print(f"  Name: {field.T}")
-                    print(f"  Type: {field.FT}")
-                    print(f"  Value: {field.V}")
-                    print(f"  Flags: {field.Ff}")
-                    print()
-                return True
-            else:
-                print("No AcroForm fields found with pdfrw")
+#             if reader.Root.AcroForm and reader.Root.AcroForm.Fields:
+#                 print("Form fields found with pdfrw:")
+#                 for i, field in enumerate(reader.Root.AcroForm.Fields):
+#                     print(f"Field {i + 1}:")
+#                     print(f"  Name: {field.T}")
+#                     print(f"  Type: {field.FT}")
+#                     print(f"  Value: {field.V}")
+#                     print(f"  Flags: {field.Ff}")
+#                     print()
+#                 return True
+#             else:
+#                 print("No AcroForm fields found with pdfrw")
                 
-        except Exception as e:
-            print(f"pdfrw analysis failed: {e}")
+#         except Exception as e:
+#             print(f"pdfrw analysis failed: {e}")
     
-    return False
+#     return False
 
 
-def create_fillable_mapping(pdf_path):
-    """
-    Create a mapping template based on actual PDF fields
-    Run this first to see what fields exist, then customize your data
-    """
-    print("🔧 Creating field mapping template...")
+# def create_fillable_mapping(pdf_path):
+#     """
+#     Create a mapping template based on actual PDF fields
+#     Run this first to see what fields exist, then customize your data
+#     """
+#     print("🔧 Creating field mapping template...")
     
-    if PYMUPDF_AVAILABLE:
-        try:
-            doc = fitz.open(pdf_path)
-            mapping_template = {}
+#     if PYMUPDF_AVAILABLE:
+#         try:
+#             doc = fitz.open(pdf_path)
+#             mapping_template = {}
             
-            for page_num in range(len(doc)):
-                page = doc[page_num]
-                widgets = page.widgets()
+#             for page_num in range(len(doc)):
+#                 page = doc[page_num]
+#                 widgets = page.widgets()
                 
-                for widget in widgets:
-                    field_name = widget.field_name
-                    if field_name:
-                        # Create template entry
-                        mapping_template[field_name] = f"<Enter value for {field_name}>"
+#                 for widget in widgets:
+#                     field_name = widget.field_name
+#                     if field_name:
+#                         # Create template entry
+#                         mapping_template[field_name] = f"<Enter value for {field_name}>"
             
-            doc.close()
+#             doc.close()
             
-            print("📋 Field mapping template:")
-            print("Copy this and replace with your actual values:")
-            print("-" * 50)
-            print("form_data = {")
-            for field_name, placeholder in mapping_template.items():
-                print(f"    '{field_name}': '{placeholder}',")
-            print("}")
+#             print("📋 Field mapping template:")
+#             print("Copy this and replace with your actual values:")
+#             print("-" * 50)
+#             print("form_data = {")
+#             for field_name, placeholder in mapping_template.items():
+#                 print(f"    '{field_name}': '{placeholder}',")
+#             print("}")
             
-            return mapping_template
+#             return mapping_template
             
-        except Exception as e:
-            print(f"Error creating mapping: {e}")
+#         except Exception as e:
+#             print(f"Error creating mapping: {e}")
     
-    return {}
+#     return {}
 
 
-if __name__ == "__main__":
-    template_file = "b650_unlocked.pdf"
+# if __name__ == "__main__":
+#     template_file = "b650_unlocked.pdf"
     
-    if not os.path.exists(template_file):
-        print(f"❌ File '{template_file}' not found!")
-        print("Please ensure the B650 PDF is in the current directory.")
-        exit(1)
+#     if not os.path.exists(template_file):
+#         print(f"❌ File '{template_file}' not found!")
+#         print("Please ensure the B650 PDF is in the current directory.")
+#         exit(1)
     
-    print("🔍 B650 PDF Form Analysis and Filling Tool")
-    print("=" * 50)
+#     print("🔍 B650 PDF Form Analysis and Filling Tool")
+#     print("=" * 50)
     
-    # Check available libraries
-    print("📚 Available libraries:")
-    print(f"  PyMuPDF (fitz): {'✅' if PYMUPDF_AVAILABLE else '❌'}")
-    print(f"  pdfrw: {'✅' if PDFRW_AVAILABLE else '❌'}")
-    print(f"  pdfplumber: {'✅' if PDFPLUMBER_AVAILABLE else '❌'}")
+#     # Check available libraries
+#     print("📚 Available libraries:")
+#     print(f"  PyMuPDF (fitz): {'✅' if PYMUPDF_AVAILABLE else '❌'}")
+#     print(f"  pdfrw: {'✅' if PDFRW_AVAILABLE else '❌'}")
+#     print(f"  pdfplumber: {'✅' if PDFPLUMBER_AVAILABLE else '❌'}")
     
-    if not any([PYMUPDF_AVAILABLE, PDFRW_AVAILABLE]):
-        print("\n❌ No suitable PDF libraries found!")
-        print("Please install one of these:")
-        print("  pip install PyMuPDF")
-        print("  pip install pdfrw")
-        exit(1)
+#     if not any([PYMUPDF_AVAILABLE, PDFRW_AVAILABLE]):
+#         print("\n❌ No suitable PDF libraries found!")
+#         print("Please install one of these:")
+#         print("  pip install PyMuPDF")
+#         print("  pip install pdfrw")
+#         exit(1)
     
-    print(f"\n1️⃣  Analyzing PDF structure...")
-    inspect_pdf_fields_detailed(template_file)
+#     print(f"\n1️⃣  Analyzing PDF structure...")
+#     inspect_pdf_fields_detailed(template_file)
     
-    print(f"\n2️⃣  Creating field mapping template...")
-    create_fillable_mapping(template_file)
+#     print(f"\n2️⃣  Creating field mapping template...")
+#     create_fillable_mapping(template_file)
     
-    print(f"\n3️⃣  Attempting to fill with sample data...")
-    main()
+#     print(f"\n3️⃣  Attempting to fill with sample data...")
+#     main()
 
 
 # Quick usage for when you know the field names:

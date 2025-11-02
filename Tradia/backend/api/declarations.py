@@ -1,9 +1,10 @@
+from pprint import pprint
 from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
 from typing import Dict, Any
 
 from config.database import get_db
-from models import UserDeclaration, UserProcess, UserProcessItem
+from models import UserDeclaration, UserProcess, UserProcessItem, UserDocument
 from models.auth import User
 from schemas.declaration_schemas import (
     DeclarationResponse,
@@ -20,6 +21,9 @@ from schemas.B650.import_section_b import SectionB
 from schemas.B650.import_section_c_schema import SECTIONC
 import json
 from mappings.map_responses_onto_b650 import map_b650_to_formdata
+from pdf_form_filling import PYMUPDF_AVAILABLE, B650FormFillerPyMuPDF
+
+
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
 
 
@@ -304,22 +308,56 @@ async def generate_declaration_pdf(
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail="Declaration not found"
             )
-        
 
-        user_declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
-        if not user_declaration:
+        try:
+            user_documents = db.query(UserDocument).filter(UserDocument.process_id == process_id).all()
+            total_price = 0
+
+            for ud in user_documents:
+                if not ud.llm_response['total_price'] is None:
+                    total_price += ud.llm_response['total_price']
+        except Exception as ude:
+            print(ude)
+        
+        if not declaration:
             pass
 
         b650_schema = {
-            "header": user_declaration.import_declaration_section_a,
-            "sea_transport_lines": user_declaration.import_declaration_section_b,
-            "tariff_lines": user_declaration.import_declaration_section_c,
+            "header": declaration.import_declaration_section_a,
+            "section_b": declaration.import_declaration_section_b,
+            "tariff_lines": declaration.import_declaration_section_c,
 
         }
-        print(b650_schema)
 
-        mapped_schema = map_b650_to_formdata(b650_schema)
-        print(mapped_schema)
+        b650_schema['tariff_lines']['tariff_classification'] = b650_schema['tariff_lines']['tariff_classification'][0]
+        b650_schema['tariff_lines']['tariff_classification_code'] = b650_schema['tariff_lines']['tariff_classification_code'][0]
+
+        header = B650SectionAHeader(**b650_schema['header'])
+        section_b = SectionB(**b650_schema['section_b'])
+        # try:
+        tariff_lines = SECTIONC(**b650_schema['tariff_lines'])
+        print('header',header.import_declaration_type)
+        #     pprint(tariff_lines)
+        # except Exception as e:
+        #     print(e)
+
+        # pprint(header)
+        # pprint(section_b)
+        # print(b650_schema["header"])
+        try:
+            mapped_schema = map_b650_to_formdata(header, section_b, tariff_lines, str(total_price))
+            if PYMUPDF_AVAILABLE:
+                print('available')
+                filler = B650FormFillerPyMuPDF('b650_unlocked.pdf', 'output.pdf')
+                filler.set_data(mapped_schema).fill_form()
+            # print('mapped_schema')
+            # pprint(mapped_schema)
+            # print("*************************\n\n")
+        except Exception as e:
+            print(e)
+
+
+        # pprint(mapped_schema)
 
 
 
