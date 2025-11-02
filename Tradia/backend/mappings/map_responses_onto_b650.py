@@ -85,36 +85,34 @@ def map_b650_to_formdata(sectiona: B650SectionAHeader, sectionb: SectionB, secti
         "Discharge Port_2": sectionb.discharge_port or "",
         "First Arrival Date_2": sectionb.first_arrival_date or "",
         "Gross Weight_2": sectionb.gross_weight or "",
-        # f"Gross Weight Unit{suffix}": safe_get(line, "gross_weight_unit", context),
-        # f"Line No{idx+2}": safe_get(line, "line_number", context),
-        # f"Cargo TypeRow{idx}": safe_get(line, "cargo_type", context),
-        # f"Container NoRow{idx}": safe_get(line, "container_number", context),
-        # f"Ocean Bill of Lading No{idx}": safe_get(line, "ocean_bill_of_lading_no", context),
-        # f"House Bill of Lading No{idx}": safe_get(line, "house_bill_of_lading_no", context),
-        # f"No of Packages{idx+2}": safe_get(line, "number_of_packages", context),
-        # f"Marks  Numbers DescriptionRow{idx+2}": safe_get(line, "marks_numbers_description", context)
+        "Gross Weight Unit_2": sectionb.gross_weight_unit or "",
+        "Line No3": sectionb.line_number or "",
+        "Cargo TypeRow1": sectionb.cargo_type or "",
+        "Container NoRow1": sectionb.container_number or "",
+        "Ocean Bill of Lading No1": sectionb.ocean_bill_of_lading_no or "",
+        "House Bill of Lading No1": sectionb.house_bill_of_lading_no or "",
+        "No of Packages3": sectionb.number_of_packages or "",
+        "Marks  Numbers DescriptionRow3": sectionb.marks_numbers_description or ""
     })
 
     # # --- TARIFF LINES ---
-    # for i, line in enumerate(tariff_lines, start=1):
-    #     suffix = "" if i == 1 else "_2"
-    #     context = f"tariff_lines[{i}]"
-    #     form_data.update({
-    #         f"Tariff Classification No{suffix}": safe_get(line, "tariff_classification", context),
-    #         f"Goods DescriptionC{suffix}": safe_get(line, "goods_description", context),
-    #         f"Quantity1{suffix}": str(safe_get(line, "quantity", context)),
-    #         f"Unit1{suffix}": safe_get(line, "unit_of_measure", context),
-    #         f"Origin Country1{suffix}": safe_get(line, "country_of_origin", context),
-    #         f"AmountC1{suffix}": safe_get(line, "customs_value", context),
-    #         f"PriceRow1{suffix}": safe_get(line, "fob_value", context),
-    #         f"PriceRow2{suffix}": safe_get(line, "cif_value", context),
-    #         f"Preference Origin Country1{suffix}": safe_get(line, "origin_country_code", context),
-    #         f"Preference Rule Type1{suffix}": safe_get(line, "preference_rule_type", context),
-    #         f"Preference Scheme Type1{suffix}": safe_get(line, "preference_scheme_type", context),
-    #         f"Instrument Type1{suffix}": safe_get(line, "tariff_instrument", context),
-    #         f"Additional Information{suffix}": safe_get(line, "additional_information", context),
-    #         f"Stat code1{suffix}": safe_get(line, "tariff_classification_code", context)
-    #     })
+
+    form_data.update({
+        "Tariff Classification No": sectionc.tariff_classification or "",
+        "Goods DescriptionC": sectionc.goods_description or "",
+        "Quantity1": sectionc.quantity or "",
+        "Unit1": sectionc.unit_of_measure,
+        "Origin Country1": sectionc.country_of_origin or "",
+        "AmountC1": sectionc.customs_value or "",
+        "PriceRow1": sectionc.fob_value or "",
+        "PriceRow2": sectionc.cif_value or "",
+        "Preference Origin Country1": sectionc.origin_country_code or "",
+        "Preference Rule Type1": sectionc.preference_rule_type or "",
+        "Preference Scheme Type1": sectionc.preference_scheme_type or "",
+        "Instrument Type1": sectionc.tariff_instrument or "",
+        "Additional Information": sectionc.additional_information or "",
+        "Stat code1": sectionc.tariff_classification_code or ""
+    })
 
     print("[INFO] Mapping completed successfully.")
     return form_data

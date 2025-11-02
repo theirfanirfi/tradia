@@ -34,13 +34,17 @@ async def get_declaration(
     db: Session = Depends(get_db)
 ):
     """Get declaration data for a process"""
+    print('declaration for section a received')
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     if not declaration:
+        print('not declaration')
         task_b650_extract_section_a_information.delay(process_id)
         raise HTTPException(
             status_code=status.HTTP_201_CREATED,
             detail="Declarations being ready"
         )
+    
+    print('not declaration after')
     
     if not declaration.import_declaration_section_c:
         items = db.query(UserProcessItem).filter(UserProcessItem.process_id == process_id).all()
@@ -328,9 +332,13 @@ async def generate_declaration_pdf(
             "tariff_lines": declaration.import_declaration_section_c,
 
         }
-
-        b650_schema['tariff_lines']['tariff_classification'] = b650_schema['tariff_lines']['tariff_classification'][0]
-        b650_schema['tariff_lines']['tariff_classification_code'] = b650_schema['tariff_lines']['tariff_classification_code'][0]
+        print(b650_schema)
+        if (not b650_schema['tariff_lines']['tariff_classification'] is None) and len(b650_schema['tariff_lines']['tariff_classification']) > 0:
+            b650_schema['tariff_lines']['tariff_classification'] =  b650_schema['tariff_lines']['tariff_classification'][0]
+            b650_schema['tariff_lines']['tariff_classification_code'] = b650_schema['tariff_lines']['tariff_classification_code'][0]
+        else:
+            b650_schema['tariff_lines']['tariff_classification'] =  b650_schema['tariff_lines']['tariff_classification']
+            b650_schema['tariff_lines']['tariff_classification_code'] = b650_schema['tariff_lines']['tariff_classification_code']
 
         header = B650SectionAHeader(**b650_schema['header'])
         section_b = SectionB(**b650_schema['section_b'])
@@ -375,9 +383,10 @@ async def generate_declaration_pdf(
             detail=f"Failed to generate PDF: {str(e)}"
         )
         
-    except HTTPException:
-        raise
     except Exception as e:
+        print('e',e)
+    except Exception as ee:
+        print('ee',ee)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to generate PDF: {str(e)}"

@@ -21,6 +21,8 @@ RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTr
 
 RUN apt-get update && apt-get install -y \
     git \
+    && apt-get install -y tesseract-ocr \
+    && apt-get install -y poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/theirfanirfi/tradia.git
