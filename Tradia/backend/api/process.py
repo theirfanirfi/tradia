@@ -7,12 +7,15 @@ import os
 from config.database import get_db
 from models import UserProcess, UserDeclaration, DeclarationType, ProcessStatus
 from models.auth import User
+from models.user_documents import UserDocument
+from models.user_process_items import UserProcessItem
 from schemas.process_schemas import (
     CreateProcessRequest,
     ProcessResponse,
     ProcessStatusResponse,
     ProcessListResponse
 )
+from services.file_service import file_service
 from utils.auth_dependencies import get_current_active_user, get_current_user
 from utils.validators import validate_declaration_type
 from utils.status_manager import get_process_summary
@@ -144,3 +147,52 @@ async def list_processes(
         processes=[ProcessResponse.from_orm(p) for p in processes],
         total=total
     )
+
+@router.delete("/{process_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_process(
+    process_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Delete a process and all associated rows (items, documents, declarations)"""
+    try:
+        process = db.query(UserProcess).filter(
+            UserProcess.process_id == process_id,
+            UserProcess.user_id == current_user.user_id
+        ).first()
+        if not process:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Process not found"
+            )
+
+        # Delete process items first
+        db.query(UserProcessItem).filter(UserProcessItem.process_id == process_id).delete(synchronize_session=False)
+
+        # Delete document files from storage, then document rows
+        documents = db.query(UserDocument).filter(UserDocument.process_id == process_id).all()
+        for doc in documents:
+            try:
+                if doc.file_path:
+                    file_service.delete_file(doc.file_path)
+            except Exception as fe:
+                print(f"failed to delete file for document {getattr(doc, 'document_id', None)}: {fe}")
+
+        db.query(UserDocument).filter(UserDocument.process_id == process_id).delete(synchronize_session=False)
+
+        # Delete declarations
+        db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).delete(synchronize_session=False)
+
+        # Delete the process itself
+        db.delete(process)
+
+        db.commit()
+        print('deleted process', process_id)
+        return
+    except Exception as e:
+        db.rollback()
+        print('exception ', e)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to delete process: {str(e)}"
+        )

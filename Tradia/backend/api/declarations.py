@@ -36,6 +36,7 @@ async def get_declaration(
     """Get declaration data for a process"""
     print('declaration for section a received')
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+    print('declaration', declaration.declaration_id)
     if not declaration:
         print('not declaration')
         task_b650_extract_section_a_information.delay(process_id)
