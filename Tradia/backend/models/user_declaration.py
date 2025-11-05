@@ -20,6 +20,7 @@ class UserDeclaration(Base):
     import_declaration_section_a= Column(JSONB, default={})
     import_declaration_section_b= Column(JSONB, default={})
     import_declaration_section_c= Column(JSONB, default={})
+    # generated_pdf= Column(String, nullable=True)
     process_id = Column(UUID(as_uuid=True), ForeignKey("user_process.process_id"), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())

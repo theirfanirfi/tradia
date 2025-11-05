@@ -2,7 +2,7 @@ from pprint import pprint
 from fastapi import APIRouter, Depends, HTTPException, status, Response
 from sqlalchemy.orm import Session
 from typing import Dict, Any
-
+import os
 from config.database import get_db
 from models import UserDeclaration, UserProcess, UserProcessItem, UserDocument
 from models.auth import User
@@ -22,6 +22,8 @@ from schemas.B650.import_section_c_schema import SECTIONC
 import json
 from mappings.map_responses_onto_b650 import map_b650_to_formdata
 from pdf_form_filling import PYMUPDF_AVAILABLE, B650FormFillerPyMuPDF
+import datetime
+from fastapi.responses import FileResponse
 
 
 router = APIRouter(prefix="/api/declaration", tags=["declaration"])
@@ -345,44 +347,54 @@ async def generate_declaration_pdf(
         section_b = SectionB(**b650_schema['section_b'])
         # try:
         tariff_lines = SECTIONC(**b650_schema['tariff_lines'])
-        print('header',header.import_declaration_type)
-        #     pprint(tariff_lines)
-        # except Exception as e:
-        #     print(e)
 
-        # pprint(header)
-        # pprint(section_b)
-        # print(b650_schema["header"])
+
         try:
             mapped_schema = map_b650_to_formdata(header, section_b, tariff_lines, str(total_price))
             if PYMUPDF_AVAILABLE:
-                print('available')
-                filler = B650FormFillerPyMuPDF('b650_unlocked.pdf', 'output.pdf')
+                # create uploads/<user_id>/ directory
+                uploads_root = os.path.join(os.getcwd(), "uploads")
+                user_upload_dir = os.path.join(uploads_root, str(current_user.user_id))
+                os.makedirs(user_upload_dir, exist_ok=True)
+
+                # generate filename <user_id>_<timestamp>.pdf
+                timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                pdf_filename = f"{current_user.user_id}_{timestamp}.pdf"
+                output_pdf_path = os.path.join(user_upload_dir, pdf_filename)
+
+
+                filler = B650FormFillerPyMuPDF('b650_unlocked.pdf', output_pdf_path)
                 filler.set_data(mapped_schema).fill_form()
-            # print('mapped_schema')
-            # pprint(mapped_schema)
-            # print("*************************\n\n")
+                filled_ok = filler.set_data(mapped_schema).fill_form()
+                if not filled_ok or not os.path.exists(output_pdf_path):
+                    raise HTTPException(
+                        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                        detail="Failed to fill and generate PDF not filled_ok"
+                    )
+
+
+                # persist generated pdf filename on the UserDeclaration model
+                # try:
+                #     # store filename (not full path) per request
+                #     declaration.generated_pdf = pdf_filename
+                #     db.add(declaration)
+                #     db.commit()
+                #     db.refresh(declaration)
+                # except Exception as db_e:
+                #     print("Failed to save generated pdf info on declaration:", db_e)
+
+                # return the file so frontend can download it
+                return FileResponse(
+                    path=output_pdf_path,
+                    media_type="application/pdf",
+                    filename=pdf_filename
+                )
         except Exception as e:
             print(e)
-
-
-        # pprint(mapped_schema)
-
-
-
-        
-        # Generate PDF
-        # pdf_bytes = pdf_service.generate_declaration_pdf(
-        #     declaration.schema_details,
-        #     items_data,
-        #     declaration.declaration_type.value
-        # )
-        
-        # Return PDF as response
-        return HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Failed to generate PDF: {str(e)}"
-        )
+            return HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to generate PDF: {str(e)}"
+            )
         
     except Exception as e:
         print('e',e)
