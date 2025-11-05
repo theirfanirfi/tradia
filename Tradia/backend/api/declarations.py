@@ -39,7 +39,7 @@ async def get_declaration(
     print('declaration for section a received')
     declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
     print('declaration', declaration.declaration_id)
-    if not declaration:
+    if declaration and (len(declaration.import_declaration_section_a) ==0 and len(declaration.import_declaration_section_b) ==0 and len(declaration.import_declaration_section_c) ==0):
         print('not declaration')
         task_b650_extract_section_a_information.delay(process_id)
         raise HTTPException(
@@ -404,3 +404,29 @@ async def generate_declaration_pdf(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Failed to generate PDF: {str(e)}"
         )
+
+@router.get("/import/{process_id}/status", response_model=Dict[str, Any])
+async def check_declaration_status(
+    process_id: str,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Check the status of the declaration"""
+    declaration = db.query(UserDeclaration).filter(UserDeclaration.process_id == process_id).first()
+    if not declaration:
+        return {
+            "status": False,
+            "message": "declaration not found",
+        }
+
+    # Check if the sections are empty
+    status = {
+        "import_section_a": declaration.import_declaration_section_a,
+        "import_section_b": declaration.import_declaration_section_b,
+        "import_section_c": declaration.import_declaration_section_c,
+    }
+
+    return {
+        "status": (len(status["import_section_a"]) > 0 and len(status["import_section_b"]) > 0 and len(status["import_section_c"]) > 0),
+        "message": "declaration found",
+    }
