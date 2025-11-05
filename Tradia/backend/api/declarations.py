@@ -374,14 +374,14 @@ async def generate_declaration_pdf(
 
 
                 # persist generated pdf filename on the UserDeclaration model
-                # try:
-                #     # store filename (not full path) per request
-                #     declaration.generated_pdf = pdf_filename
-                #     db.add(declaration)
-                #     db.commit()
-                #     db.refresh(declaration)
-                # except Exception as db_e:
-                #     print("Failed to save generated pdf info on declaration:", db_e)
+                try:
+                    # store filename (not full path) per request
+                    declaration.generated_pdf = pdf_filename
+                    db.add(declaration)
+                    db.commit()
+                    db.refresh(declaration)
+                except Exception as db_e:
+                    print("Failed to save generated pdf info on declaration:", db_e)
 
                 # return the file so frontend can download it
                 return FileResponse(
