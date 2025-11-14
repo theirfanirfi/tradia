@@ -325,6 +325,18 @@ async def generate_declaration_pdf(
                     total_price += ud.llm_response['total_price']
         except Exception as ude:
             print(ude)
+
+        #get items to get tariff classification number
+
+        process_items = db.query(UserProcessItem).filter(UserProcessItem.process_id==process_id)
+
+        tariff_numbers = []
+        tariff_number = None
+        if process_items.count() > 0:
+            for item in process_items.all():
+                tariff_numbers.append(item.item_hs_code)
+            
+            tariff_number = tariff_numbers[0]
         
         if not declaration:
             pass
@@ -350,7 +362,8 @@ async def generate_declaration_pdf(
 
 
         try:
-            mapped_schema = map_b650_to_formdata(header, section_b, tariff_lines, str(total_price))
+            mapped_schema = map_b650_to_formdata(header, section_b, tariff_lines, str(total_price),
+            str(tariff_number))
             if PYMUPDF_AVAILABLE:
                 # create uploads/<user_id>/ directory
                 uploads_root = os.path.join(os.getcwd(), "uploads")

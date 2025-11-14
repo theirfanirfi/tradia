@@ -1,7 +1,8 @@
 from schemas.B650.import_section_a import B650SectionAHeader
 from schemas.B650.import_section_b import SectionB
 from schemas.B650.import_section_c_schema import SECTIONC
-def map_b650_to_formdata(sectiona: B650SectionAHeader, sectionb: SectionB, sectionc: SECTIONC, total_price: str):
+def map_b650_to_formdata(sectiona: B650SectionAHeader, sectionb: SectionB, sectionc: SECTIONC, 
+                         total_price: str, tariff_classification: str):
 
     print('json recieved')
     """
@@ -98,7 +99,7 @@ def map_b650_to_formdata(sectiona: B650SectionAHeader, sectionb: SectionB, secti
     # # --- TARIFF LINES ---
 
     form_data.update({
-        "Tariff Classification No": sectionc.tariff_classification or "",
+        "Tariff Classification No": tariff_classification.replace(".","")  or "",
         "Goods DescriptionC": sectionc.goods_description or "",
         "Quantity1": sectionc.quantity or "",
         "Unit1": sectionc.unit_of_measure,
@@ -111,7 +112,7 @@ def map_b650_to_formdata(sectiona: B650SectionAHeader, sectionb: SectionB, secti
         "Preference Scheme Type1": sectionc.preference_scheme_type or "",
         "Instrument Type1": sectionc.tariff_instrument or "",
         "Additional Information": sectionc.additional_information or "",
-        "Stat code1": sectionc.tariff_classification_code or ""
+        # "Stat code1": tariff_classification.replace(".","") or ""
     })
 
     print("[INFO] Mapping completed successfully.")
