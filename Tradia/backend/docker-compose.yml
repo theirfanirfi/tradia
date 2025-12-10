@@ -16,13 +16,13 @@ services:
       - postgres
       - redis
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: "0.5"
-          memory: "6g"
-        reservations:
-          memory: "5g"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: "6g"
+    #     reservations:
+    #       memory: "5g"
 
   postgres:
     image: postgres:15
@@ -35,26 +35,45 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: "1g"
-        reservations:
-          memory: "512m"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.1"
+    #       memory: "1g"
+    #     reservations:
+    #       memory: "512m"
 
   redis:
     image: redis:7-alpine
     ports:
       - "6379:6379"
     restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: "0.1"
-          memory: "1g"
-        reservations:
-          memory: "512m"
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.1"
+    #       memory: "1g"
+    #     reservations:
+    #       memory: "512m"
+
+  frontend:
+    build:
+      context: ../../../TradiaonlyFrontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - app
+    restart: unless-stopped
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "0.5"
+    #       memory: "1g"
+    #     reservations:
+    #       memory: "512m"
 
   # celery:
   #   build: .

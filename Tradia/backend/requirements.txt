@@ -36,3 +36,15 @@ sentence_transformers
 langchain-core
 langchain-openai
 langchain
+aiohttp
+anyio
+httpx
+numpy
+pandas
+pdfrw
+pyparsing
+rapidfuzz
+regex
+requests
+scikit-learn
+tqdm
