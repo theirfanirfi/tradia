@@ -43,7 +43,7 @@ class Settings(BaseSettings):
     ocr_engine: str = "tesseract"  # tesseract or textract
     
     # CORS
-    cors_origins: list = ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3001", "http://127.0.0.1:3001","http://3.27.189.187"]
+    cors_origins: list = ["http://3.27.189.187","http://3.27.189.187:3000","http://3.27.189.187:8000"]
     
     class Config:
         env_file = ".env"
