@@ -18,7 +18,7 @@ alembic
 pydantic
 pydantic-settings
 tools
-fitz
+PyMuPDF
 frontend
 pdfplumber
 pdf2image

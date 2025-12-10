@@ -25,11 +25,12 @@ RUN apt-get update && apt-get install -y \
     && apt-get install -y poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/theirfanirfi/tradia.git
+# RUN git clone https://github.com/theirfanirfi/tradia.git
+COPY . .
 # ===============================
 # 📦 Copy Application Files
 # ===============================
-WORKDIR /app/tradia/Tradia/backend
+# WORKDIR /app/tradia/Tradia/backend
 
 # ===============================
 # 🌐 Expose Port
